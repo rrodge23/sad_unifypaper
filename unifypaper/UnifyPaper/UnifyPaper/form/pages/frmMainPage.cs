@@ -160,7 +160,9 @@ namespace UnifyPaper.form.pages
 
         private void bubbleButton1_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-
+            frmUpdateAccount fua = new frmUpdateAccount();
+            fua.ID = lvUser.Items.ToString();
+            fua.ShowDialog();
         }
 
         private void bubbleButton2_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)

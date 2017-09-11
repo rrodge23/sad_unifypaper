@@ -64,7 +64,10 @@ namespace UnifyPaper.form.pages
 
         private void frmAddAccount_Load(object sender, EventArgs e)
         {
-
+            foreach (Classes.Entities.users u in db.getAllUser())
+            {
+                cmbUserLevel.Items.Add(u.userlevel);
+            }
         }
 
         private void tbLastname_TextChanged(object sender, EventArgs e)

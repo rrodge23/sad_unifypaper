@@ -68,7 +68,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 30);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCancel.TabIndex = 27;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -81,7 +81,7 @@
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 31);
             this.btnUpdate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnUpdate.TabIndex = 26;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -90,39 +90,39 @@
             // 
             // 
             // 
-            this.tbCurrentPassword.Border.Class = "TextBoxBorder";
-            this.tbCurrentPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbFullname.Border.Class = "TextBoxBorder";
+            this.tbFullname.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbFullname.Location = new System.Drawing.Point(221, 78);
             this.tbFullname.Name = "tbFullname";
             this.tbFullname.PreventEnterBeep = true;
             this.tbFullname.Size = new System.Drawing.Size(202, 22);
-            this.tbFullname.TabIndex = 25;
+            this.tbFullname.TabIndex = 1;
             // 
             // tbCurrentPassword
             // 
             // 
             // 
             // 
-            this.tbUsername.Border.Class = "TextBoxBorder";
-            this.tbUsername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbCurrentPassword.Border.Class = "TextBoxBorder";
+            this.tbCurrentPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbCurrentPassword.Location = new System.Drawing.Point(221, 162);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.PreventEnterBeep = true;
             this.tbCurrentPassword.Size = new System.Drawing.Size(202, 22);
-            this.tbCurrentPassword.TabIndex = 24;
+            this.tbCurrentPassword.TabIndex = 3;
             // 
             // tbUsername
             // 
             // 
             // 
             // 
-            this.tbFullname.Border.Class = "TextBoxBorder";
-            this.tbFullname.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbUsername.Border.Class = "TextBoxBorder";
+            this.tbUsername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbUsername.Location = new System.Drawing.Point(221, 120);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PreventEnterBeep = true;
             this.tbUsername.Size = new System.Drawing.Size(202, 22);
-            this.tbUsername.TabIndex = 23;
+            this.tbUsername.TabIndex = 2;
             // 
             // panel1
             // 
@@ -165,7 +165,7 @@
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.PreventEnterBeep = true;
             this.tbNewPassword.Size = new System.Drawing.Size(202, 22);
-            this.tbNewPassword.TabIndex = 30;
+            this.tbNewPassword.TabIndex = 4;
             // 
             // lbUserID
             // 
@@ -185,7 +185,7 @@
             this.cmbUserLevel.Name = "cmbUserLevel";
             this.cmbUserLevel.Size = new System.Drawing.Size(160, 22);
             this.cmbUserLevel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbUserLevel.TabIndex = 27;
+            this.cmbUserLevel.TabIndex = 5;
             // 
             // lbCurrentPassword
             // 

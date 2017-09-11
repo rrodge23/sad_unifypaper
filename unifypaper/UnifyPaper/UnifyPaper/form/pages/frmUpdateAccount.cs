@@ -31,6 +31,11 @@ namespace UnifyPaper.form.pages
             tbFullname.Text = u.fullname;
             tbUsername.Text = u.username;
             tbCurrentPassword.Text = u.userlevel;
+
+            foreach (Classes.Entities.users user in db.getAllUser())
+            {
+                cmbUserLevel.Items.Add(user.userlevel);
+            }
         }
 
         public void updateData()
@@ -65,6 +70,7 @@ namespace UnifyPaper.form.pages
 
         private void frmUpdateAccount_Load(object sender, EventArgs e)
         {
+            tbFullname.Focus();
             loadData();
         }
 
