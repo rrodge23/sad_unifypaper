@@ -47,11 +47,11 @@
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLogin.Checked = true;
             this.btnLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(239, 129);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogin.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnLogin.Location = new System.Drawing.Point(95, 77);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(168, 53);
+            this.btnLogin.Size = new System.Drawing.Size(126, 43);
             this.btnLogin.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
@@ -64,11 +64,11 @@
             // 
             this.tbUsername.Border.Class = "TextBoxBorder";
             this.tbUsername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbUsername.Location = new System.Drawing.Point(239, 70);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbUsername.Location = new System.Drawing.Point(95, 29);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PreventEnterBeep = true;
-            this.tbUsername.Size = new System.Drawing.Size(259, 22);
+            this.tbUsername.Size = new System.Drawing.Size(194, 20);
             this.tbUsername.TabIndex = 1;
             // 
             // labelX2
@@ -77,10 +77,9 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(145, 96);
-            this.labelX2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelX2.Location = new System.Drawing.Point(25, 50);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(87, 28);
+            this.labelX2.Size = new System.Drawing.Size(65, 23);
             this.labelX2.TabIndex = 6;
             this.labelX2.Text = "PASSWORD";
             // 
@@ -91,11 +90,11 @@
             // 
             this.tbPassword.Border.Class = "TextBoxBorder";
             this.tbPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbPassword.Location = new System.Drawing.Point(239, 100);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPassword.Location = new System.Drawing.Point(95, 53);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PreventEnterBeep = true;
-            this.tbPassword.Size = new System.Drawing.Size(259, 22);
+            this.tbPassword.Size = new System.Drawing.Size(194, 20);
             this.tbPassword.TabIndex = 2;
             // 
             // btnExit
@@ -103,10 +102,9 @@
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnExit.Location = new System.Drawing.Point(415, 132);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Location = new System.Drawing.Point(227, 79);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(83, 50);
+            this.btnExit.Size = new System.Drawing.Size(62, 41);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -118,10 +116,9 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(148, 66);
-            this.labelX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelX1.Location = new System.Drawing.Point(27, 26);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(84, 28);
+            this.labelX1.Size = new System.Drawing.Size(63, 23);
             this.labelX1.TabIndex = 5;
             this.labelX1.Text = "USERNAME";
             this.labelX1.Click += new System.EventHandler(this.labelX1_Click);
@@ -133,9 +130,9 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 204);
+            this.ClientSize = new System.Drawing.Size(301, 132);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tbPassword);
@@ -143,7 +140,7 @@
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.tbUsername);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
