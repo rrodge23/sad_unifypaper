@@ -49,12 +49,11 @@ namespace UnifyPaper.Classes.Model
                 else
                 {
                     dr.Close();
-                    sql = "INSERT INTO producttbl (product_code, description, variety,bar_code_qty, standard_price, current_cost,quantity,tax_code,supplier_name,supplier_contact_no) VALUES (@product_code,@description,@variety,@bar_code_qty,@standard_price,@current_cost,@quantity,@tax_code,@supplier_name,@supplier_contact_no)";
+                    sql = "INSERT INTO producttbl (product_code, description, standard_price, current_cost,quantity,tax_code,supplier_name,supplier_contact_no) VALUES (@product_code,@description,@standard_price,@current_cost,@quantity,@tax_code,@supplier_name,@supplier_contact_no)";
                     cmd = new OleDbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@product_code", p.product_code);
                     cmd.Parameters.AddWithValue("@description", p.description);
-                    cmd.Parameters.AddWithValue("@variety", p.variety);
-                    cmd.Parameters.AddWithValue("@bar_code_qty", p.bar_code_qty);
+
                     cmd.Parameters.AddWithValue("@standard_price", p.standard_price);
                     cmd.Parameters.AddWithValue("@current_cost", p.current_cost);
                     cmd.Parameters.AddWithValue("@quantity", p.quantity);
