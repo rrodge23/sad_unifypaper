@@ -50,11 +50,6 @@ namespace UnifyPaper
             }                  
         }
 
-        private void close()
-        {
-            this.close();
-        }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -62,10 +57,10 @@ namespace UnifyPaper
 
         private void frmLogin_Keydown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == Keys.Escape.GetHashCode())
+            /*if (e.KeyValue == Keys.Escape.GetHashCode())
             {
-                close();
-            }
+                this.close();
+            }*/
         }
 
         private void lblUsername_Click(object sender, EventArgs e)
@@ -80,7 +75,7 @@ namespace UnifyPaper
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.close();
+            this.Close();
         }
     }
 }
