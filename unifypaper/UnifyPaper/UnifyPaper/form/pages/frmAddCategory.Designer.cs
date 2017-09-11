@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.tbAccountID = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.tbCategoryName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbAccountID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,10 +54,10 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOK);
-            this.panel1.Controls.Add(this.tbAccountID);
+            this.panel1.Controls.Add(this.tbCategoryName);
             this.panel1.Controls.Add(this.lbAccountID);
             this.panel1.Location = new System.Drawing.Point(16, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(442, 116);
             this.panel1.TabIndex = 39;
@@ -70,7 +70,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCancel.Location = new System.Drawing.Point(363, 78);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
             this.btnCancel.Size = new System.Drawing.Size(69, 25);
@@ -85,7 +85,7 @@
             this.btnOK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOK.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOK.Location = new System.Drawing.Point(294, 78);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
             this.btnOK.Size = new System.Drawing.Size(65, 25);
@@ -93,19 +93,19 @@
             this.btnOK.TabIndex = 34;
             this.btnOK.Text = "Add";
             // 
-            // tbAccountID
+            // tbCategoryName
             // 
             // 
             // 
             // 
-            this.tbAccountID.Border.Class = "TextBoxBorder";
-            this.tbAccountID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbAccountID.Location = new System.Drawing.Point(136, 38);
-            this.tbAccountID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbAccountID.Name = "tbAccountID";
-            this.tbAccountID.PreventEnterBeep = true;
-            this.tbAccountID.Size = new System.Drawing.Size(279, 20);
-            this.tbAccountID.TabIndex = 30;
+            this.tbCategoryName.Border.Class = "TextBoxBorder";
+            this.tbCategoryName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbCategoryName.Location = new System.Drawing.Point(136, 38);
+            this.tbCategoryName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCategoryName.Name = "tbCategoryName";
+            this.tbCategoryName.PreventEnterBeep = true;
+            this.tbCategoryName.Size = new System.Drawing.Size(279, 20);
+            this.tbCategoryName.TabIndex = 30;
             // 
             // lbAccountID
             // 
@@ -147,7 +147,7 @@
         private System.Windows.Forms.Panel panel1;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOK;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbAccountID;
+        private DevComponents.DotNetBar.Controls.TextBoxX tbCategoryName;
         private System.Windows.Forms.Label lbAccountID;
     }
 }

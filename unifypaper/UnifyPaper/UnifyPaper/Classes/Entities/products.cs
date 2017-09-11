@@ -8,6 +8,7 @@ namespace UnifyPaper.Classes.Entities
 {
     class products
     {
+        public string category { get; set; }
         public string product_code { get; set; }
         public string description { get; set; }
         public string minimumQuantity { get; set; }

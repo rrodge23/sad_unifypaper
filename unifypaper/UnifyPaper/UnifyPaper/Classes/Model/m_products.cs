@@ -53,7 +53,6 @@ namespace UnifyPaper.Classes.Model
                     cmd = new OleDbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@product_code", p.product_code);
                     cmd.Parameters.AddWithValue("@description", p.description);
-
                     cmd.Parameters.AddWithValue("@standard_price", p.standard_price);
                     cmd.Parameters.AddWithValue("@current_cost", p.current_cost);
                     cmd.Parameters.AddWithValue("@quantity", p.quantity);
@@ -85,5 +84,50 @@ namespace UnifyPaper.Classes.Model
             
         }
 
+        public bool addNewProductCategory(string productCategoryName) 
+        {
+            bool isProductCategoryInserted = false;
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM product_categorytbl WHERE category_name LIKE @category_name";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@product_code", productCategoryName);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Close();
+                    
+
+                }
+                else
+                {
+                    dr.Close();
+                    sql = "INSERT INTO product_categorytbl (category_name) VALUES (@category_name)";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@category_name", productCategoryName);
+                    int isProductInserted = cmd.ExecuteNonQuery();
+                    if (isProductInserted <= 0)
+                    {
+                        isProductCategoryInserted = true;
+                    }
+                    else
+                    {
+                        isProductCategoryInserted = false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return isProductCategoryInserted;
+        }
     }
 }
