@@ -39,7 +39,7 @@
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.tbProductCode = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbDescription = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbBarCodeQty = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.minimumQuantity = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbStandardPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbCurrentCost = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbQuantity = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -49,7 +49,7 @@
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.btnClear = new DevComponents.DotNetBar.ButtonX();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cmbCategory = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.SuspendLayout();
             // 
@@ -188,18 +188,18 @@
             this.tbDescription.Size = new System.Drawing.Size(204, 20);
             this.tbDescription.TabIndex = 11;
             // 
-            // tbBarCodeQty
+            // minimumQuantity
             // 
             // 
             // 
             // 
-            this.tbBarCodeQty.Border.Class = "TextBoxBorder";
-            this.tbBarCodeQty.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbBarCodeQty.Location = new System.Drawing.Point(159, 108);
-            this.tbBarCodeQty.Name = "tbBarCodeQty";
-            this.tbBarCodeQty.PreventEnterBeep = true;
-            this.tbBarCodeQty.Size = new System.Drawing.Size(204, 20);
-            this.tbBarCodeQty.TabIndex = 13;
+            this.minimumQuantity.Border.Class = "TextBoxBorder";
+            this.minimumQuantity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.minimumQuantity.Location = new System.Drawing.Point(159, 108);
+            this.minimumQuantity.Name = "minimumQuantity";
+            this.minimumQuantity.PreventEnterBeep = true;
+            this.minimumQuantity.Size = new System.Drawing.Size(204, 20);
+            this.minimumQuantity.TabIndex = 13;
             // 
             // tbStandardPrice
             // 
@@ -315,17 +315,17 @@
             this.btnClear.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // comboBoxEx1
+            // cmbCategory
             // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 14;
-            this.comboBoxEx1.Location = new System.Drawing.Point(159, 29);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(204, 20);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 23;
+            this.cmbCategory.DisplayMember = "Text";
+            this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.ItemHeight = 14;
+            this.cmbCategory.Location = new System.Drawing.Point(159, 29);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(204, 20);
+            this.cmbCategory.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbCategory.TabIndex = 23;
             // 
             // labelX11
             // 
@@ -345,7 +345,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 350);
             this.Controls.Add(this.labelX11);
-            this.Controls.Add(this.comboBoxEx1);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -355,7 +355,7 @@
             this.Controls.Add(this.tbQuantity);
             this.Controls.Add(this.tbCurrentCost);
             this.Controls.Add(this.tbStandardPrice);
-            this.Controls.Add(this.tbBarCodeQty);
+            this.Controls.Add(this.minimumQuantity);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbProductCode);
             this.Controls.Add(this.labelX10);
@@ -387,7 +387,7 @@
         private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.Controls.TextBoxX tbProductCode;
         private DevComponents.DotNetBar.Controls.TextBoxX tbDescription;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbBarCodeQty;
+        private DevComponents.DotNetBar.Controls.TextBoxX minimumQuantity;
         private DevComponents.DotNetBar.Controls.TextBoxX tbStandardPrice;
         private DevComponents.DotNetBar.Controls.TextBoxX tbCurrentCost;
         private DevComponents.DotNetBar.Controls.TextBoxX tbQuantity;
@@ -397,7 +397,7 @@
         private DevComponents.DotNetBar.ButtonX btnSave;
         private DevComponents.DotNetBar.ButtonX btnClose;
         private DevComponents.DotNetBar.ButtonX btnClear;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbCategory;
         private DevComponents.DotNetBar.LabelX labelX11;
     }
 }

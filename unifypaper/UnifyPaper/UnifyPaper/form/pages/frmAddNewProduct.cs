@@ -31,7 +31,7 @@ namespace UnifyPaper.form.pages
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            tbBarCodeQty.Text = "";
+            minimumQuantity.Text = "";
             tbCurrentCost.Text = "";
             tbDescription.Text = "";
             tbProductCode.Text = "";
@@ -48,10 +48,9 @@ namespace UnifyPaper.form.pages
             if (tbCurrentCost.Text != "" && tbDescription.Text != "" && tbProductCode.Text != "")
             {
                 Classes.Entities.products prod = new Classes.Entities.products();
-                prod.bar_code_qty = tbBarCodeQty.Text.ToString().Trim();
+                prod.bar_code_qty = minimumQuantity.Text.ToString().Trim();
                 prod.current_cost = tbCurrentCost.Text.ToString().Trim();
                 prod.description = tbDescription.Text.ToString().Trim();
-            
                 prod.product_code = tbProductCode.Text.ToString().Trim();
                 prod.quantity = tbQuantity.Text.ToString().Trim();
                 prod.standard_price = tbStandardPrice.Text.ToString().Trim();
