@@ -38,6 +38,8 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.styleManagerAmbient1 = new DevComponents.DotNetBar.StyleManagerAmbient(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -46,15 +48,15 @@
             this.btnLogin.AntiAlias = true;
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.Checked = true;
-            this.btnLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.btnLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnLogin.Location = new System.Drawing.Point(382, 104);
+            this.btnLogin.Location = new System.Drawing.Point(346, 104);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
             this.btnLogin.Size = new System.Drawing.Size(126, 43);
-            this.btnLogin.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLogin.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2013;
             this.btnLogin.Symbol = "";
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
@@ -62,13 +64,15 @@
             // 
             // tbUsername
             // 
+            this.tbUsername.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.tbUsername.Border.Class = "TextBoxBorder";
             this.tbUsername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbUsername.DisabledBackColor = System.Drawing.Color.White;
-            this.tbUsername.Location = new System.Drawing.Point(382, 56);
+            this.tbUsername.ForeColor = System.Drawing.Color.Black;
+            this.tbUsername.Location = new System.Drawing.Point(346, 56);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PreventEnterBeep = true;
@@ -83,7 +87,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelX2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelX2.Location = new System.Drawing.Point(312, 77);
+            this.labelX2.Location = new System.Drawing.Point(276, 77);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(65, 23);
             this.labelX2.TabIndex = 6;
@@ -91,13 +95,15 @@
             // 
             // tbPassword
             // 
+            this.tbPassword.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.tbPassword.Border.Class = "TextBoxBorder";
             this.tbPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbPassword.DisabledBackColor = System.Drawing.Color.White;
-            this.tbPassword.Location = new System.Drawing.Point(382, 80);
+            this.tbPassword.ForeColor = System.Drawing.Color.Black;
+            this.tbPassword.Location = new System.Drawing.Point(346, 80);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PreventEnterBeep = true;
@@ -112,7 +118,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelX1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelX1.Location = new System.Drawing.Point(314, 53);
+            this.labelX1.Location = new System.Drawing.Point(278, 53);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(63, 23);
             this.labelX1.TabIndex = 5;
@@ -125,30 +131,41 @@
             this.buttonX1.AntiAlias = true;
             this.buttonX1.BackColor = System.Drawing.Color.Transparent;
             this.buttonX1.Checked = true;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
             this.buttonX1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonX1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonX1.Location = new System.Drawing.Point(513, 104);
+            this.buttonX1.Location = new System.Drawing.Point(477, 104);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
             this.buttonX1.Size = new System.Drawing.Size(63, 43);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2013;
             this.buttonX1.TabIndex = 7;
             this.buttonX1.Text = "Exit";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // styleManager1
             // 
-            this.styleManager1.ManagerColorTint = System.Drawing.Color.Red;
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007VistaGlass;
-            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.Red, System.Drawing.Color.Red);
+            this.styleManager1.ManagerColorTint = System.Drawing.Color.DarkRed;
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Metro;
+            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.Maroon);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UnifyPaper.Properties.Resources.aaaa;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(257, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Firebrick;
-            this.ClientSize = new System.Drawing.Size(625, 191);
+            this.BackColor = System.Drawing.Color.DarkRed;
+            this.ClientSize = new System.Drawing.Size(573, 191);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.tbPassword);
@@ -165,6 +182,7 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_Keydown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,6 +197,7 @@
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.StyleManager styleManager1;
         private DevComponents.DotNetBar.StyleManagerAmbient styleManagerAmbient1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
