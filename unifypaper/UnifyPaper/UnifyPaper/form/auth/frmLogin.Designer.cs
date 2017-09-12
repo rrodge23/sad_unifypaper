@@ -67,6 +67,7 @@
             // 
             this.tbUsername.Border.Class = "TextBoxBorder";
             this.tbUsername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbUsername.DisabledBackColor = System.Drawing.Color.White;
             this.tbUsername.Location = new System.Drawing.Point(382, 56);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.tbUsername.Name = "tbUsername";
@@ -95,6 +96,7 @@
             // 
             this.tbPassword.Border.Class = "TextBoxBorder";
             this.tbPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbPassword.DisabledBackColor = System.Drawing.Color.White;
             this.tbPassword.Location = new System.Drawing.Point(382, 80);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
@@ -137,8 +139,9 @@
             // 
             // styleManager1
             // 
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Windows7Blue;
-            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154))))));
+            this.styleManager1.ManagerColorTint = System.Drawing.Color.Red;
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007VistaGlass;
+            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.Red, System.Drawing.Color.Red);
             // 
             // frmLogin
             // 
