@@ -222,5 +222,8 @@
     <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\DotNetBar for Windows Forms\DevComponents.DotNetBar.Charts.dll" />
     <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaaa.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
