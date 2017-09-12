@@ -43,15 +43,16 @@
             // btnLogin
             // 
             this.btnLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLogin.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange;
+            this.btnLogin.AntiAlias = true;
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.Checked = true;
+            this.btnLogin.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnLogin.Location = new System.Drawing.Point(382, 104);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(5);
+            this.btnLogin.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
             this.btnLogin.Size = new System.Drawing.Size(126, 43);
             this.btnLogin.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnLogin.Symbol = "";
@@ -119,13 +120,15 @@
             // buttonX1
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.BackColor = System.Drawing.Color.DarkOrange;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange;
+            this.buttonX1.AntiAlias = true;
+            this.buttonX1.BackColor = System.Drawing.Color.Transparent;
+            this.buttonX1.Checked = true;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.buttonX1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonX1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonX1.Location = new System.Drawing.Point(513, 104);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(5);
+            this.buttonX1.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
             this.buttonX1.Size = new System.Drawing.Size(63, 43);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
             this.buttonX1.TabIndex = 7;
@@ -134,7 +137,7 @@
             // 
             // styleManager1
             // 
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Windows7Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154))))));
             // 
             // frmLogin
