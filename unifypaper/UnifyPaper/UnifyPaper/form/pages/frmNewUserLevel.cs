@@ -16,5 +16,15 @@ namespace UnifyPaper.form.pages
         {
             InitializeComponent();
         }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

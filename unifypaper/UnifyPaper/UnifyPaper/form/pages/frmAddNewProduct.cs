@@ -77,5 +77,15 @@ namespace UnifyPaper.form.pages
         {
 
         }
+
+        private void tbCurrentCost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
