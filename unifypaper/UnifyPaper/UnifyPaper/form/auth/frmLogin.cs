@@ -52,7 +52,13 @@ namespace UnifyPaper
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            List<Classes.Entities.users> u = new List<Classes.Entities.users>();
+            u = db.getAllUser();
+            if(u.Count < 1) 
+            {
+                form.pages.frmMainPage fmp = new form.pages.frmMainPage();
+                fmp.ShowDialog();
+            }
         }
 
         private void frmLogin_Keydown(object sender, KeyEventArgs e)
