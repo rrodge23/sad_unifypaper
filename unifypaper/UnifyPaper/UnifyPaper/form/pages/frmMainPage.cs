@@ -193,5 +193,15 @@ namespace UnifyPaper.form.pages
         {
 
         }
+
+        private void bubbleButton8_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+
+        }
+
+        private void lbUsername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
