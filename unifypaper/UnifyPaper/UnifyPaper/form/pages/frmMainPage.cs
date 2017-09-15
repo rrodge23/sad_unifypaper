@@ -188,5 +188,10 @@ namespace UnifyPaper.form.pages
         {
 
         }
+
+        private void buttonX1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
