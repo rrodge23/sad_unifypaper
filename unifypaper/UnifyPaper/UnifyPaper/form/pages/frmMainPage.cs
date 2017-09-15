@@ -203,5 +203,12 @@ namespace UnifyPaper.form.pages
         {
 
         }
+
+        private void bubbleButton3_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmAddCategory fac = new frmAddCategory();
+            fac.ShowDialog();
+         
+        }
     }
 }

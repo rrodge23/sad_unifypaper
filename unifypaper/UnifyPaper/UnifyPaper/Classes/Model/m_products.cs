@@ -85,5 +85,52 @@ namespace UnifyPaper.Classes.Model
             
         }
 
+
+        public string addProductCategory(string categoryName) {
+            string isProductCategoryAdded = "";
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM product_categorytbl WHERE category_name LIKE @category_name";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@category_name", categoryName);
+                dr = cmd.ExecuteReader();
+                int isCategoryInserted = 0;
+                if (dr.HasRows)
+                {
+                    isProductCategoryAdded = "Product Category Already Exist.";
+                }
+                else
+                {
+                    dr.Close();
+                    sql = "INSERT INTO product_categorytbl (category_name) VALUES (@category_name)";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@category_name", categoryName);
+
+                    isCategoryInserted = cmd.ExecuteNonQuery();
+
+                }
+                if (!(isCategoryInserted > 0))
+                {
+                    isProductCategoryAdded = "0";
+                }
+                else
+                {
+                    isProductCategoryAdded = "Category Successfully Added !";
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }    
+                
+            return isProductCategoryAdded;
+        }
     }
 }

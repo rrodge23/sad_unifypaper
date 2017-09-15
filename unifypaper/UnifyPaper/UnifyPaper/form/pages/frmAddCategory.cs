@@ -16,10 +16,27 @@ namespace UnifyPaper.form.pages
         {
             InitializeComponent();
         }
-
+        Classes.Model.m_products m_product = new Classes.Model.m_products();
         private void frmAddProductCategory_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            if(tbCategoryName.Text != "")
+            {
+                string addProductCategoryResult = m_product.addProductCategory(tbCategoryName.Text.ToString().Trim());
+                if (addProductCategoryResult != "0")
+                {
+                    MessageBox.Show(addProductCategoryResult);
+
+                }
+                else
+                {
+                    MessageBox.Show("Error in Inserting Product Category.");
+                }
+            }
         }
     }
 }
