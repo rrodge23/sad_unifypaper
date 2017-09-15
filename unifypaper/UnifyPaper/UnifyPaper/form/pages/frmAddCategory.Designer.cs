@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.tbAccountID = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.tbCategoryName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbAccountID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOK);
-            this.panel1.Controls.Add(this.tbAccountID);
+            this.panel1.Controls.Add(this.tbCategoryName);
             this.panel1.Controls.Add(this.lbAccountID);
             this.panel1.Location = new System.Drawing.Point(11, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -101,23 +101,24 @@
             this.btnOK.Symbol = "";
             this.btnOK.TabIndex = 34;
             this.btnOK.Text = " Add";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // tbAccountID
+            // tbCategoryName
             // 
-            this.tbAccountID.BackColor = System.Drawing.Color.White;
+            this.tbCategoryName.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.tbAccountID.Border.Class = "TextBoxBorder";
-            this.tbAccountID.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbAccountID.DisabledBackColor = System.Drawing.Color.White;
-            this.tbAccountID.ForeColor = System.Drawing.Color.Black;
-            this.tbAccountID.Location = new System.Drawing.Point(136, 38);
-            this.tbAccountID.Margin = new System.Windows.Forms.Padding(2);
-            this.tbAccountID.Name = "tbAccountID";
-            this.tbAccountID.PreventEnterBeep = true;
-            this.tbAccountID.Size = new System.Drawing.Size(223, 20);
-            this.tbAccountID.TabIndex = 30;
+            this.tbCategoryName.Border.Class = "TextBoxBorder";
+            this.tbCategoryName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbCategoryName.DisabledBackColor = System.Drawing.Color.White;
+            this.tbCategoryName.ForeColor = System.Drawing.Color.Black;
+            this.tbCategoryName.Location = new System.Drawing.Point(136, 38);
+            this.tbCategoryName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCategoryName.Name = "tbCategoryName";
+            this.tbCategoryName.PreventEnterBeep = true;
+            this.tbCategoryName.Size = new System.Drawing.Size(223, 20);
+            this.tbCategoryName.TabIndex = 30;
             // 
             // lbAccountID
             // 
@@ -159,7 +160,7 @@
         private System.Windows.Forms.Panel panel1;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOK;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbAccountID;
+        private DevComponents.DotNetBar.Controls.TextBoxX tbCategoryName;
         private System.Windows.Forms.Label lbAccountID;
     }
 }
