@@ -237,6 +237,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUpdateProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUpdateProduct";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

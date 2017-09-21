@@ -210,5 +210,45 @@ namespace UnifyPaper.form.pages
             fac.ShowDialog();
          
         }
+
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bubbleButton10_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmUpdateProduct fup = new frmUpdateProduct();
+            fup.ShowDialog();
+        }
+
+        private void bubbleButton8_Click_1(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmViewBelowMinimumProducts fvbmp = new frmViewBelowMinimumProducts();
+            fvbmp.ShowDialog();
+        }
+
+        private void bubbleButton7_Click_1(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmNewUserLevel fnul = new frmNewUserLevel();
+            fnul.ShowDialog();
+        }
+
+        private void buttonX6_Click(object sender, EventArgs e)
+        {
+            frmChangePassword fcp = new frmChangePassword();
+            fcp.ShowDialog();
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            frmChangeCashier fcc = new frmChangeCashier();
+            fcc.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
