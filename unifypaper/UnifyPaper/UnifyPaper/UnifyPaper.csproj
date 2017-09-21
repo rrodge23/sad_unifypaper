@@ -102,6 +102,12 @@
     <Compile Include="form\pages\frmChangeCashier.Designer.cs">
       <DependentUpon>frmChangeCashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmItemList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmChangeCashier.resx">
       <DependentUpon>frmChangeCashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmItemList.resx">
       <DependentUpon>frmItemList.cs</DependentUpon>

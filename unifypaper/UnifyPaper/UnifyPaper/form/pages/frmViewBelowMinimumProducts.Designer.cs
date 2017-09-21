@@ -101,6 +101,7 @@
             this.Controls.Add(this.buttonX1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmViewBelowMinimumProducts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmViewBelowMinimumProducts";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
