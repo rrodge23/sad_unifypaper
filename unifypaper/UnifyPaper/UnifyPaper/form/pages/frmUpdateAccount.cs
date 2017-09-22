@@ -76,5 +76,10 @@ namespace UnifyPaper.form.pages
         {
             updateData();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

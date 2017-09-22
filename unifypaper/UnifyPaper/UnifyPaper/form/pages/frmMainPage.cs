@@ -27,7 +27,7 @@ namespace UnifyPaper.form.pages
             {
                 lvUser.Columns.Add("ID", 30);
                 lvUser.Columns.Add("fullname", 100);
-                lvUser.Columns.Add("username", 100);
+                lvUser.Columns.Add("schedule", 100);
                 lvUser.Columns.Add("userlevel", 75);
             }
         }
@@ -49,10 +49,26 @@ namespace UnifyPaper.form.pages
 
                 lv.Text = u.ID;
                 lv.SubItems.Add(u.fullname);
-                lv.SubItems.Add(u.username);
+                lv.SubItems.Add(u.schedule);
                 lv.SubItems.Add(u.userlevel);
 
                 lvUser.Items.Add(lv);
+            }
+        }
+
+        private void deleteData()
+        {
+            if (lvUser.Items.Count > 0)
+            {
+                if (lvUser.SelectedItems.Count > 0)
+                {
+
+                    if (MessageBox.Show("Do you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        db.deleteUserByID(lvUser.FocusedItem.Text);
+                        loadData();
+                    }
+                }
             }
         }
 
@@ -93,8 +109,7 @@ namespace UnifyPaper.form.pages
 
         private void btnUpdateAccount_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            frmUpdateAccount faa = new frmUpdateAccount();
-            faa.ShowDialog();
+            
         }
 
         private void txtQty_TextChanged(object sender, EventArgs e)
@@ -160,12 +175,15 @@ namespace UnifyPaper.form.pages
 
         private void bubbleButton1_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-
+            //UpdateUser
+            frmUpdateAccount fua = new frmUpdateAccount();
+            fua.ShowDialog();
         }
 
         private void bubbleButton2_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-
+            //Delete Portion
+            deleteData();
         }
 
         private void label1_Click(object sender, EventArgs e)
