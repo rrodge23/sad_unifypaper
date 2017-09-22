@@ -73,7 +73,7 @@ namespace UnifyPaper.Classes.Database
                 string sql = "SELECT * FROM usertbl WHERE fullname LIKE @fullname AND username LIKE @username AND userlevel LIKE @userlevel";
                 cmd = new OleDbCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@fullname", u.fullname);
-                cmd.Parameters.AddWithValue("@username", u.username);
+                cmd.Parameters.AddWithValue("@schedule", u.schedule);
                 cmd.Parameters.AddWithValue("@userlevel", u.userlevel);                
                 dr = cmd.ExecuteReader();
 
@@ -87,7 +87,7 @@ namespace UnifyPaper.Classes.Database
                     sql = "INSERT INTO usertbl (fullname, username, userlevel) VALUES (@fullname, @username, @userlevel)";
                     cmd = new OleDbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@fullname", u.fullname);
-                    cmd.Parameters.AddWithValue("@username", u.username);
+                    cmd.Parameters.AddWithValue("@schedule", u.schedule);
                     cmd.Parameters.AddWithValue("@userlevel", u.userlevel);
                     int add = cmd.ExecuteNonQuery();
                         
@@ -210,8 +210,7 @@ namespace UnifyPaper.Classes.Database
         }
 
         public Classes.Entities.users getUserByID(string ID)
-        {
-            
+        {            
             Classes.Entities.users u = new Classes.Entities.users();
             try
             {
@@ -242,7 +241,48 @@ namespace UnifyPaper.Classes.Database
             return u;
         }
 
-        
+        public Classes.Entities.users deleteUserByID(string ID)
+        {
+            Classes.Entities.users u = new Classes.Entities.users();
+            bool result = false;
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM usertbl WHERE ID LIKE @ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Close();
+
+                    sql = "DELETE FROM usertbl WHERE ID LIKE @ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    int delete = cmd.ExecuteNonQuery();
+
+                    if (delete > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error in deleteUserByID: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return u;
+        }
 
     }
 }

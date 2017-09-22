@@ -55,11 +55,10 @@
             this.lbAccountInformation.BackColor = System.Drawing.Color.DimGray;
             this.lbAccountInformation.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAccountInformation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbAccountInformation.Location = new System.Drawing.Point(31, 15);
-            this.lbAccountInformation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAccountInformation.Location = new System.Drawing.Point(41, 18);
             this.lbAccountInformation.Name = "lbAccountInformation";
-            this.lbAccountInformation.Padding = new System.Windows.Forms.Padding(5);
-            this.lbAccountInformation.Size = new System.Drawing.Size(186, 29);
+            this.lbAccountInformation.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.lbAccountInformation.Size = new System.Drawing.Size(234, 36);
             this.lbAccountInformation.TabIndex = 28;
             this.lbAccountInformation.Text = "Account Information";
             // 
@@ -71,11 +70,11 @@
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(171, 245);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Location = new System.Drawing.Point(228, 302);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnCancel.Size = new System.Drawing.Size(88, 45);
+            this.btnCancel.Size = new System.Drawing.Size(117, 55);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.Symbol = "";
             this.btnCancel.TabIndex = 27;
@@ -89,11 +88,11 @@
             this.btnUpdate.Checked = true;
             this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(57, 245);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Location = new System.Drawing.Point(76, 302);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnUpdate.Size = new System.Drawing.Size(88, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(117, 55);
             this.btnUpdate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnUpdate.Symbol = "";
             this.btnUpdate.TabIndex = 26;
@@ -110,11 +109,11 @@
             this.tbFullname.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbFullname.DisabledBackColor = System.Drawing.Color.White;
             this.tbFullname.ForeColor = System.Drawing.Color.Black;
-            this.tbFullname.Location = new System.Drawing.Point(139, 30);
-            this.tbFullname.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFullname.Location = new System.Drawing.Point(185, 37);
+            this.tbFullname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFullname.Name = "tbFullname";
             this.tbFullname.PreventEnterBeep = true;
-            this.tbFullname.Size = new System.Drawing.Size(152, 20);
+            this.tbFullname.Size = new System.Drawing.Size(203, 22);
             this.tbFullname.TabIndex = 25;
             // 
             // tbCurrentPassword
@@ -127,11 +126,11 @@
             this.tbCurrentPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbCurrentPassword.DisabledBackColor = System.Drawing.Color.White;
             this.tbCurrentPassword.ForeColor = System.Drawing.Color.Black;
-            this.tbCurrentPassword.Location = new System.Drawing.Point(139, 99);
-            this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.tbCurrentPassword.Location = new System.Drawing.Point(185, 122);
+            this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.PreventEnterBeep = true;
-            this.tbCurrentPassword.Size = new System.Drawing.Size(152, 20);
+            this.tbCurrentPassword.Size = new System.Drawing.Size(203, 22);
             this.tbCurrentPassword.TabIndex = 24;
             // 
             // tbUsername
@@ -144,11 +143,11 @@
             this.tbUsername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbUsername.DisabledBackColor = System.Drawing.Color.White;
             this.tbUsername.ForeColor = System.Drawing.Color.Black;
-            this.tbUsername.Location = new System.Drawing.Point(139, 65);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.tbUsername.Location = new System.Drawing.Point(185, 80);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PreventEnterBeep = true;
-            this.tbUsername.Size = new System.Drawing.Size(152, 20);
+            this.tbUsername.Size = new System.Drawing.Size(203, 22);
             this.tbUsername.TabIndex = 23;
             // 
             // panel1
@@ -170,11 +169,12 @@
             this.panel1.Controls.Add(this.lbUserLevel);
             this.panel1.Controls.Add(this.lbFullname);
             this.panel1.Controls.Add(this.lbAccountID);
-            this.panel1.Location = new System.Drawing.Point(11, 29);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(15, 36);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(320, 313);
+            this.panel1.Size = new System.Drawing.Size(425, 384);
             this.panel1.TabIndex = 29;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // textBoxX1
             // 
@@ -186,11 +186,11 @@
             this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxX1.DisabledBackColor = System.Drawing.Color.White;
             this.textBoxX1.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX1.Location = new System.Drawing.Point(139, 165);
-            this.textBoxX1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxX1.Location = new System.Drawing.Point(185, 203);
+            this.textBoxX1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxX1.Name = "textBoxX1";
             this.textBoxX1.PreventEnterBeep = true;
-            this.textBoxX1.Size = new System.Drawing.Size(152, 20);
+            this.textBoxX1.Size = new System.Drawing.Size(203, 22);
             this.textBoxX1.TabIndex = 32;
             // 
             // lbNewPassword
@@ -198,10 +198,9 @@
             this.lbNewPassword.AutoSize = true;
             this.lbNewPassword.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNewPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNewPassword.Location = new System.Drawing.Point(39, 164);
-            this.lbNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbNewPassword.Location = new System.Drawing.Point(52, 202);
             this.lbNewPassword.Name = "lbNewPassword";
-            this.lbNewPassword.Size = new System.Drawing.Size(96, 17);
+            this.lbNewPassword.Size = new System.Drawing.Size(119, 21);
             this.lbNewPassword.TabIndex = 31;
             this.lbNewPassword.Text = "New Password";
             // 
@@ -215,20 +214,19 @@
             this.tbNewPassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbNewPassword.DisabledBackColor = System.Drawing.Color.White;
             this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
-            this.tbNewPassword.Location = new System.Drawing.Point(139, 132);
-            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNewPassword.Location = new System.Drawing.Point(185, 162);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.PreventEnterBeep = true;
-            this.tbNewPassword.Size = new System.Drawing.Size(152, 20);
+            this.tbNewPassword.Size = new System.Drawing.Size(203, 22);
             this.tbNewPassword.TabIndex = 30;
             // 
             // lbUserID
             // 
             this.lbUserID.AutoSize = true;
-            this.lbUserID.Location = new System.Drawing.Point(141, 37);
-            this.lbUserID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbUserID.Location = new System.Drawing.Point(188, 46);
             this.lbUserID.Name = "lbUserID";
-            this.lbUserID.Size = new System.Drawing.Size(0, 13);
+            this.lbUserID.Size = new System.Drawing.Size(0, 17);
             this.lbUserID.TabIndex = 28;
             // 
             // cmbUserLevel
@@ -238,10 +236,10 @@
             this.cmbUserLevel.ForeColor = System.Drawing.Color.Black;
             this.cmbUserLevel.FormattingEnabled = true;
             this.cmbUserLevel.ItemHeight = 16;
-            this.cmbUserLevel.Location = new System.Drawing.Point(139, 195);
-            this.cmbUserLevel.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbUserLevel.Location = new System.Drawing.Point(185, 240);
+            this.cmbUserLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbUserLevel.Name = "cmbUserLevel";
-            this.cmbUserLevel.Size = new System.Drawing.Size(152, 22);
+            this.cmbUserLevel.Size = new System.Drawing.Size(201, 22);
             this.cmbUserLevel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbUserLevel.TabIndex = 27;
             // 
@@ -250,10 +248,9 @@
             this.lbCurrentPassword.AutoSize = true;
             this.lbCurrentPassword.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCurrentPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCurrentPassword.Location = new System.Drawing.Point(18, 131);
-            this.lbCurrentPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbCurrentPassword.Location = new System.Drawing.Point(24, 161);
             this.lbCurrentPassword.Name = "lbCurrentPassword";
-            this.lbCurrentPassword.Size = new System.Drawing.Size(117, 17);
+            this.lbCurrentPassword.Size = new System.Drawing.Size(141, 21);
             this.lbCurrentPassword.TabIndex = 26;
             this.lbCurrentPassword.Text = "Current Password";
             // 
@@ -262,10 +259,9 @@
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUsername.Location = new System.Drawing.Point(66, 98);
-            this.lbUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbUsername.Location = new System.Drawing.Point(88, 121);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(69, 17);
+            this.lbUsername.Size = new System.Drawing.Size(85, 21);
             this.lbUsername.TabIndex = 25;
             this.lbUsername.Text = "Username";
             // 
@@ -274,10 +270,9 @@
             this.lbUserLevel.AutoSize = true;
             this.lbUserLevel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserLevel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUserLevel.Location = new System.Drawing.Point(65, 195);
-            this.lbUserLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbUserLevel.Location = new System.Drawing.Point(87, 240);
             this.lbUserLevel.Name = "lbUserLevel";
-            this.lbUserLevel.Size = new System.Drawing.Size(70, 17);
+            this.lbUserLevel.Size = new System.Drawing.Size(87, 21);
             this.lbUserLevel.TabIndex = 24;
             this.lbUserLevel.Text = "User Level";
             // 
@@ -286,10 +281,9 @@
             this.lbFullname.AutoSize = true;
             this.lbFullname.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFullname.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbFullname.Location = new System.Drawing.Point(74, 64);
-            this.lbFullname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbFullname.Location = new System.Drawing.Point(99, 79);
             this.lbFullname.Name = "lbFullname";
-            this.lbFullname.Size = new System.Drawing.Size(61, 17);
+            this.lbFullname.Size = new System.Drawing.Size(77, 21);
             this.lbFullname.TabIndex = 23;
             this.lbFullname.Text = "Fullname";
             // 
@@ -298,24 +292,23 @@
             this.lbAccountID.AutoSize = true;
             this.lbAccountID.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAccountID.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbAccountID.Location = new System.Drawing.Point(58, 29);
-            this.lbAccountID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAccountID.Location = new System.Drawing.Point(77, 36);
             this.lbAccountID.Name = "lbAccountID";
-            this.lbAccountID.Size = new System.Drawing.Size(77, 17);
+            this.lbAccountID.Size = new System.Drawing.Size(93, 21);
             this.lbAccountID.TabIndex = 22;
             this.lbAccountID.Text = "Account ID";
             // 
             // frmUpdateAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(343, 353);
+            this.ClientSize = new System.Drawing.Size(457, 434);
             this.Controls.Add(this.lbAccountInformation);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUpdateAccount";
