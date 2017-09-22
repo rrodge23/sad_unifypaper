@@ -14,9 +14,15 @@ namespace UnifyPaper
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            frmLogin frmLogin = new frmLogin();
+            if (frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new form.pages.frmMainPage());
+            }
+            
         }
     }
 }

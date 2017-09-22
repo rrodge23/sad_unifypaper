@@ -49,11 +49,12 @@ namespace UnifyPaper.Classes.Model
                 else
                 {
                     dr.Close();
-                    sql = "INSERT INTO producttbl (product_code, description, standard_price, current_cost,quantity,tax_code,supplier_name,supplier_contact_no) VALUES (@product_code,@description,@standard_price,@current_cost,@quantity,@tax_code,@supplier_name,@supplier_contact_no)";
+                    sql = "INSERT INTO producttbl (category,product_code, description, minimum_qty, standard_price, current_cost,quantity,tax_code,supplier_name,supplier_contact_no) VALUES (@category, @product_code,@description,@minimum_qty,@standard_price,@current_cost,@quantity,@tax_code,@supplier_name,@supplier_contact_no)";
                     cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@category", p.category);
                     cmd.Parameters.AddWithValue("@product_code", p.product_code);
                     cmd.Parameters.AddWithValue("@description", p.description);
-
+                    cmd.Parameters.AddWithValue("@minimum_qty", p.minimumQuantity);
                     cmd.Parameters.AddWithValue("@standard_price", p.standard_price);
                     cmd.Parameters.AddWithValue("@current_cost", p.current_cost);
                     cmd.Parameters.AddWithValue("@quantity", p.quantity);
@@ -132,5 +133,79 @@ namespace UnifyPaper.Classes.Model
                 
             return isProductCategoryAdded;
         }
+
+        public List<Classes.Entities.products> getAllProductList()
+        {
+            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM producttbl";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Classes.Entities.products prod = new Entities.products();
+                        prod.ID = dr["ID"].ToString();
+                        prod.category = dr["category"].ToString();
+                        prod.product_code = dr["product_code"].ToString();
+                        prod.description = dr["description"].ToString();
+                        prod.minimumQuantity = dr["minimum_qty"].ToString();
+                        prod.standard_price = dr["standard_price"].ToString();
+                        prod.current_cost = dr["standard_price"].ToString();
+                        prod.quantity = dr["quantity"].ToString();
+                        prod.tax_code = dr["tax_code"].ToString();
+                        prod.supplier_name = dr["supplier_name"].ToString();
+                        prod.supplier_contact_no = dr["supplier_contact_no"].ToString();
+                        prodList.Add(prod);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return prodList;
+        }
+
+        public List<string> getAllProductCategory()
+        {
+            List<string> prodCategory = new List<string>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM product_categorytbl";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        prodCategory.Add(dr["category_name"].ToString());
+                    }
+                }
+            
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return prodCategory;
+        }
+
     }
 }

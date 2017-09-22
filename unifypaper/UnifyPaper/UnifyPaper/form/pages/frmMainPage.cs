@@ -18,7 +18,7 @@ namespace UnifyPaper.form.pages
         }
 
         Classes.Database.database db = new Classes.Database.database();
-
+        Classes.Model.m_products m_prod = new Classes.Model.m_products();
         private void lvsetting()
         {
             lvUser.Columns.Clear();
@@ -141,11 +141,52 @@ namespace UnifyPaper.form.pages
 
         private void frmMainPage_Load(object sender, EventArgs e)
         {
-            
+            lvLoadProductList();
             lvsetting();
             loadData();
             lbUsername.Text = Classes.Session.sessionUsers.username;
         }
+
+        private void lvLoadProductList()
+        {
+            lvProductList.Columns.Clear();
+
+            if (lvProductList.Columns.Count <= 0)
+            {
+                lvProductList.Columns.Add("ID", 30);
+                lvProductList.Columns.Add("Category", 100);
+                lvProductList.Columns.Add("Product Code", 100);
+                lvProductList.Columns.Add("Description", 100);
+                lvProductList.Columns.Add("Minimum Quantity", 100);
+                lvProductList.Columns.Add("Standard Price", 100);
+                lvProductList.Columns.Add("Current Cost", 100);
+                lvProductList.Columns.Add("Quantity", 100);
+                lvProductList.Columns.Add("Tax Code", 100);
+                lvProductList.Columns.Add("Supplier Name", 100);
+                lvProductList.Columns.Add("Supplier Contact No.", 100);
+
+                lvProductList.Items.Clear();
+
+                foreach (Classes.Entities.products prod in m_prod.getAllProductList())
+                {
+                    ListViewItem productList = new ListViewItem();
+
+                    productList.Text = prod.ID;
+                    productList.SubItems.Add(prod.category);
+                    productList.SubItems.Add(prod.product_code);
+                    productList.SubItems.Add(prod.description);
+                    productList.SubItems.Add(prod.minimumQuantity);
+                    productList.SubItems.Add(prod.standard_price);
+                    productList.SubItems.Add(prod.current_cost);
+                    productList.SubItems.Add(prod.quantity);
+                    productList.SubItems.Add(prod.tax_code);
+                    productList.SubItems.Add(prod.supplier_name);
+                    productList.SubItems.Add(prod.supplier_contact_no);
+                    lvProductList.Items.Add(productList);
+                }
+            }
+        }
+
 
         private void sideNavItem11_Click(object sender, EventArgs e)
         {
@@ -267,6 +308,16 @@ namespace UnifyPaper.form.pages
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panelEx6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewEx1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

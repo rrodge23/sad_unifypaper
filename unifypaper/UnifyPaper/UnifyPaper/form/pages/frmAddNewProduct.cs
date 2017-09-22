@@ -45,7 +45,7 @@ namespace UnifyPaper.form.pages
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tbCurrentCost.Text != "" && tbDescription.Text != "" && tbProductCode.Text != "")
+            if (tbQuantity.Text != "" && tbProductCode.Text != "")
             {
                 Classes.Entities.products prod = new Classes.Entities.products();
                 prod.minimumQuantity = minimumQuantity.Text.ToString().Trim();
@@ -75,7 +75,15 @@ namespace UnifyPaper.form.pages
 
         private void frmAddNewProduct_Load(object sender, EventArgs e)
         {
-
+            foreach(string category_name in mdl_prod.getAllProductCategory())
+            {
+                cmbCategory.Items.Add(category_name);
+            }
+            if(cmbCategory.Items.Count < 1)
+            {
+                MessageBox.Show("Please Add Product Category First.");
+                this.Close();
+            }
         }
 
         private void tbCurrentCost_TextChanged(object sender, EventArgs e)
@@ -86,6 +94,11 @@ namespace UnifyPaper.form.pages
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+           
         }
     }
 }

@@ -38,20 +38,22 @@ namespace UnifyPaper
                     Classes.Session.sessionUsers.userlevel = user.userlevel;
                     form.pages.frmMainPage fmp = new form.pages.frmMainPage();
                     fmp.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    errorLabel.Text = "Invalid Information Details";
                 }
             }
             else
             {
-                MessageBox.Show("Please Fill Out Fields");
+                errorLabel.Text = "Fill Out All Details";
             }                  
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            errorLabel.Text = "";
             List<Classes.Entities.users> u = new List<Classes.Entities.users>();
             u = db.getAllUser();
             if(u.Count < 1) 
