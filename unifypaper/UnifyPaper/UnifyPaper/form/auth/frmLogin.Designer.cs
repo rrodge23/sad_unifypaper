@@ -40,7 +40,7 @@
             this.styleManagerAmbient1 = new DevComponents.DotNetBar.StyleManagerAmbient(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -167,7 +167,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Firebrick;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.errorLabel);
             this.panel1.Controls.Add(this.buttonX1);
             this.panel1.Controls.Add(this.labelX1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -181,16 +181,16 @@
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // errorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(448, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 18);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Welcome!";
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.errorLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.errorLabel.Location = new System.Drawing.Point(448, 164);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(81, 18);
+            this.errorLabel.TabIndex = 9;
+            this.errorLabel.Text = "Welcome!";
             // 
             // frmLogin
             // 
@@ -228,7 +228,7 @@
         private DevComponents.DotNetBar.StyleManagerAmbient styleManagerAmbient1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 

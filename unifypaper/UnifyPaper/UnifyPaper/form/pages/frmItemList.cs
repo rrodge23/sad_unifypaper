@@ -21,5 +21,26 @@ namespace UnifyPaper.form.pages
         {
             this.Close();
         }
+
+        private void listViewEx1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmItemList_Load(object sender, EventArgs e)
+        {
+            loadItemColumns();
+        }
+
+        private void loadItemColumns()
+        {
+
+        }
+
     }
 }

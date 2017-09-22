@@ -51,6 +51,7 @@
             this.listViewEx1.Size = new System.Drawing.Size(863, 294);
             this.listViewEx1.TabIndex = 0;
             this.listViewEx1.UseCompatibleStateImageBehavior = false;
+            this.listViewEx1.SelectedIndexChanged += new System.EventHandler(this.listViewEx1_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -95,6 +96,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(892, 391);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -124,6 +126,7 @@
             this.Name = "frmItemList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item List";
+            this.Load += new System.EventHandler(this.frmItemList_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
