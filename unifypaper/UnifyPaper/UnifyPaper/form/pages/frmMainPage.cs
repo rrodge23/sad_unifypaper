@@ -263,13 +263,6 @@ namespace UnifyPaper.form.pages
 
         }
 
-        private void bubbleButton3_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
-        {
-            frmAddCategory fac = new frmAddCategory();
-            fac.ShowDialog();
-         
-        }
-
         private void buttonX4_Click(object sender, EventArgs e)
         {
 
@@ -318,6 +311,12 @@ namespace UnifyPaper.form.pages
         private void listViewEx1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bubbleButton1_Click_1(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmAddCategory fac = new frmAddCategory();
+            fac.ShowDialog();
         }
     }
 }
