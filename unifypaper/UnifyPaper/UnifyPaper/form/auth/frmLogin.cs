@@ -53,6 +53,7 @@ namespace UnifyPaper
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            KeyPreview = true;
             errorLabel.Text = "";
             List<Classes.Entities.users> u = new List<Classes.Entities.users>();
             u = db.getAllUser();
@@ -70,6 +71,10 @@ namespace UnifyPaper
             {
                 this.close();
             }*/
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
         }
 
         private void lblUsername_Click(object sender, EventArgs e)
@@ -95,6 +100,11 @@ namespace UnifyPaper
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

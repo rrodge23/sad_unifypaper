@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Paper",
             "007",
@@ -42,12 +42,12 @@
             "Unify Supplier Co.",
             "+639999223333"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainPage));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Jomel Ang",
             "MWF 8:00am - 5:00pm",
             "Cashier"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.sideNav1 = new DevComponents.DotNetBar.Controls.SideNav();
             this.sideNavPanel4 = new DevComponents.DotNetBar.Controls.SideNavPanel();
             this.sideNav2 = new DevComponents.DotNetBar.Controls.SideNav();
@@ -56,7 +56,6 @@
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.bubbleBar2 = new DevComponents.DotNetBar.BubbleBar();
             this.bubbleBarTab2 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
-            this.bubbleButton1 = new DevComponents.DotNetBar.BubbleButton();
             this.btnAddProduct = new DevComponents.DotNetBar.BubbleButton();
             this.bubbleButton10 = new DevComponents.DotNetBar.BubbleButton();
             this.bubbleButton11 = new DevComponents.DotNetBar.BubbleButton();
@@ -244,7 +243,7 @@
             this.lvProductList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvProductList.ForeColor = System.Drawing.Color.Black;
             this.lvProductList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.lvProductList.Location = new System.Drawing.Point(0, 0);
             this.lvProductList.Name = "lvProductList";
             this.lvProductList.Size = new System.Drawing.Size(758, 385);
@@ -313,7 +312,6 @@
             this.bubbleBarTab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
             this.bubbleBarTab2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
             this.bubbleBarTab2.Buttons.AddRange(new DevComponents.DotNetBar.BubbleButton[] {
-            this.bubbleButton1,
             this.btnAddProduct,
             this.bubbleButton10,
             this.bubbleButton11,
@@ -325,15 +323,6 @@
             this.bubbleBarTab2.PredefinedColor = DevComponents.DotNetBar.eTabItemColor.Blue;
             this.bubbleBarTab2.Text = "bubbleBarTab2";
             this.bubbleBarTab2.TextColor = System.Drawing.Color.Black;
-            // 
-            // bubbleButton1
-            // 
-            this.bubbleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bubbleButton1.Image = ((System.Drawing.Image)(resources.GetObject("bubbleButton1.Image")));
-            this.bubbleButton1.ImageLarge = ((System.Drawing.Image)(resources.GetObject("bubbleButton1.ImageLarge")));
-            this.bubbleButton1.Name = "bubbleButton1";
-            this.bubbleButton1.TooltipText = "ADD NEW CATEGORY";
-            this.bubbleButton1.Click += new DevComponents.DotNetBar.ClickEventHandler(this.bubbleButton1_Click_1);
             // 
             // btnAddProduct
             // 
@@ -406,8 +395,8 @@
             this.lvUser.FullRowSelect = true;
             this.lvUser.GridLines = true;
             this.lvUser.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem5});
+            listViewItem2,
+            listViewItem3});
             this.lvUser.Location = new System.Drawing.Point(0, 0);
             this.lvUser.Name = "lvUser";
             this.lvUser.Size = new System.Drawing.Size(758, 385);
@@ -1524,7 +1513,6 @@
         private DevComponents.DotNetBar.Controls.SideNavItem sideNavItem8;
         private DevComponents.DotNetBar.Controls.TabFormPanel tabFormPanel4;
         private DevComponents.DotNetBar.Controls.TabFormItem tabFormItem4;
-        private DevComponents.DotNetBar.BubbleButton bubbleButton1;
         private DevComponents.DotNetBar.BubbleButton bubbleButton2;
     }
 }

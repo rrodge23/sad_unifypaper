@@ -49,15 +49,16 @@ namespace UnifyPaper.Classes.Model
                 else
                 {
                     dr.Close();
-                    sql = "INSERT INTO producttbl (category,product_code, description, minimum_qty, standard_price, current_cost,quantity,tax_code,supplier_name,supplier_contact_no) VALUES (@category, @product_code,@description,@minimum_qty,@standard_price,@current_cost,@quantity,@tax_code,@supplier_name,@supplier_contact_no)";
+                    sql = "INSERT INTO producttbl (category,product_code, description, minimum_qty, standard_price, selling_price,quantity,unit,tax_code,supplier_name,supplier_contact_no) VALUES (@category, @product_code,@description,@minimum_qty,@standard_price,@selling_price,@quantity,@unit,@tax_code,@supplier_name,@supplier_contact_no)";
                     cmd = new OleDbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@category", p.category);
                     cmd.Parameters.AddWithValue("@product_code", p.product_code);
                     cmd.Parameters.AddWithValue("@description", p.description);
                     cmd.Parameters.AddWithValue("@minimum_qty", p.minimumQuantity);
                     cmd.Parameters.AddWithValue("@standard_price", p.standard_price);
-                    cmd.Parameters.AddWithValue("@current_cost", p.current_cost);
+                    cmd.Parameters.AddWithValue("@selling_price", p.selling_price);
                     cmd.Parameters.AddWithValue("@quantity", p.quantity);
+                    cmd.Parameters.AddWithValue("@unit", p.unit);
                     cmd.Parameters.AddWithValue("@tax_code", p.tax_code);
                     cmd.Parameters.AddWithValue("@supplier_name", p.supplier_name);
                     cmd.Parameters.AddWithValue("@supplier_contact_no", p.supplier_contact_no);
@@ -87,52 +88,7 @@ namespace UnifyPaper.Classes.Model
         }
 
 
-        public string addProductCategory(string categoryName) {
-            string isProductCategoryAdded = "";
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM product_categorytbl WHERE category_name LIKE @category_name";
-                cmd = new OleDbCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@category_name", categoryName);
-                dr = cmd.ExecuteReader();
-                int isCategoryInserted = 0;
-                if (dr.HasRows)
-                {
-                    isProductCategoryAdded = "Product Category Already Exist.";
-                }
-                else
-                {
-                    dr.Close();
-                    sql = "INSERT INTO product_categorytbl (category_name) VALUES (@category_name)";
-                    cmd = new OleDbCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@category_name", categoryName);
-
-                    isCategoryInserted = cmd.ExecuteNonQuery();
-
-                }
-                if (!(isCategoryInserted > 0))
-                {
-                    isProductCategoryAdded = "0";
-                }
-                else
-                {
-                    isProductCategoryAdded = "Category Successfully Added !";
-                }
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error: " + e);
-            }
-            finally
-            {
-                dr.Close();
-                conn.Close();
-            }    
-                
-            return isProductCategoryAdded;
-        }
+        
 
         public List<Classes.Entities.products> getAllProductList()
         {
@@ -154,8 +110,9 @@ namespace UnifyPaper.Classes.Model
                         prod.description = dr["description"].ToString();
                         prod.minimumQuantity = dr["minimum_qty"].ToString();
                         prod.standard_price = dr["standard_price"].ToString();
-                        prod.current_cost = dr["standard_price"].ToString();
+                        prod.selling_price = dr["selling_price"].ToString();
                         prod.quantity = dr["quantity"].ToString();
+                        prod.unit = dr["unit"].ToString();
                         prod.tax_code = dr["tax_code"].ToString();
                         prod.supplier_name = dr["supplier_name"].ToString();
                         prod.supplier_contact_no = dr["supplier_contact_no"].ToString();
@@ -182,14 +139,14 @@ namespace UnifyPaper.Classes.Model
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM product_categorytbl";
+                string sql = "SELECT DISTINCT category FROM producttbl";
                 cmd = new OleDbCommand(sql, conn);
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        prodCategory.Add(dr["category_name"].ToString());
+                        prodCategory.Add(dr["category"].ToString());
                     }
                 }
             
@@ -205,6 +162,37 @@ namespace UnifyPaper.Classes.Model
             }
 
             return prodCategory;
+        }
+
+        public List<string> getAllProdctUnit()
+        {
+            List<string> unit = new List<string>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT DISTINCT unit FROM producttbl";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        unit.Add(dr["unit"].ToString());
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return unit;
         }
 
     }

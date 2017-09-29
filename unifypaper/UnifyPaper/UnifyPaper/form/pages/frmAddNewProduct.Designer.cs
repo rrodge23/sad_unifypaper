@@ -30,14 +30,13 @@
         {
             this.tbQuantity = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbTaxCode = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbCurrentCost = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.tbSellingPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbSupplierName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbStandardPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbSupplierContactNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.minimumQuantity = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbDescription = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbProductCode = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.cmbCategory = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,6 +52,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnClear = new DevComponents.DotNetBar.ButtonX();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.tbUnit = new System.Windows.Forms.Label();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,28 +84,28 @@
             this.tbTaxCode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbTaxCode.DisabledBackColor = System.Drawing.Color.White;
             this.tbTaxCode.ForeColor = System.Drawing.Color.Black;
-            this.tbTaxCode.Location = new System.Drawing.Point(137, 226);
+            this.tbTaxCode.Location = new System.Drawing.Point(137, 252);
             this.tbTaxCode.Name = "tbTaxCode";
             this.tbTaxCode.PreventEnterBeep = true;
             this.tbTaxCode.Size = new System.Drawing.Size(220, 20);
             this.tbTaxCode.TabIndex = 17;
             // 
-            // tbCurrentCost
+            // tbSellingPrice
             // 
-            this.tbCurrentCost.BackColor = System.Drawing.Color.White;
+            this.tbSellingPrice.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.tbCurrentCost.Border.Class = "TextBoxBorder";
-            this.tbCurrentCost.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbCurrentCost.DisabledBackColor = System.Drawing.Color.White;
-            this.tbCurrentCost.ForeColor = System.Drawing.Color.Black;
-            this.tbCurrentCost.Location = new System.Drawing.Point(137, 174);
-            this.tbCurrentCost.Name = "tbCurrentCost";
-            this.tbCurrentCost.PreventEnterBeep = true;
-            this.tbCurrentCost.Size = new System.Drawing.Size(220, 20);
-            this.tbCurrentCost.TabIndex = 15;
-            this.tbCurrentCost.TextChanged += new System.EventHandler(this.tbCurrentCost_TextChanged);
+            this.tbSellingPrice.Border.Class = "TextBoxBorder";
+            this.tbSellingPrice.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbSellingPrice.DisabledBackColor = System.Drawing.Color.White;
+            this.tbSellingPrice.ForeColor = System.Drawing.Color.Black;
+            this.tbSellingPrice.Location = new System.Drawing.Point(137, 174);
+            this.tbSellingPrice.Name = "tbSellingPrice";
+            this.tbSellingPrice.PreventEnterBeep = true;
+            this.tbSellingPrice.Size = new System.Drawing.Size(220, 20);
+            this.tbSellingPrice.TabIndex = 15;
+            this.tbSellingPrice.TextChanged += new System.EventHandler(this.tbCurrentCost_TextChanged);
             // 
             // tbSupplierName
             // 
@@ -115,7 +117,7 @@
             this.tbSupplierName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbSupplierName.DisabledBackColor = System.Drawing.Color.White;
             this.tbSupplierName.ForeColor = System.Drawing.Color.Black;
-            this.tbSupplierName.Location = new System.Drawing.Point(137, 252);
+            this.tbSupplierName.Location = new System.Drawing.Point(137, 278);
             this.tbSupplierName.Name = "tbSupplierName";
             this.tbSupplierName.PreventEnterBeep = true;
             this.tbSupplierName.Size = new System.Drawing.Size(220, 20);
@@ -147,7 +149,7 @@
             this.tbSupplierContactNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbSupplierContactNo.DisabledBackColor = System.Drawing.Color.White;
             this.tbSupplierContactNo.ForeColor = System.Drawing.Color.Black;
-            this.tbSupplierContactNo.Location = new System.Drawing.Point(137, 278);
+            this.tbSupplierContactNo.Location = new System.Drawing.Point(137, 304);
             this.tbSupplierContactNo.Name = "tbSupplierContactNo";
             this.tbSupplierContactNo.PreventEnterBeep = true;
             this.tbSupplierContactNo.Size = new System.Drawing.Size(220, 20);
@@ -201,20 +203,6 @@
             this.tbProductCode.Size = new System.Drawing.Size(220, 20);
             this.tbProductCode.TabIndex = 10;
             // 
-            // cmbCategory
-            // 
-            this.cmbCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbCategory.DisplayMember = "Text";
-            this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbCategory.ForeColor = System.Drawing.Color.Black;
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.ItemHeight = 14;
-            this.cmbCategory.Location = new System.Drawing.Point(137, 44);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(220, 20);
-            this.cmbCategory.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbCategory.TabIndex = 23;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -253,11 +241,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(82, 122);
+            this.label4.Location = new System.Drawing.Point(20, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.Size = new System.Drawing.Size(111, 16);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Prompt";
+            this.label4.Text = "Minimum Quantity";
             // 
             // label5
             // 
@@ -275,11 +263,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(51, 174);
+            this.label6.Location = new System.Drawing.Point(53, 174);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.Size = new System.Drawing.Size(78, 16);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Current Cost";
+            this.label6.Text = "Selling Price";
             // 
             // label7
             // 
@@ -297,7 +285,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(69, 226);
+            this.label8.Location = new System.Drawing.Point(69, 252);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 16);
             this.label8.TabIndex = 31;
@@ -308,7 +296,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(39, 252);
+            this.label9.Location = new System.Drawing.Point(39, 278);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 16);
             this.label9.TabIndex = 32;
@@ -338,7 +326,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(6, 278);
+            this.label10.Location = new System.Drawing.Point(6, 304);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(125, 16);
             this.label10.TabIndex = 33;
@@ -401,6 +389,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Firebrick;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cmbUnit);
+            this.panel1.Controls.Add(this.tbUnit);
+            this.panel1.Controls.Add(this.cmbCategory);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.tbSupplierName);
@@ -411,8 +402,7 @@
             this.panel1.Controls.Add(this.tbStandardPrice);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.tbDescription);
-            this.panel1.Controls.Add(this.tbCurrentCost);
-            this.panel1.Controls.Add(this.cmbCategory);
+            this.panel1.Controls.Add(this.tbSellingPrice);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label2);
@@ -426,16 +416,66 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(12, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(493, 330);
+            this.panel1.Size = new System.Drawing.Size(493, 361);
             this.panel1.TabIndex = 38;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.AutoCompleteCustomSource.AddRange(new string[] {
+            "zzzz",
+            "bbb",
+            "nnn",
+            "mmm"});
+            this.cmbCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "penc",
+            "price",
+            "asdf",
+            "aaa",
+            "bb"});
+            this.cmbCategory.Location = new System.Drawing.Point(137, 43);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(220, 21);
+            this.cmbCategory.TabIndex = 34;
+            // 
+            // tbUnit
+            // 
+            this.tbUnit.AutoSize = true;
+            this.tbUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbUnit.Location = new System.Drawing.Point(101, 230);
+            this.tbUnit.Name = "tbUnit";
+            this.tbUnit.Size = new System.Drawing.Size(30, 16);
+            this.tbUnit.TabIndex = 36;
+            this.tbUnit.Text = "Unit";
+            // 
+            // cmbUnit
+            // 
+            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
+            "pieces",
+            "rim",
+            "box"});
+            this.cmbUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Items.AddRange(new object[] {
+            "pieces",
+            "rim",
+            "box"});
+            this.cmbUnit.Location = new System.Drawing.Point(137, 225);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(220, 21);
+            this.cmbUnit.TabIndex = 37;
             // 
             // frmAddNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(517, 373);
+            this.ClientSize = new System.Drawing.Size(517, 402);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -454,14 +494,13 @@
 
         private DevComponents.DotNetBar.Controls.TextBoxX tbQuantity;
         private DevComponents.DotNetBar.Controls.TextBoxX tbTaxCode;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbCurrentCost;
+        private DevComponents.DotNetBar.Controls.TextBoxX tbSellingPrice;
         private DevComponents.DotNetBar.Controls.TextBoxX tbSupplierName;
         private DevComponents.DotNetBar.Controls.TextBoxX tbStandardPrice;
         private DevComponents.DotNetBar.Controls.TextBoxX tbSupplierContactNo;
         private DevComponents.DotNetBar.Controls.TextBoxX minimumQuantity;
         private DevComponents.DotNetBar.Controls.TextBoxX tbDescription;
         private DevComponents.DotNetBar.Controls.TextBoxX tbProductCode;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -477,5 +516,8 @@
         private System.Windows.Forms.Label label11;
         private DevComponents.DotNetBar.ButtonX btnClear;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.Label tbUnit;
+        private System.Windows.Forms.ComboBox cmbUnit;
     }
 }
