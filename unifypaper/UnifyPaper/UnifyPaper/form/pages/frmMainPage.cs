@@ -318,9 +318,23 @@ namespace UnifyPaper.form.pages
           
         }
 
-        private void sideNav1_Click(object sender, EventArgs e)
+
+        private void btnTransaction_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnReCall_Click(object sender, EventArgs e)
+        {
+            frmReCall frc = new frmReCall();
+            frc.ShowDialog();
+        }
+
+        private void btnTransaction_Click_1(object sender, EventArgs e)
+        {
+            frmTransactionOption fto = new frmTransactionOption();
+            fto.ShowDialog();
+        }
+
     }
 }

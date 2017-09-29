@@ -68,6 +68,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -132,6 +133,30 @@
     <Compile Include="form\pages\frmNewUserLevel.Designer.cs">
       <DependentUpon>frmNewUserLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmReCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmReCall.Designer.cs">
+      <DependentUpon>frmReCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionDiscount.Designer.cs">
+      <DependentUpon>frmTransactionDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionNumber.Designer.cs">
+      <DependentUpon>frmTransactionNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionOption.Designer.cs">
+      <DependentUpon>frmTransactionOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmUpdateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +180,12 @@
     </Compile>
     <Compile Include="form\pages\frmViewBelowMinimumProducts.Designer.cs">
       <DependentUpon>frmViewBelowMinimumProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\pages\frmViewingReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmViewingReceipt.Designer.cs">
+      <DependentUpon>frmViewingReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +218,18 @@
     <EmbeddedResource Include="form\pages\frmNewUserLevel.resx">
       <DependentUpon>frmNewUserLevel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmReCall.resx">
+      <DependentUpon>frmReCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmTransactionDiscount.resx">
+      <DependentUpon>frmTransactionDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmTransactionNumber.resx">
+      <DependentUpon>frmTransactionNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmTransactionOption.resx">
+      <DependentUpon>frmTransactionOption.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmUpdateAccount.resx">
       <DependentUpon>frmUpdateAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmViewBelowMinimumProducts.resx">
       <DependentUpon>frmViewBelowMinimumProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmViewingReceipt.resx">
+      <DependentUpon>frmViewingReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
