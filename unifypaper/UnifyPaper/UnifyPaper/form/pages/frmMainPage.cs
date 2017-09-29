@@ -127,8 +127,7 @@ namespace UnifyPaper.form.pages
 
         private void btnAddCategory_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            frmAddCategory fac = new frmAddCategory();
-            fac.ShowDialog();
+            
         }
 
         private void btnUpdateCategory_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -159,8 +158,9 @@ namespace UnifyPaper.form.pages
                 lvProductList.Columns.Add("Description", 100);
                 lvProductList.Columns.Add("Minimum Quantity", 100);
                 lvProductList.Columns.Add("Standard Price", 100);
-                lvProductList.Columns.Add("Current Cost", 100);
+                lvProductList.Columns.Add("Selling Price", 100);
                 lvProductList.Columns.Add("Quantity", 100);
+                lvProductList.Columns.Add("Unit", 100);
                 lvProductList.Columns.Add("Tax Code", 100);
                 lvProductList.Columns.Add("Supplier Name", 100);
                 lvProductList.Columns.Add("Supplier Contact No.", 100);
@@ -177,8 +177,9 @@ namespace UnifyPaper.form.pages
                     productList.SubItems.Add(prod.description);
                     productList.SubItems.Add(prod.minimumQuantity);
                     productList.SubItems.Add(prod.standard_price);
-                    productList.SubItems.Add(prod.current_cost);
+                    productList.SubItems.Add(prod.selling_price);
                     productList.SubItems.Add(prod.quantity);
+                    productList.SubItems.Add(prod.unit);
                     productList.SubItems.Add(prod.tax_code);
                     productList.SubItems.Add(prod.supplier_name);
                     productList.SubItems.Add(prod.supplier_contact_no);
@@ -315,8 +316,7 @@ namespace UnifyPaper.form.pages
 
         private void bubbleButton1_Click_1(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            frmAddCategory fac = new frmAddCategory();
-            fac.ShowDialog();
+          
         }
     }
 }

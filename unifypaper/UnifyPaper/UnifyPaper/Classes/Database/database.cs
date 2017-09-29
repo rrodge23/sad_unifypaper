@@ -241,9 +241,9 @@ namespace UnifyPaper.Classes.Database
             return u;
         }
 
-        public Classes.Entities.users deleteUserByID(string ID)
+        public bool deleteUserByID(string ID)
         {
-            Classes.Entities.users u = new Classes.Entities.users();
+           
             bool result = false;
             try
             {
@@ -281,7 +281,7 @@ namespace UnifyPaper.Classes.Database
                 dr.Close();
                 conn.Close();
             }
-            return u;
+            return result;
         }
 
     }

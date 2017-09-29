@@ -114,12 +114,6 @@
     <Compile Include="form\pages\frmItemList.Designer.cs">
       <DependentUpon>frmItemList.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\pages\frmAddCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="form\pages\frmAddCategory.Designer.cs">
-      <DependentUpon>frmAddCategory.cs</DependentUpon>
-    </Compile>
     <Compile Include="form\pages\frmAddAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,9 +165,6 @@
     </Compile>
     <EmbeddedResource Include="form\auth\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="form\pages\frmAddCategory.resx">
-      <DependentUpon>frmAddCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmAddNewProduct.resx">
       <DependentUpon>frmAddNewProduct.cs</DependentUpon>

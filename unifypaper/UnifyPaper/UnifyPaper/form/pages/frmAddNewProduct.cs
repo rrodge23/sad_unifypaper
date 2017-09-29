@@ -31,12 +31,16 @@ namespace UnifyPaper.form.pages
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            
+
             minimumQuantity.Text = "";
-            tbCurrentCost.Text = "";
+            tbSellingPrice.Text = "";
             tbDescription.Text = "";
             tbProductCode.Text = "";
             tbQuantity.Text = "";
             tbStandardPrice.Text = "";
+            tbSellingPrice.Text = "";
+            tbUnit.Text = "";
             tbSupplierContactNo.Text = "";
             tbSupplierName.Text = "";
             tbTaxCode.Text = "";
@@ -49,11 +53,13 @@ namespace UnifyPaper.form.pages
             {
                 Classes.Entities.products prod = new Classes.Entities.products();
                 prod.minimumQuantity = minimumQuantity.Text.ToString().Trim();
-                prod.current_cost = tbCurrentCost.Text.ToString().Trim();
+                prod.selling_price = tbSellingPrice.Text.ToString().Trim();
                 prod.description = tbDescription.Text.ToString().Trim();
                 prod.product_code = tbProductCode.Text.ToString().Trim();
                 prod.quantity = tbQuantity.Text.ToString().Trim();
+                prod.unit = tbUnit.Text.ToString().Trim();
                 prod.standard_price = tbStandardPrice.Text.ToString().Trim();
+                prod.selling_price = tbSellingPrice.Text.ToString().Trim();
                 prod.supplier_name = tbSupplierName.Text.ToString().Trim();
                 prod.supplier_contact_no = tbSupplierContactNo.Text.ToString().Trim();
                 prod.tax_code = tbTaxCode.Text.ToString().Trim();
@@ -75,14 +81,26 @@ namespace UnifyPaper.form.pages
 
         private void frmAddNewProduct_Load(object sender, EventArgs e)
         {
-            foreach(string category_name in mdl_prod.getAllProductCategory())
+            loadSettings();
+           
+        }
+
+        private void loadSettings()
+        {
+            cmbCategory.AutoCompleteCustomSource.Clear();
+            cmbCategory.Items.Clear();
+            cmbUnit.AutoCompleteCustomSource.Clear();
+            cmbUnit.Items.Clear();
+            foreach(string category in mdl_prod.getAllProductCategory())
             {
-                cmbCategory.Items.Add(category_name);
+                cmbCategory.AutoCompleteCustomSource.Add(category);
+                cmbCategory.Items.Add(category);
+                
             }
-            if(cmbCategory.Items.Count < 1)
+            foreach(string unit in mdl_prod.getAllProdctUnit())
             {
-                MessageBox.Show("Please Add Product Category First.");
-                this.Close();
+                cmbUnit.AutoCompleteCustomSource.Add(unit);
+                cmbUnit.Items.Add(unit);
             }
         }
 
