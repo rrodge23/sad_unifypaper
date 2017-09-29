@@ -140,52 +140,51 @@ namespace UnifyPaper.form.pages
 
         private void frmMainPage_Load(object sender, EventArgs e)
         {
-            lvLoadProductList();
+            dgLoadProductList();
             lvsetting();
             loadData();
             lbUsername.Text = Classes.Session.sessionUsers.username;
         }
 
-        private void lvLoadProductList()
+        private void dgLoadProductList()
         {
-            lvProductList.Columns.Clear();
-
-            if (lvProductList.Columns.Count <= 0)
-            {
-                lvProductList.Columns.Add("ID", 30);
-                lvProductList.Columns.Add("Category", 100);
-                lvProductList.Columns.Add("Product Code", 100);
-                lvProductList.Columns.Add("Description", 100);
-                lvProductList.Columns.Add("Minimum Quantity", 100);
-                lvProductList.Columns.Add("Standard Price", 100);
-                lvProductList.Columns.Add("Selling Price", 100);
-                lvProductList.Columns.Add("Quantity", 100);
-                lvProductList.Columns.Add("Unit", 100);
-                lvProductList.Columns.Add("Tax Code", 100);
-                lvProductList.Columns.Add("Supplier Name", 100);
-                lvProductList.Columns.Add("Supplier Contact No.", 100);
-
-                lvProductList.Items.Clear();
-
-                foreach (Classes.Entities.products prod in m_prod.getAllProductList())
+            dgProductList.Rows.Clear();
+            List<Classes.Entities.products> productInfo = new List<Classes.Entities.products>();
+            //if(productInfo.Count > 0)
+            //{
+                productInfo = m_prod.getAllProductList();
+                DataTable dgTable = new DataTable();
+                dgTable.Columns.Add("ID", typeof(int));
+                dgTable.Columns.Add("Product Code", typeof(string));
+                dgTable.Columns.Add("Description", typeof(string));
+                dgTable.Columns.Add("Category", typeof(string));
+                dgTable.Columns.Add("Minimum Quantity", typeof(string));
+                dgTable.Columns.Add("Standard Price", typeof(string));
+                dgTable.Columns.Add("Selling Price", typeof(string));
+                dgTable.Columns.Add("Quantity", typeof(string));
+                dgTable.Columns.Add("Unit", typeof(string));
+                dgTable.Columns.Add("Tax Code", typeof(string));
+                dgTable.Columns.Add("Supplier Name", typeof(string));
+                dgTable.Columns.Add("Supplier Contact No.", typeof(string));
+                for(int i=0; i< productInfo.Count;i++)
                 {
-                    ListViewItem productList = new ListViewItem();
-
-                    productList.Text = prod.ID;
-                    productList.SubItems.Add(prod.category);
-                    productList.SubItems.Add(prod.product_code);
-                    productList.SubItems.Add(prod.description);
-                    productList.SubItems.Add(prod.minimumQuantity);
-                    productList.SubItems.Add(prod.standard_price);
-                    productList.SubItems.Add(prod.selling_price);
-                    productList.SubItems.Add(prod.quantity);
-                    productList.SubItems.Add(prod.unit);
-                    productList.SubItems.Add(prod.tax_code);
-                    productList.SubItems.Add(prod.supplier_name);
-                    productList.SubItems.Add(prod.supplier_contact_no);
-                    lvProductList.Items.Add(productList);
+                    dgTable.Rows.Add(productInfo[i].ID,
+                        productInfo[i].product_code, 
+                        productInfo[i].description, 
+                        productInfo[i].category, 
+                        productInfo[i].minimumQuantity, 
+                        productInfo[i].standard_price, 
+                        productInfo[i].selling_price, 
+                        productInfo[i].quantity, 
+                        productInfo[i].unit, 
+                        productInfo[i].tax_code, 
+                        productInfo[i].supplier_name, 
+                        productInfo[i].supplier_contact_no);  
                 }
-            }
+                dgProductList.DataSource = dgTable;
+            //}
+            
+         
         }
 
 
@@ -317,6 +316,11 @@ namespace UnifyPaper.form.pages
         private void bubbleButton1_Click_1(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
           
+        }
+
+        private void sideNav1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

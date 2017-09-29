@@ -29,30 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "1",
-            "Paper",
-            "007",
-            "Yellow Paper",
-            "10",
-            "50",
-            "60",
-            "38",
-            "1.57",
-            "Unify Supplier Co.",
-            "+639999223333"}, -1);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainPage));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Jomel Ang",
             "MWF 8:00am - 5:00pm",
             "Cashier"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.sideNav1 = new DevComponents.DotNetBar.Controls.SideNav();
             this.sideNavPanel4 = new DevComponents.DotNetBar.Controls.SideNavPanel();
             this.sideNav2 = new DevComponents.DotNetBar.Controls.SideNav();
             this.sideNavPanel8 = new DevComponents.DotNetBar.Controls.SideNavPanel();
-            this.lvProductList = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.dgProductList = new System.Windows.Forms.DataGridView();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.bubbleBar2 = new DevComponents.DotNetBar.BubbleBar();
             this.bubbleBarTab2 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
@@ -142,6 +131,7 @@
             this.sideNavPanel4.SuspendLayout();
             this.sideNav2.SuspendLayout();
             this.sideNavPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).BeginInit();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar2)).BeginInit();
             this.sideNavPanel5.SuspendLayout();
@@ -188,6 +178,7 @@
             this.sideNav1.Size = new System.Drawing.Size(1018, 599);
             this.sideNav1.TabIndex = 0;
             this.sideNav1.Text = "tttttttt";
+            this.sideNav1.Click += new System.EventHandler(this.sideNav1_Click);
             // 
             // sideNavPanel4
             // 
@@ -223,7 +214,7 @@
             // 
             // sideNavPanel8
             // 
-            this.sideNavPanel8.Controls.Add(this.lvProductList);
+            this.sideNavPanel8.Controls.Add(this.dgProductList);
             this.sideNavPanel8.Controls.Add(this.panelEx2);
             this.sideNavPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sideNavPanel8.Location = new System.Drawing.Point(155, 31);
@@ -231,26 +222,27 @@
             this.sideNavPanel8.Size = new System.Drawing.Size(758, 535);
             this.sideNavPanel8.TabIndex = 6;
             // 
-            // lvProductList
+            // dgProductList
             // 
-            this.lvProductList.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.lvProductList.Border.Class = "ListViewBorder";
-            this.lvProductList.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lvProductList.DisabledBackColor = System.Drawing.Color.Empty;
-            this.lvProductList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvProductList.ForeColor = System.Drawing.Color.Black;
-            this.lvProductList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.lvProductList.Location = new System.Drawing.Point(0, 0);
-            this.lvProductList.Name = "lvProductList";
-            this.lvProductList.Size = new System.Drawing.Size(758, 385);
-            this.lvProductList.TabIndex = 8;
-            this.lvProductList.UseCompatibleStateImageBehavior = false;
-            this.lvProductList.View = System.Windows.Forms.View.Details;
-            this.lvProductList.SelectedIndexChanged += new System.EventHandler(this.listViewEx1_SelectedIndexChanged);
+            this.dgProductList.AllowUserToAddRows = false;
+            this.dgProductList.AllowUserToDeleteRows = false;
+            this.dgProductList.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            this.dgProductList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgProductList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgProductList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgProductList.GridColor = System.Drawing.Color.Red;
+            this.dgProductList.Location = new System.Drawing.Point(0, 0);
+            this.dgProductList.MultiSelect = false;
+            this.dgProductList.Name = "dgProductList";
+            this.dgProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProductList.Size = new System.Drawing.Size(758, 385);
+            this.dgProductList.TabIndex = 12;
             // 
             // panelEx2
             // 
@@ -395,8 +387,8 @@
             this.lvUser.FullRowSelect = true;
             this.lvUser.GridLines = true;
             this.lvUser.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2,
-            listViewItem3});
+            listViewItem1,
+            listViewItem2});
             this.lvUser.Location = new System.Drawing.Point(0, 0);
             this.lvUser.Name = "lvUser";
             this.lvUser.Size = new System.Drawing.Size(758, 385);
@@ -1395,6 +1387,7 @@
             this.sideNav2.ResumeLayout(false);
             this.sideNav2.PerformLayout();
             this.sideNavPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).EndInit();
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar2)).EndInit();
             this.sideNavPanel5.ResumeLayout(false);
@@ -1509,10 +1502,10 @@
         private DevComponents.DotNetBar.Controls.SideNavItem sideNavItem6;
         private DevComponents.DotNetBar.Controls.SideNavPanel sideNavPanel7;
         private DevComponents.DotNetBar.ButtonX buttonX6;
-        private DevComponents.DotNetBar.Controls.ListViewEx lvProductList;
         private DevComponents.DotNetBar.Controls.SideNavItem sideNavItem8;
         private DevComponents.DotNetBar.Controls.TabFormPanel tabFormPanel4;
         private DevComponents.DotNetBar.Controls.TabFormItem tabFormItem4;
         private DevComponents.DotNetBar.BubbleButton bubbleButton2;
+        private System.Windows.Forms.DataGridView dgProductList;
     }
 }
