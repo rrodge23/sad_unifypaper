@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Jomel Ang",
@@ -48,6 +49,7 @@
             "Unify Supplier Co.",
             "+639999223333"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainPage));
+
             this.sideNav1 = new DevComponents.DotNetBar.Controls.SideNav();
             this.sideNavPanel1 = new DevComponents.DotNetBar.Controls.SideNavPanel();
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
@@ -80,6 +82,8 @@
             this.lvItem = new System.Windows.Forms.ListView();
             this.sideNavPanel4 = new DevComponents.DotNetBar.Controls.SideNavPanel();
             this.sideNav2 = new DevComponents.DotNetBar.Controls.SideNav();
+
+
             this.sideNavPanel5 = new DevComponents.DotNetBar.Controls.SideNavPanel();
             this.lvUser = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -90,7 +94,6 @@
             this.bubbleBar1 = new DevComponents.DotNetBar.BubbleBar();
             this.bubbleBarTab1 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
             this.sideNavPanel8 = new DevComponents.DotNetBar.Controls.SideNavPanel();
-            this.lvProductList = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.bubbleBar2 = new DevComponents.DotNetBar.BubbleBar();
             this.bubbleBarTab2 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
@@ -145,6 +148,8 @@
             this.panel4.SuspendLayout();
             this.sideNavPanel4.SuspendLayout();
             this.sideNav2.SuspendLayout();
+
+
             this.sideNavPanel5.SuspendLayout();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).BeginInit();
@@ -187,9 +192,11 @@
             this.sideNav1.Size = new System.Drawing.Size(1357, 737);
             this.sideNav1.TabIndex = 0;
             this.sideNav1.Text = "tttttttt";
+           
             // 
             // sideNavPanel1
             // 
+
             this.sideNavPanel1.Controls.Add(this.panelEx5);
             this.sideNavPanel1.Controls.Add(this.panelEx4);
             this.sideNavPanel1.Controls.Add(this.lvItem);
@@ -228,6 +235,7 @@
             // 
             this.listViewEx2.BackColor = System.Drawing.Color.White;
             // 
+
             // 
             // 
             this.listViewEx2.Border.Class = "ListViewBorder";
@@ -805,7 +813,7 @@
             // 
             // sideNavPanel8
             // 
-            this.sideNavPanel8.Controls.Add(this.lvProductList);
+      
             this.sideNavPanel8.Controls.Add(this.panelEx2);
             this.sideNavPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sideNavPanel8.Location = new System.Drawing.Point(188, 35);
@@ -817,25 +825,11 @@
             // 
             // lvProductList
             // 
-            this.lvProductList.BackColor = System.Drawing.Color.White;
+   
             // 
             // 
             // 
-            this.lvProductList.Border.Class = "ListViewBorder";
-            this.lvProductList.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lvProductList.DisabledBackColor = System.Drawing.Color.Empty;
-            this.lvProductList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvProductList.ForeColor = System.Drawing.Color.Black;
-            this.lvProductList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
-            this.lvProductList.Location = new System.Drawing.Point(0, 0);
-            this.lvProductList.Margin = new System.Windows.Forms.Padding(4);
-            this.lvProductList.Name = "lvProductList";
-            this.lvProductList.Size = new System.Drawing.Size(1044, 480);
-            this.lvProductList.TabIndex = 8;
-            this.lvProductList.UseCompatibleStateImageBehavior = false;
-            this.lvProductList.View = System.Windows.Forms.View.Details;
-            this.lvProductList.SelectedIndexChanged += new System.EventHandler(this.listViewEx1_SelectedIndexChanged);
+         
             // 
             // panelEx2
             // 
@@ -1441,6 +1435,8 @@
             this.sideNavPanel4.ResumeLayout(false);
             this.sideNav2.ResumeLayout(false);
             this.sideNav2.PerformLayout();
+
+
             this.sideNavPanel5.ResumeLayout(false);
             this.panelEx1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).EndInit();
@@ -1543,12 +1539,13 @@
         private DevComponents.DotNetBar.Controls.SideNavItem sideNavItem6;
         private DevComponents.DotNetBar.Controls.SideNavPanel sideNavPanel7;
         private DevComponents.DotNetBar.ButtonX buttonX6;
-        private DevComponents.DotNetBar.Controls.ListViewEx lvProductList;
         private DevComponents.DotNetBar.Controls.SideNavItem sideNavItem8;
         private DevComponents.DotNetBar.Controls.TabFormPanel tabFormPanel4;
         private DevComponents.DotNetBar.Controls.TabFormItem tabFormItem4;
         private DevComponents.DotNetBar.BubbleButton bubbleButton2;
+
         private DevComponents.DotNetBar.ButtonX btnTransaction;
         private DevComponents.DotNetBar.ButtonX btnReCall;
+
     }
 }
