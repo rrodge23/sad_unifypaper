@@ -157,6 +157,12 @@
     <Compile Include="form\pages\frmTransactionOption.Designer.cs">
       <DependentUpon>frmTransactionOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmTransactionSearchItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionSearchItem.Designer.cs">
+      <DependentUpon>frmTransactionSearchItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmUpdateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmTransactionOption.resx">
       <DependentUpon>frmTransactionOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmTransactionSearchItem.resx">
+      <DependentUpon>frmTransactionSearchItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmUpdateAccount.resx">
       <DependentUpon>frmUpdateAccount.cs</DependentUpon>
