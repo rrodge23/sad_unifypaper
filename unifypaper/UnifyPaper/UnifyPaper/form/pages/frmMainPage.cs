@@ -136,7 +136,39 @@ namespace UnifyPaper.form.pages
             fupc.ShowDialog();
         }
 
-     
+        private void dgLoadTransactionList()
+        {
+            dgTransactionList.Rows.Clear();
+            List<Classes.Entities.products> productInfo = new List<Classes.Entities.products>();
+            //if(productInfo.Count > 0)
+            //{
+            productInfo = m_prod.getAllProductList();
+            DataTable dgTable = new DataTable();
+            dgTable.Columns.Add("ID", typeof(int));
+            dgTable.Columns.Add("Product Code", typeof(string));
+            dgTable.Columns.Add("Description", typeof(string));
+            dgTable.Columns.Add("Category", typeof(string));
+            dgTable.Columns.Add("Quantity", typeof(string));
+            dgTable.Columns.Add("Unit", typeof(string));
+            dgTable.Columns.Add("Tax", typeof(string));
+            dgTable.Columns.Add("Price", typeof(string));
+
+            for (int i = 0; i < 1; i++)
+            {
+                dgTable.Rows.Add(productInfo[i].ID,
+                    "00",
+                    "gTech Ballpen",
+                    "Ballpen",
+                    "2",
+                    "Pieces",
+                    "5.00",
+                    "50.00");
+            }
+            dgTransactionList.DataSource = dgTable;
+            //}
+
+
+        }
 
         private void frmMainPage_Load(object sender, EventArgs e)
         {
@@ -144,6 +176,8 @@ namespace UnifyPaper.form.pages
             lvsetting();
             loadData();
             lbUsername.Text = Classes.Session.sessionUsers.username;
+            dgLoadTransactionList();
+
         }
 
         private void dgLoadProductList()
@@ -234,8 +268,8 @@ namespace UnifyPaper.form.pages
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
-            frmItemList fil = new frmItemList();
-            fil.ShowDialog();
+            frmTransactionSearchItem ftsi = new frmTransactionSearchItem();
+            ftsi.ShowDialog();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -334,6 +368,25 @@ namespace UnifyPaper.form.pages
         {
             frmTransactionOption fto = new frmTransactionOption();
             fto.ShowDialog();
+        }
+
+        private void sideNav1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sideNav1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (btnSidenavHome.Focused)
+            {
+                btnReCall.Visible = true;
+                btnTransaction.Visible = true;
+            }
+            else
+            {
+                btnTransaction.Visible = false;
+                btnReCall.Visible = false;
+            }
         }
 
     }
