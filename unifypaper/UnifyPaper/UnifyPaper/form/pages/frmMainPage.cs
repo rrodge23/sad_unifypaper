@@ -15,11 +15,18 @@ namespace UnifyPaper.form.pages
         public frmMainPage()
         {
             InitializeComponent();
+            
         }
 
+        //INITIALIZE ITEMS
         Classes.Database.database db = new Classes.Database.database();
         Classes.Model.m_products m_prod = new Classes.Model.m_products();
- 
+        Classes.Entities.transaction currentTransaction = new Classes.Entities.transaction();
+        List<Classes.Entities.products> productList = new List<Classes.Entities.products>();
+
+        Classes.Entities.products currentProduct = new Classes.Entities.products();
+
+
         private void lvsetting()
         {
             lvUser.Columns.Clear();
@@ -137,13 +144,44 @@ namespace UnifyPaper.form.pages
             fupc.ShowDialog();
         }
 
-        private void dgLoadTransactionList()
+       
+
+        private void frmMainPage_Load(object sender, EventArgs e)
         {
-            dgTransactionList.Rows.Clear();
-            List<Classes.Entities.products> productInfo = new List<Classes.Entities.products>();
-            //if(productInfo.Count > 0)
-            //{
-            productInfo = m_prod.getAllProductList();
+            dgLoadProductList();
+            lvsetting();
+            loadData();
+            lbUsername.Text = Classes.Session.sessionUsers.username;
+            displayCurrentTransactionItems();
+            loadCurrentProduct();
+            findTransactionProduct();
+            transactionSettings();
+        }
+
+        private void transactionSettings()
+        {
+            tbGrandtotal.Text = "";
+            tbProductCode.Text = "";
+            tbQty.Text = "";
+            tbTransactionCash.Text = "";
+            tbTransactionChange.Text = "";
+            tbSubTotal.Text = "";
+            tbTax.Text = "";
+            lbTransactionProductDescription.Text = "";
+            lbTransactionProductQuantity.Text = "";
+            lbTransactionProductUnit.Text = "";
+        }
+
+        private void loadCurrentProduct()
+        {
+            productList = m_prod.getAllProductList();
+        }
+
+        private void displayCurrentTransactionItems()
+        {
+
+            dgTransactionList.DataSource = null;
+            calculateChange();
             DataTable dgTable = new DataTable();
             dgTable.Columns.Add("ID", typeof(int));
             dgTable.Columns.Add("Product Code", typeof(string));
@@ -154,32 +192,28 @@ namespace UnifyPaper.form.pages
             dgTable.Columns.Add("Tax", typeof(string));
             dgTable.Columns.Add("Price", typeof(string));
 
-            for (int i = 0; i < 1; i++)
+            double grandTotal = 0;
+
+            foreach (Classes.Entities.products prod in currentTransaction.productList)
             {
-                dgTable.Rows.Add(productInfo[i].ID,
-                    "00",
-                    "gTech Ballpen",
-                    "Ballpen",
-                    "2",
-                    "Pieces",
-                    "5.00",
-                    "50.00");
+                
+                double totalProductPrice = Convert.ToDouble(prod.quantity) * Convert.ToDouble(prod.selling_price);
+                dgTable.Rows.Add(prod.ID,
+                                prod.product_code,
+                                prod.description,
+                                prod.category,
+                                prod.quantity,
+                                prod.unit,
+                                prod.tax_code,
+                                Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00")
+                                );
+                grandTotal *= totalProductPrice;
             }
+            
             dgTransactionList.DataSource = dgTable;
-            //}
-
-
+            tbGrandtotal.Text = grandTotal.ToString("0.00");
         }
 
-        private void frmMainPage_Load(object sender, EventArgs e)
-        {
-            dgLoadProductList();
-            lvsetting();
-            loadData();
-            lbUsername.Text = Classes.Session.sessionUsers.username;
-            dgLoadTransactionList();
-           
-        }
 
         public void dgLoadProductList()
         {
@@ -217,12 +251,54 @@ namespace UnifyPaper.form.pages
                         productInfo[i].supplier_contact_no);  
                 }
                 dgProductList.DataSource = dgTable;
-            //}
-            
-         
         }
 
+        private void addTransactionProductItem()
+        {
+            Int32 o;
+            if(currentProduct != null)
+            {
+                if(tbQty.Text.Trim() != "" && Int32.TryParse(tbQty.Text.Trim(), out o))
+                {
+                    if (Convert.ToInt32(currentProduct.quantity) - currentTransaction.getTransactionProductQuantityByID(currentProduct.ID) >= Convert.ToInt32(tbQty.Text.Trim()))
+                    {
+                        Classes.Entities.products newProduct = new Classes.Entities.products(currentProduct);
+                        newProduct.quantity = tbQty.Text.Trim();
+                        currentTransaction.addTransactionNewProduct(newProduct);
+                        currentProduct = null;
+                        tbProductCode.Text = "";
+                        lbTransactionProductDescription.Text = "";
+                        tbQty.Text = "";
+                        displayCurrentTransactionItems();
+                        tbProductCode.Focus();
 
+                    }
+                }
+            }
+        }
+
+        private void calculateChange()
+        {
+            double o;
+            double change = 0;
+            if(double.TryParse(tbTransactionCash.Text.Trim(), out o))
+            {
+                change = Convert.ToDouble(tbTransactionCash.Text.Trim()) - Convert.ToDouble(tbGrandtotal.Text);
+            }
+            tbTransactionChange.Text = change.ToString("0.00");
+        }
+
+        private void findTransactionProduct()
+        {
+            currentProduct = productList.ToList().Find(tempProduct => tempProduct.product_code.Equals(tbProductCode.Text.Trim()) && Convert.ToInt32(tempProduct.quantity) > 0);
+            if(currentProduct != null)
+            {
+                lbTransactionProductQuantity.Text = currentProduct.quantity;
+                lbTransactionProductUnit.Text = currentProduct.unit;
+                lbTransactionProductDescription.Text = currentProduct.description;
+                lbTransactionProductPrice.Text = currentProduct.selling_price;
+            }
+        }
         private void sideNavItem11_Click(object sender, EventArgs e)
         {
 
@@ -301,7 +377,8 @@ namespace UnifyPaper.form.pages
 
         private void buttonX4_Click(object sender, EventArgs e)
         {
-
+            //BUTTON ADD
+            addTransactionProductItem();
         }
 
         private void bubbleButton10_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -455,6 +532,31 @@ namespace UnifyPaper.form.pages
                     dgLoadProductList();
                 }
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbProductCode_TextChanged(object sender, EventArgs e)
+        {
+            findTransactionProduct();
+        }
+
+        private void tbTransactionCash_TextChanged(object sender, EventArgs e)
+        {
+            calculateChange();
         }
 
         
