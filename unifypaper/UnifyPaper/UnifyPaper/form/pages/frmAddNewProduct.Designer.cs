@@ -52,9 +52,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnClear = new DevComponents.DotNetBar.ButtonX();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.tbUnit = new System.Windows.Forms.Label();
             this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.tbUnit = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.PreventEnterBeep = true;
             this.tbQuantity.Size = new System.Drawing.Size(220, 20);
-            this.tbQuantity.TabIndex = 16;
+            this.tbQuantity.TabIndex = 6;
             // 
             // tbTaxCode
             // 
@@ -88,7 +88,7 @@
             this.tbTaxCode.Name = "tbTaxCode";
             this.tbTaxCode.PreventEnterBeep = true;
             this.tbTaxCode.Size = new System.Drawing.Size(220, 20);
-            this.tbTaxCode.TabIndex = 17;
+            this.tbTaxCode.TabIndex = 8;
             // 
             // tbSellingPrice
             // 
@@ -104,7 +104,7 @@
             this.tbSellingPrice.Name = "tbSellingPrice";
             this.tbSellingPrice.PreventEnterBeep = true;
             this.tbSellingPrice.Size = new System.Drawing.Size(220, 20);
-            this.tbSellingPrice.TabIndex = 15;
+            this.tbSellingPrice.TabIndex = 5;
             this.tbSellingPrice.TextChanged += new System.EventHandler(this.tbCurrentCost_TextChanged);
             // 
             // tbSupplierName
@@ -121,7 +121,7 @@
             this.tbSupplierName.Name = "tbSupplierName";
             this.tbSupplierName.PreventEnterBeep = true;
             this.tbSupplierName.Size = new System.Drawing.Size(220, 20);
-            this.tbSupplierName.TabIndex = 18;
+            this.tbSupplierName.TabIndex = 9;
             // 
             // tbStandardPrice
             // 
@@ -137,7 +137,7 @@
             this.tbStandardPrice.Name = "tbStandardPrice";
             this.tbStandardPrice.PreventEnterBeep = true;
             this.tbStandardPrice.Size = new System.Drawing.Size(220, 20);
-            this.tbStandardPrice.TabIndex = 14;
+            this.tbStandardPrice.TabIndex = 4;
             // 
             // tbSupplierContactNo
             // 
@@ -153,7 +153,7 @@
             this.tbSupplierContactNo.Name = "tbSupplierContactNo";
             this.tbSupplierContactNo.PreventEnterBeep = true;
             this.tbSupplierContactNo.Size = new System.Drawing.Size(220, 20);
-            this.tbSupplierContactNo.TabIndex = 19;
+            this.tbSupplierContactNo.TabIndex = 10;
             // 
             // minimumQuantity
             // 
@@ -169,7 +169,7 @@
             this.minimumQuantity.Name = "minimumQuantity";
             this.minimumQuantity.PreventEnterBeep = true;
             this.minimumQuantity.Size = new System.Drawing.Size(220, 20);
-            this.minimumQuantity.TabIndex = 13;
+            this.minimumQuantity.TabIndex = 3;
             // 
             // tbDescription
             // 
@@ -185,7 +185,7 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.PreventEnterBeep = true;
             this.tbDescription.Size = new System.Drawing.Size(220, 20);
-            this.tbDescription.TabIndex = 11;
+            this.tbDescription.TabIndex = 2;
             // 
             // tbProductCode
             // 
@@ -201,7 +201,7 @@
             this.tbProductCode.Name = "tbProductCode";
             this.tbProductCode.PreventEnterBeep = true;
             this.tbProductCode.Size = new System.Drawing.Size(220, 20);
-            this.tbProductCode.TabIndex = 10;
+            this.tbProductCode.TabIndex = 1;
             // 
             // label1
             // 
@@ -317,7 +317,7 @@
             this.btnSave.Size = new System.Drawing.Size(88, 45);
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.Symbol = "";
-            this.btnSave.TabIndex = 20;
+            this.btnSave.TabIndex = 11;
             this.btnSave.Text = " Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -347,7 +347,7 @@
             this.btnClose.Size = new System.Drawing.Size(88, 45);
             this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClose.Symbol = "";
-            this.btnClose.TabIndex = 21;
+            this.btnClose.TabIndex = 13;
             this.btnClose.Text = " Cancel";
             this.btnClose.Click += new System.EventHandler(this.buttonX2_Click);
             // 
@@ -381,7 +381,7 @@
             this.btnClear.Size = new System.Drawing.Size(88, 45);
             this.btnClear.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClear.Symbol = "";
-            this.btnClear.TabIndex = 22;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = " Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -417,8 +417,37 @@
             this.panel1.Location = new System.Drawing.Point(12, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(493, 361);
-            this.panel1.TabIndex = 38;
+            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cmbUnit
+            // 
+            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
+            "pieces",
+            "rim",
+            "box"});
+            this.cmbUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Items.AddRange(new object[] {
+            "pieces",
+            "rim",
+            "box"});
+            this.cmbUnit.Location = new System.Drawing.Point(137, 225);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(220, 21);
+            this.cmbUnit.TabIndex = 7;
+            // 
+            // tbUnit
+            // 
+            this.tbUnit.AutoSize = true;
+            this.tbUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbUnit.Location = new System.Drawing.Point(101, 230);
+            this.tbUnit.Name = "tbUnit";
+            this.tbUnit.Size = new System.Drawing.Size(30, 16);
+            this.tbUnit.TabIndex = 36;
+            this.tbUnit.Text = "Unit";
             // 
             // cmbCategory
             // 
@@ -439,36 +468,7 @@
             this.cmbCategory.Location = new System.Drawing.Point(137, 43);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(220, 21);
-            this.cmbCategory.TabIndex = 34;
-            // 
-            // tbUnit
-            // 
-            this.tbUnit.AutoSize = true;
-            this.tbUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbUnit.Location = new System.Drawing.Point(101, 230);
-            this.tbUnit.Name = "tbUnit";
-            this.tbUnit.Size = new System.Drawing.Size(30, 16);
-            this.tbUnit.TabIndex = 36;
-            this.tbUnit.Text = "Unit";
-            // 
-            // cmbUnit
-            // 
-            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
-            "pieces",
-            "rim",
-            "box"});
-            this.cmbUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Items.AddRange(new object[] {
-            "pieces",
-            "rim",
-            "box"});
-            this.cmbUnit.Location = new System.Drawing.Point(137, 225);
-            this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(220, 21);
-            this.cmbUnit.TabIndex = 37;
+            this.cmbCategory.TabIndex = 0;
             // 
             // frmAddNewProduct
             // 

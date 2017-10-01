@@ -87,7 +87,48 @@ namespace UnifyPaper.Classes.Model
             
         }
 
+        public bool deleteProduct(string ID)
+        {
 
+            bool isDelete = false;
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM producttbl WHERE ID LIKE @ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Close();
+
+                    sql = "DELETE FROM producttbl WHERE ID LIKE @ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    int delete = cmd.ExecuteNonQuery();
+
+                    if (delete > 0)
+                    {
+                        isDelete = true;
+                    }
+                    else
+                    {
+                        isDelete = false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return isDelete;
+        }
         
 
         public List<Classes.Entities.products> getAllProductList()
@@ -162,6 +203,70 @@ namespace UnifyPaper.Classes.Model
             }
 
             return prodCategory;
+        }
+
+        public bool updateProduct(Classes.Entities.products prod)
+        {
+            bool isUpdate = false;
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM producttbl WHERE ID LIKE @ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", prod.ID);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Close();
+                    sql = "SELECT * FROM producttbl WHERE ID NOT LIKE @ID AND product_code=@product_code";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", prod.ID);
+                    cmd.Parameters.AddWithValue("@product_code", prod.product_code);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        dr.Close();
+                        sql = "UPDATE producttbl SET category=@category, product_code=@product_code, description=@description, minimum_qty=@minimum_qty, standard_price=@standard_price, selling_price=@selling_price, quantity=@quantity, unit=@unit, tax_code=@tax_code, supplier_name=@supplier_name, supplier_contact_no=@supplier_contact_no WHERE ID LIKE @ID";
+                        cmd = new OleDbCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@category", prod.category);
+                        cmd.Parameters.AddWithValue("@product_code", prod.product_code);
+                        cmd.Parameters.AddWithValue("@description", prod.description);
+                        cmd.Parameters.AddWithValue("@minimum_qty", prod.minimumQuantity);
+                        cmd.Parameters.AddWithValue("@standard_price", prod.standard_price);
+                        cmd.Parameters.AddWithValue("@selling_price", prod.selling_price);
+                        cmd.Parameters.AddWithValue("@quantity", prod.quantity);
+                        cmd.Parameters.AddWithValue("@unit", prod.unit);
+                        cmd.Parameters.AddWithValue("@tax_code", prod.tax_code);
+                        cmd.Parameters.AddWithValue("@supplier_name", prod.supplier_name);
+                        cmd.Parameters.AddWithValue("@supplier_contact_no", prod.supplier_contact_no);
+                        cmd.Parameters.AddWithValue("@ID", prod.ID);
+                        int idUpdated = cmd.ExecuteNonQuery();
+                        if (idUpdated > 0)
+                        {
+                            isUpdate = true;
+                        }
+                        else
+                        {
+                            isUpdate = false;
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return isUpdate;
         }
 
         public List<string> getAllProdctUnit()

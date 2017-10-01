@@ -26,5 +26,18 @@ namespace UnifyPaper.form.pages
         {
             this.Close();
         }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmItemList fil = new frmItemList();
+            fil.ShowDialog();
+            this.Close();
+        }
     }
 }
