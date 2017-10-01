@@ -15,7 +15,8 @@ namespace UnifyPaper.form.pages
         public frmMainPage()
         {
             InitializeComponent();
-            
+            sideNav1.IsMenuExpanded = false;
+            btnSidenavHome.Select();
         }
 
         //INITIALIZE ITEMS
@@ -156,6 +157,7 @@ namespace UnifyPaper.form.pages
             loadCurrentProduct();
             findTransactionProduct();
             transactionSettings();
+            tbProductCode.Focus();
         }
 
         private void transactionSettings()
@@ -196,7 +198,7 @@ namespace UnifyPaper.form.pages
 
             foreach (Classes.Entities.products prod in currentTransaction.productList)
             {
-                
+              
                 double totalProductPrice = Convert.ToDouble(prod.quantity) * Convert.ToDouble(prod.selling_price);
                 dgTable.Rows.Add(prod.ID,
                                 prod.product_code,
@@ -207,11 +209,17 @@ namespace UnifyPaper.form.pages
                                 prod.tax_code,
                                 Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00")
                                 );
-                grandTotal *= totalProductPrice;
+                grandTotal += totalProductPrice;
             }
-            
             dgTransactionList.DataSource = dgTable;
-            tbGrandtotal.Text = grandTotal.ToString("0.00");
+            tbSubTotal.Text = grandTotal.ToString("0.00");
+
+            MessageBox.Show(grandTotal.ToString());
+            
+            double tmpProductPriceValue = Convert.ToDouble(grandTotal) * (Convert.ToDouble(12)/100.00);
+            double grandTotalValue = Convert.ToDouble(grandTotal) + tmpProductPriceValue;
+            tbTax.Text = tmpProductPriceValue.ToString("0.00");
+            tbGrandtotal.Text = grandTotalValue.ToString("0.00");
         }
 
 
@@ -258,7 +266,7 @@ namespace UnifyPaper.form.pages
             Int32 o;
             if(currentProduct != null)
             {
-                if(tbQty.Text.Trim() != "" && Int32.TryParse(tbQty.Text.Trim(), out o))
+                if (tbQty.Text.Trim() != "" && Int32.TryParse(tbQty.Text.Trim(), out o))
                 {
                     if (Convert.ToInt32(currentProduct.quantity) - currentTransaction.getTransactionProductQuantityByID(currentProduct.ID) >= Convert.ToInt32(tbQty.Text.Trim()))
                     {
@@ -271,8 +279,11 @@ namespace UnifyPaper.form.pages
                         tbQty.Text = "";
                         displayCurrentTransactionItems();
                         tbProductCode.Focus();
-
                     }
+                }
+                else
+                {
+                    tbQty.Focus();
                 }
             }
         }
@@ -291,13 +302,20 @@ namespace UnifyPaper.form.pages
         private void findTransactionProduct()
         {
             currentProduct = productList.ToList().Find(tempProduct => tempProduct.product_code.Equals(tbProductCode.Text.Trim()) && Convert.ToInt32(tempProduct.quantity) > 0);
-            if(currentProduct != null)
+            if (currentProduct != null)
             {
-                lbTransactionProductQuantity.Text = currentProduct.quantity;
                 lbTransactionProductUnit.Text = currentProduct.unit;
                 lbTransactionProductDescription.Text = currentProduct.description;
-                lbTransactionProductPrice.Text = currentProduct.selling_price;
+                lbTransactionProductPrice.Text = Convert.ToDouble(currentProduct.selling_price).ToString("0.00");
             }
+            else
+            {
+                lbTransactionProductQuantity.Text = "";
+                lbTransactionProductUnit.Text = "";
+                lbTransactionProductDescription.Text = "";
+                lbTransactionProductPrice.Text = "";
+            }
+
         }
         private void sideNavItem11_Click(object sender, EventArgs e)
         {
@@ -557,6 +575,24 @@ namespace UnifyPaper.form.pages
         private void tbTransactionCash_TextChanged(object sender, EventArgs e)
         {
             calculateChange();
+        }
+
+        private void frmMainPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void sideNav2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMainPage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addTransactionProductItem();
+            }
         }
 
         
