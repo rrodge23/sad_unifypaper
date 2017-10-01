@@ -139,6 +139,12 @@
     <Compile Include="form\pages\frmReCall.Designer.cs">
       <DependentUpon>frmReCall.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmReceiptFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmReceiptFormat.Designer.cs">
+      <DependentUpon>frmReceiptFormat.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmTransactionDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmReCall.resx">
       <DependentUpon>frmReCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmReceiptFormat.resx">
+      <DependentUpon>frmReceiptFormat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmTransactionDiscount.resx">
       <DependentUpon>frmTransactionDiscount.cs</DependentUpon>

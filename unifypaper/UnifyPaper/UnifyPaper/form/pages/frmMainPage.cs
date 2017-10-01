@@ -19,6 +19,7 @@ namespace UnifyPaper.form.pages
 
         Classes.Database.database db = new Classes.Database.database();
         Classes.Model.m_products m_prod = new Classes.Model.m_products();
+ 
         private void lvsetting()
         {
             lvUser.Columns.Clear();
@@ -177,12 +178,12 @@ namespace UnifyPaper.form.pages
             loadData();
             lbUsername.Text = Classes.Session.sessionUsers.username;
             dgLoadTransactionList();
-
+           
         }
 
-        private void dgLoadProductList()
+        public void dgLoadProductList()
         {
-            dgProductList.Rows.Clear();
+            dgProductList.DataSource = null;
             List<Classes.Entities.products> productInfo = new List<Classes.Entities.products>();
             //if(productInfo.Count > 0)
             //{
@@ -270,6 +271,7 @@ namespace UnifyPaper.form.pages
         {
             frmTransactionSearchItem ftsi = new frmTransactionSearchItem();
             ftsi.ShowDialog();
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -389,5 +391,72 @@ namespace UnifyPaper.form.pages
             }
         }
 
+        private void bubbleButton1_Click_2(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmAddNewProduct fanp = new frmAddNewProduct();
+            fanp.mainpageFrm = this;
+            fanp.ShowDialog();
+        }
+
+        private void buttonX7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgProductList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("Do You Want To Update This Record ?","Updating",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                List<string> rowItems = new List<string>();
+                Classes.Entities.products prod = new Classes.Entities.products();
+                foreach (DataGridViewCell cell in dgProductList.Rows[dgProductList.CurrentRow.Index].Cells)
+                {
+                    rowItems.Add(dgProductList.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Value.ToString());
+                }
+
+                prod.ID = rowItems[0];
+                prod.product_code = rowItems[1];
+                prod.description = rowItems[2];
+                prod.category = rowItems[3];
+                prod.minimumQuantity = rowItems[4];
+                prod.standard_price = rowItems[5];
+                prod.selling_price = rowItems[6];
+                prod.quantity = rowItems[7];
+                prod.unit = rowItems[8];
+                prod.tax_code = rowItems[9];
+                prod.supplier_name = rowItems[10];
+                prod.supplier_contact_no = rowItems[11];
+                if (m_prod.updateProduct(prod))
+                {
+                    dgLoadProductList();
+                    MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Product Already Exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgLoadProductList();
+                }
+            }
+            else
+            {
+                dgLoadProductList();
+            }
+
+        }
+
+        private void bubbleButton11_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            if(MessageBox.Show("Do You Want To Delete This Record ?","Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string id = dgProductList.Rows[dgProductList.CurrentRow.Index].Cells[0].Value.ToString();
+                if (m_prod.deleteProduct(id))
+                {
+                    MessageBox.Show("Successfully Deleted", "Product ID :" + id, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgLoadProductList();
+                }
+            }
+        }
+
+        
     }
 }
