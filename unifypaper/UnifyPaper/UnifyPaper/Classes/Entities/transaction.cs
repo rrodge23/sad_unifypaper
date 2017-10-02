@@ -45,7 +45,7 @@ namespace UnifyPaper.Classes.Entities
             {
                 products tmpProduct = new products();
                 tmpProduct = this.productListContainer.ToList().Find(tempProduct => tempProduct.product_code.Equals(prod.product_code));
-                tmpProduct.quantity += prod.quantity;
+                tmpProduct.quantity = prod.quantity;
             }
         }
 

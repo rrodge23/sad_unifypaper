@@ -188,11 +188,10 @@ namespace UnifyPaper.form.pages
             dgTable.Columns.Add("ID", typeof(int));
             dgTable.Columns.Add("Product Code", typeof(string));
             dgTable.Columns.Add("Description", typeof(string));
-            dgTable.Columns.Add("Category", typeof(string));
             dgTable.Columns.Add("Quantity", typeof(string));
             dgTable.Columns.Add("Unit", typeof(string));
-            dgTable.Columns.Add("Tax", typeof(string));
             dgTable.Columns.Add("Price", typeof(string));
+            dgTable.Columns.Add("Total", typeof(string));
 
             double grandTotal = 0;
 
@@ -203,23 +202,20 @@ namespace UnifyPaper.form.pages
                 dgTable.Rows.Add(prod.ID,
                                 prod.product_code,
                                 prod.description,
-                                prod.category,
                                 prod.quantity,
                                 prod.unit,
-                                prod.tax_code,
-                                Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00")
+                                Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00"),
+                                (Convert.ToDouble(prod.selling_price) * Convert.ToDouble(prod.quantity)).ToString()
                                 );
                 grandTotal += totalProductPrice;
             }
             dgTransactionList.DataSource = dgTable;
-            tbSubTotal.Text = grandTotal.ToString("0.00");
 
-            MessageBox.Show(grandTotal.ToString());
-            
+
             double tmpProductPriceValue = Convert.ToDouble(grandTotal) * (Convert.ToDouble(12)/100.00);
-            double grandTotalValue = Convert.ToDouble(grandTotal) + tmpProductPriceValue;
+            tbSubTotal.Text = (Convert.ToDouble(grandTotal) - tmpProductPriceValue).ToString("0.00");
             tbTax.Text = tmpProductPriceValue.ToString("0.00");
-            tbGrandtotal.Text = grandTotalValue.ToString("0.00");
+            tbGrandtotal.Text = grandTotal.ToString("0.00");
         }
 
 
@@ -283,6 +279,7 @@ namespace UnifyPaper.form.pages
                 }
                 else
                 {
+                    tbQty.Text = "1";
                     tbQty.Focus();
                 }
             }
