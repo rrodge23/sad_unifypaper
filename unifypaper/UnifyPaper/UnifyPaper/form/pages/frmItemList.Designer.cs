@@ -28,30 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewEx1 = new DevComponents.DotNetBar.Controls.ListViewEx();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgProductList = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listViewEx1
-            // 
-            this.listViewEx1.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.listViewEx1.Border.Class = "ListViewBorder";
-            this.listViewEx1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.listViewEx1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.listViewEx1.ForeColor = System.Drawing.Color.Black;
-            this.listViewEx1.Location = new System.Drawing.Point(27, 46);
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.Size = new System.Drawing.Size(863, 294);
-            this.listViewEx1.TabIndex = 0;
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
-            this.listViewEx1.SelectedIndexChanged += new System.EventHandler(this.listViewEx1_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -69,29 +61,34 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = " Add";
             // 
-            // buttonX2
+            // btnClose
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.AntiAlias = true;
-            this.buttonX2.Checked = true;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonX2.Location = new System.Drawing.Point(788, 327);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.buttonX2.Size = new System.Drawing.Size(88, 45);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.Symbol = "";
-            this.buttonX2.TabIndex = 2;
-            this.buttonX2.Text = " Cancel";
-            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClose.AntiAlias = true;
+            this.btnClose.Checked = true;
+            this.btnClose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnClose.Location = new System.Drawing.Point(788, 327);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnClose.Size = new System.Drawing.Size(88, 45);
+            this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClose.Symbol = "";
+            this.btnClose.TabIndex = 2;
+            this.btnClose.Text = " Cancel";
+            this.btnClose.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Firebrick;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.buttonX2);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.slidePanel1);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(892, 391);
@@ -111,6 +108,71 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Item List";
             // 
+            // dgProductList
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProductList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgProductList.BackgroundColor = System.Drawing.Color.White;
+            this.dgProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgProductList.GridColor = System.Drawing.Color.White;
+            this.dgProductList.Location = new System.Drawing.Point(0, 0);
+            this.dgProductList.Name = "dgProductList";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProductList.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgProductList.Size = new System.Drawing.Size(856, 270);
+            this.dgProductList.TabIndex = 3;
+            this.dgProductList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgProductList_KeyDown);
+            this.dgProductList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgProductList_KeyPress);
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(888, 37);
+            this.panel2.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 307);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(888, 80);
+            this.panel3.TabIndex = 5;
+            // 
+            // slidePanel1
+            // 
+            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.slidePanel1.Location = new System.Drawing.Point(0, 37);
+            this.slidePanel1.Name = "slidePanel1";
+            this.slidePanel1.Size = new System.Drawing.Size(16, 270);
+            this.slidePanel1.TabIndex = 7;
+            this.slidePanel1.Text = "slidePanel1";
+            this.slidePanel1.UsesBlockingAnimation = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Firebrick;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(872, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(16, 270);
+            this.panel4.TabIndex = 8;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.dgProductList);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(16, 37);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(856, 270);
+            this.panel5.TabIndex = 9;
+            // 
             // frmItemList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,9 +180,9 @@
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(916, 430);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listViewEx1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmItemList";
@@ -128,6 +190,8 @@
             this.Text = "Item List";
             this.Load += new System.EventHandler(this.frmItemList_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,10 +199,15 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.ListViewEx listViewEx1;
         private DevComponents.DotNetBar.ButtonX btnAdd;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.ButtonX btnClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgProductList;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private DevComponents.DotNetBar.Controls.SlidePanel slidePanel1;
     }
 }

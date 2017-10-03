@@ -300,5 +300,57 @@ namespace UnifyPaper.Classes.Model
             return unit;
         }
 
+        public List<Classes.Entities.products> getProductByMode(string inputString, string mode)
+        {
+            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>();
+            try
+            {
+                conn.Open();
+                string sql = "";
+                if(mode == "description")
+                {
+                     sql = "SELECT * FROM producttbl WHERE description LIKE '%"+inputString+"%'";
+                }else if(mode == "category")
+                {
+                   
+                     sql = "SELECT * FROM producttbl WHERE category='"+inputString+"'";
+                }
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Classes.Entities.products prod = new Entities.products();
+                        prod.ID = dr["ID"].ToString();
+                        prod.category = dr["category"].ToString();
+                        prod.description = dr["description"].ToString();
+                        prod.product_code = dr["product_code"].ToString();
+                        prod.minimumQuantity = dr["minimum_qty"].ToString();
+                        prod.standard_price = dr["standard_price"].ToString();
+                        prod.selling_price = dr["selling_price"].ToString();
+                        prod.quantity = dr["quantity"].ToString();
+                        prod.unit = dr["unit"].ToString();
+                        prod.supplier_name = dr["supplier_name"].ToString();
+                        prod.supplier_contact_no = dr["supplier_contact_no"].ToString();
+                        prodList.Add(prod);
+
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return prodList;
+        }
+
     }
 }
