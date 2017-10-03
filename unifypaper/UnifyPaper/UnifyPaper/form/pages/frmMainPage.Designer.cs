@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Jomel Ang",
             "MWF 8:00am - 5:00pm",
             "Cashier"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainPage));
             this.sideNav1 = new DevComponents.DotNetBar.Controls.SideNav();
             this.sideNavPanel1 = new DevComponents.DotNetBar.Controls.SideNavPanel();
@@ -51,7 +51,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbTransactionProductUnit = new System.Windows.Forms.Label();
             this.lbTransactionProductPrice = new System.Windows.Forms.Label();
-            this.lbTransactionProductQuantity = new System.Windows.Forms.Label();
             this.lbTransactionProductDescription = new System.Windows.Forms.Label();
             this.panelEx9 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx8 = new DevComponents.DotNetBar.PanelEx();
@@ -63,8 +62,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.btnAddItem = new DevComponents.DotNetBar.ButtonX();
+            this.btnSearchItem = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -228,46 +227,48 @@
             this.dgTransactionList.AllowUserToAddRows = false;
             this.dgTransactionList.AllowUserToDeleteRows = false;
             this.dgTransactionList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgTransactionList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgTransactionList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgTransactionList.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTransactionList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTransactionList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgTransactionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgTransactionList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgTransactionList.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgTransactionList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgTransactionList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgTransactionList.GridColor = System.Drawing.Color.White;
             this.dgTransactionList.Location = new System.Drawing.Point(0, 0);
+            this.dgTransactionList.MultiSelect = false;
             this.dgTransactionList.Name = "dgTransactionList";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTransactionList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgTransactionList.RowHeadersWidth = 150;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTransactionList.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dgTransactionList.RowHeadersWidth = 30;
             this.dgTransactionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgTransactionList.Size = new System.Drawing.Size(914, 199);
             this.dgTransactionList.TabIndex = 58;
+            this.dgTransactionList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTransactionList_RowEnter);
             // 
             // panelEx5
             // 
@@ -295,7 +296,6 @@
             // 
             this.panel9.Controls.Add(this.lbTransactionProductUnit);
             this.panel9.Controls.Add(this.lbTransactionProductPrice);
-            this.panel9.Controls.Add(this.lbTransactionProductQuantity);
             this.panel9.Controls.Add(this.lbTransactionProductDescription);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(21, 21);
@@ -307,7 +307,7 @@
             // 
             this.lbTransactionProductUnit.AutoSize = true;
             this.lbTransactionProductUnit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductUnit.Location = new System.Drawing.Point(51, 79);
+            this.lbTransactionProductUnit.Location = new System.Drawing.Point(795, 89);
             this.lbTransactionProductUnit.Name = "lbTransactionProductUnit";
             this.lbTransactionProductUnit.Size = new System.Drawing.Size(61, 19);
             this.lbTransactionProductUnit.TabIndex = 3;
@@ -317,27 +317,18 @@
             // 
             this.lbTransactionProductPrice.AutoSize = true;
             this.lbTransactionProductPrice.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductPrice.Location = new System.Drawing.Point(730, 70);
+            this.lbTransactionProductPrice.Location = new System.Drawing.Point(650, 70);
             this.lbTransactionProductPrice.Name = "lbTransactionProductPrice";
             this.lbTransactionProductPrice.Size = new System.Drawing.Size(139, 42);
             this.lbTransactionProductPrice.TabIndex = 2;
             this.lbTransactionProductPrice.Text = "100.00";
-            // 
-            // lbTransactionProductQuantity
-            // 
-            this.lbTransactionProductQuantity.AutoSize = true;
-            this.lbTransactionProductQuantity.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductQuantity.Location = new System.Drawing.Point(26, 79);
-            this.lbTransactionProductQuantity.Name = "lbTransactionProductQuantity";
-            this.lbTransactionProductQuantity.Size = new System.Drawing.Size(19, 19);
-            this.lbTransactionProductQuantity.TabIndex = 1;
-            this.lbTransactionProductQuantity.Text = "2";
+            this.lbTransactionProductPrice.Click += new System.EventHandler(this.lbTransactionProductPrice_Click);
             // 
             // lbTransactionProductDescription
             // 
             this.lbTransactionProductDescription.AutoSize = true;
             this.lbTransactionProductDescription.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductDescription.Location = new System.Drawing.Point(125, 41);
+            this.lbTransactionProductDescription.Location = new System.Drawing.Point(17, 41);
             this.lbTransactionProductDescription.Name = "lbTransactionProductDescription";
             this.lbTransactionProductDescription.Size = new System.Drawing.Size(479, 77);
             this.lbTransactionProductDescription.TabIndex = 0;
@@ -492,8 +483,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Firebrick;
-            this.panel3.Controls.Add(this.buttonX4);
-            this.panel3.Controls.Add(this.buttonX2);
+            this.panel3.Controls.Add(this.btnAddItem);
+            this.panel3.Controls.Add(this.btnSearchItem);
             this.panel3.Controls.Add(this.buttonX1);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label7);
@@ -505,39 +496,39 @@
             this.panel3.Size = new System.Drawing.Size(434, 178);
             this.panel3.TabIndex = 0;
             // 
-            // buttonX4
+            // btnAddItem
             // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.AntiAlias = true;
-            this.buttonX4.Checked = true;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX4.Location = new System.Drawing.Point(94, 105);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.buttonX4.Size = new System.Drawing.Size(88, 45);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.Symbol = "";
-            this.buttonX4.TabIndex = 28;
-            this.buttonX4.Text = "Add Item";
-            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
+            this.btnAddItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddItem.AntiAlias = true;
+            this.btnAddItem.Checked = true;
+            this.btnAddItem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddItem.Location = new System.Drawing.Point(94, 105);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnAddItem.Size = new System.Drawing.Size(88, 45);
+            this.btnAddItem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddItem.Symbol = "";
+            this.btnAddItem.TabIndex = 28;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.Click += new System.EventHandler(this.buttonX4_Click);
             // 
-            // buttonX2
+            // btnSearchItem
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.AntiAlias = true;
-            this.buttonX2.Checked = true;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX2.Location = new System.Drawing.Point(206, 106);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.buttonX2.Size = new System.Drawing.Size(88, 45);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.Symbol = "";
-            this.buttonX2.TabIndex = 27;
-            this.buttonX2.Text = " Search Item";
-            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            this.btnSearchItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSearchItem.AntiAlias = true;
+            this.btnSearchItem.Checked = true;
+            this.btnSearchItem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSearchItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchItem.Location = new System.Drawing.Point(206, 106);
+            this.btnSearchItem.Name = "btnSearchItem";
+            this.btnSearchItem.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnSearchItem.Size = new System.Drawing.Size(88, 45);
+            this.btnSearchItem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSearchItem.Symbol = "";
+            this.btnSearchItem.TabIndex = 27;
+            this.btnSearchItem.Text = " Search Item";
+            this.btnSearchItem.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // buttonX1
             // 
@@ -553,7 +544,7 @@
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.Symbol = "";
             this.buttonX1.TabIndex = 26;
-            this.buttonX1.Text = " Delete Item";
+            this.buttonX1.Text = "Remove Item";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click_1);
             // 
             // label1
@@ -586,7 +577,6 @@
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(89, 23);
             this.tbQty.TabIndex = 16;
-            this.tbQty.Text = "2";
             this.tbQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
             // 
             // tbProductCode
@@ -605,7 +595,6 @@
             this.tbProductCode.PreventEnterBeep = true;
             this.tbProductCode.Size = new System.Drawing.Size(206, 23);
             this.tbProductCode.TabIndex = 25;
-            this.tbProductCode.Text = "00";
             this.tbProductCode.TextChanged += new System.EventHandler(this.tbProductCode_TextChanged);
             // 
             // panel4
@@ -1208,38 +1197,38 @@
             this.dgProductList.AllowUserToAddRows = false;
             this.dgProductList.AllowUserToDeleteRows = false;
             this.dgProductList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgProductList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgProductList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgProductList.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProductList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProductList.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgProductList.Location = new System.Drawing.Point(0, 0);
             this.dgProductList.MultiSelect = false;
             this.dgProductList.Name = "dgProductList";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProductList.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgProductList.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProductList.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgProductList.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgProductList.Size = new System.Drawing.Size(758, 385);
             this.dgProductList.TabIndex = 4;
             this.dgProductList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductList_CellValueChanged);
@@ -1780,7 +1769,7 @@
         private DevComponents.DotNetBar.SwitchButtonItem switchButtonItem1;
         private DevComponents.DotNetBar.Controls.SideNavPanel sideNavPanel1;
         private DevComponents.DotNetBar.ButtonX btnTransactionTender;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.ButtonX btnSearchItem;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.Controls.TextBoxX tbProductCode;
         private System.Windows.Forms.Label label1;
@@ -1805,7 +1794,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
-        private DevComponents.DotNetBar.ButtonX buttonX4;
+        private DevComponents.DotNetBar.ButtonX btnAddItem;
         private DevComponents.DotNetBar.PanelEx panelEx3;
         private DevComponents.DotNetBar.BubbleBar bubbleBar4;
         private DevComponents.DotNetBar.BubbleBarTab bubbleBarTab4;
@@ -1848,7 +1837,6 @@
         private System.Windows.Forms.DataGridView dgTransactionList;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lbTransactionProductPrice;
-        private System.Windows.Forms.Label lbTransactionProductQuantity;
         private System.Windows.Forms.Label lbTransactionProductDescription;
         private DevComponents.DotNetBar.BubbleButton bubbleButton1;
         private System.Windows.Forms.Panel panel10;

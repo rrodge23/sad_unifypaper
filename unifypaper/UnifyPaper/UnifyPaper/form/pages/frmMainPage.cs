@@ -17,6 +17,7 @@ namespace UnifyPaper.form.pages
             InitializeComponent();
             sideNav1.IsMenuExpanded = false;
             btnSidenavHome.Select();
+
         }
 
         //INITIALIZE ITEMS
@@ -160,6 +161,7 @@ namespace UnifyPaper.form.pages
             tbProductCode.Focus();
         }
 
+
         private void transactionSettings()
         {
             tbGrandtotal.Text = "";
@@ -170,8 +172,18 @@ namespace UnifyPaper.form.pages
             tbSubTotal.Text = "";
             tbTax.Text = "";
             lbTransactionProductDescription.Text = "";
-            lbTransactionProductQuantity.Text = "";
             lbTransactionProductUnit.Text = "";
+
+            dgTransactionList.BorderStyle = BorderStyle.None;
+            dgTransactionList.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgTransactionList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgTransactionList.BackgroundColor = Color.White;
+            dgTransactionList.Columns[0].Width = 150;
+            dgTransactionList.Columns[1].Width = 500;
+            dgTransactionList.Columns[2].Width = 150;
+            dgTransactionList.Columns[3].Width = 200;
+            dgTransactionList.Columns[4].Width = 150;
+            dgTransactionList.Columns[5].Width = 150;
         }
 
         private void loadCurrentProduct()
@@ -181,11 +193,11 @@ namespace UnifyPaper.form.pages
 
         private void displayCurrentTransactionItems()
         {
+            
 
             dgTransactionList.DataSource = null;
             calculateChange();
             DataTable dgTable = new DataTable();
-            dgTable.Columns.Add("ID", typeof(int));
             dgTable.Columns.Add("Product Code", typeof(string));
             dgTable.Columns.Add("Description", typeof(string));
             dgTable.Columns.Add("Quantity", typeof(string));
@@ -193,24 +205,37 @@ namespace UnifyPaper.form.pages
             dgTable.Columns.Add("Price", typeof(string));
             dgTable.Columns.Add("Total", typeof(string));
 
+            
+
             double grandTotal = 0;
 
             foreach (Classes.Entities.products prod in currentTransaction.productList)
             {
               
                 double totalProductPrice = Convert.ToDouble(prod.quantity) * Convert.ToDouble(prod.selling_price);
-                dgTable.Rows.Add(prod.ID,
+                dgTable.Rows.Add(
                                 prod.product_code,
                                 prod.description,
                                 prod.quantity,
                                 prod.unit,
                                 Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00"),
-                                (Convert.ToDouble(prod.selling_price) * Convert.ToDouble(prod.quantity)).ToString()
+                                (Convert.ToDouble(prod.selling_price) * Convert.ToDouble(prod.quantity)).ToString("0.00")
                                 );
                 grandTotal += totalProductPrice;
             }
             dgTransactionList.DataSource = dgTable;
 
+            //STYLE GRIDVIEW
+            dgTransactionList.BorderStyle = BorderStyle.None;
+            dgTransactionList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgTransactionList.Columns[0].Width = 150;
+            dgTransactionList.Columns[1].Width = 500;
+            dgTransactionList.Columns[2].Width = 150;
+            dgTransactionList.Columns[3].Width = 200;
+            dgTransactionList.Columns[4].Width = 150;
+            dgTransactionList.Columns[5].Width = 150;
+
+            //STYLE GRIDVIEW END
 
             double tmpProductPriceValue = Convert.ToDouble(grandTotal) * (Convert.ToDouble(12)/100.00);
             tbSubTotal.Text = (Convert.ToDouble(grandTotal) - tmpProductPriceValue).ToString("0.00");
@@ -227,7 +252,7 @@ namespace UnifyPaper.form.pages
             //{
                 productInfo = m_prod.getAllProductList();
                 DataTable dgTable = new DataTable();
-                dgTable.Columns.Add("ID", typeof(int));
+                dgTable.Columns.Add("ID", typeof(string));
                 dgTable.Columns.Add("Product Code", typeof(string));
                 dgTable.Columns.Add("Description", typeof(string));
                 dgTable.Columns.Add("Category", typeof(string));
@@ -241,7 +266,7 @@ namespace UnifyPaper.form.pages
                 dgTable.Columns.Add("Supplier Contact No.", typeof(string));
                 for(int i=0; i< productInfo.Count;i++)
                 {
-                    dgTable.Rows.Add(productInfo[i].ID,
+                    dgTable.Rows.Add(productInfo[i].ID, 
                         productInfo[i].product_code, 
                         productInfo[i].description, 
                         productInfo[i].category, 
@@ -270,10 +295,16 @@ namespace UnifyPaper.form.pages
                         newProduct.quantity = tbQty.Text.Trim();
                         currentTransaction.addTransactionNewProduct(newProduct);
                         currentProduct = null;
+                        displayCurrentTransactionItems();
+                        //FOCUS ON EXIST PRODUCT
+                        int rowIndex = -1;
+                        DataGridViewRow row = dgTransactionList.Rows.Cast<DataGridViewRow>().Where(r => r.Cells[0].Value.ToString().Equals(tbProductCode.Text)).First();
+                        rowIndex = row.Index;
+                        this.dgTransactionList.CurrentCell = this.dgTransactionList[0, rowIndex];
+                        dgTransactionList.Rows[rowIndex].Selected = true;
                         tbProductCode.Text = "";
                         lbTransactionProductDescription.Text = "";
                         tbQty.Text = "";
-                        displayCurrentTransactionItems();
                         tbProductCode.Focus();
                     }
                 }
@@ -304,15 +335,16 @@ namespace UnifyPaper.form.pages
                 lbTransactionProductUnit.Text = currentProduct.unit;
                 lbTransactionProductDescription.Text = currentProduct.description;
                 lbTransactionProductPrice.Text = Convert.ToDouble(currentProduct.selling_price).ToString("0.00");
+
+                
             }
             else
             {
-                lbTransactionProductQuantity.Text = "";
                 lbTransactionProductUnit.Text = "";
                 lbTransactionProductDescription.Text = "";
                 lbTransactionProductPrice.Text = "";
             }
-
+            
         }
         private void sideNavItem11_Click(object sender, EventArgs e)
         {
@@ -377,7 +409,12 @@ namespace UnifyPaper.form.pages
 
         private void buttonX1_Click_1(object sender, EventArgs e)
         {
+            removeItem();
+        }
 
+        private void removeItem()
+        {
+            dgTransactionList.Rows.RemoveAt(dgTransactionList.CurrentRow.Index);
         }
 
         private void bubbleButton8_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -567,6 +604,7 @@ namespace UnifyPaper.form.pages
         private void tbProductCode_TextChanged(object sender, EventArgs e)
         {
             findTransactionProduct();
+            
         }
 
         private void tbTransactionCash_TextChanged(object sender, EventArgs e)
@@ -590,6 +628,24 @@ namespace UnifyPaper.form.pages
             {
                 addTransactionProductItem();
             }
+            if (e.KeyCode == Keys.Delete)
+            {
+                removeItem();
+            }
+            if (e.KeyCode == Keys.Delete)
+            {
+                btnSearchItem.PerformClick();
+            }
+        }
+
+        private void dgTransactionList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void lbTransactionProductPrice_Click(object sender, EventArgs e)
+        {
+
         }
 
         
