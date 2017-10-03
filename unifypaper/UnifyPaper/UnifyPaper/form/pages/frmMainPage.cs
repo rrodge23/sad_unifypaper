@@ -389,12 +389,17 @@ namespace UnifyPaper.form.pages
         {
 
         }
-
+        public void transactionTextBoxInput(string str)
+        {
+            tbProductCode.Text = str;
+        }
         private void buttonX2_Click(object sender, EventArgs e)
         {
+            tbProductCode.Text = "";
             frmTransactionSearchItem ftsi = new frmTransactionSearchItem();
+            ftsi.mainpageForm = this;
             ftsi.ShowDialog();
-           
+            btnAddItem.PerformClick();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -414,6 +419,7 @@ namespace UnifyPaper.form.pages
 
         private void removeItem()
         {
+            productList.RemoveAt(dgTransactionList.CurrentRow.Index);
             dgTransactionList.Rows.RemoveAt(dgTransactionList.CurrentRow.Index);
         }
 
@@ -626,13 +632,23 @@ namespace UnifyPaper.form.pages
         {
             if (e.KeyCode == Keys.Enter)
             {
-                addTransactionProductItem();
+                if (tbProductCode.Text != "")
+                {
+                    addTransactionProductItem();
+                }
+                else
+                {
+                    btnTransactionTender.PerformClick();
+                }
             }
+            
             if (e.KeyCode == Keys.Delete)
             {
+
                 removeItem();
             }
-            if (e.KeyCode == Keys.Delete)
+
+            if (e.KeyCode == Keys.Space)
             {
                 btnSearchItem.PerformClick();
             }
@@ -646,6 +662,11 @@ namespace UnifyPaper.form.pages
         private void lbTransactionProductPrice_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbProductCode_Enter(object sender, EventArgs e)
+        {
+            tbProductCode.Text = "";
         }
 
         

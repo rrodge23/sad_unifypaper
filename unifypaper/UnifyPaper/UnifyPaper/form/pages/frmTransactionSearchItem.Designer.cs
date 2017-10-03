@@ -31,15 +31,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.lbError = new System.Windows.Forms.Label();
+            this.btnCLose = new DevComponents.DotNetBar.ButtonX();
             this.btnOk = new DevComponents.DotNetBar.ButtonX();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.tbItemCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 397);
+            this.panel1.Size = new System.Drawing.Size(388, 296);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -60,7 +60,7 @@
             this.label1.BackColor = System.Drawing.Color.DimGray;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(25, 54);
+            this.label1.Location = new System.Drawing.Point(22, 5);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
             this.label1.Size = new System.Drawing.Size(173, 29);
@@ -71,19 +71,31 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Firebrick;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cmbCategory);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.buttonX2);
+            this.panel2.Controls.Add(this.lbError);
+            this.panel2.Controls.Add(this.btnCLose);
             this.panel2.Controls.Add(this.btnOk);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tbDescription);
+            this.panel2.Controls.Add(this.tbItemCode);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(3, 73);
+            this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(382, 269);
             this.panel2.TabIndex = 31;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(150, 114);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(199, 21);
+            this.cmbCategory.TabIndex = 4;
+            this.cmbCategory.Enter += new System.EventHandler(this.tbCategory_Enter);
             // 
             // label5
             // 
@@ -96,34 +108,34 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Search by Category";
             // 
-            // label4
+            // lbError
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(146, 224);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 14);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Fill out details!";
+            this.lbError.AutoSize = true;
+            this.lbError.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbError.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbError.Location = new System.Drawing.Point(146, 224);
+            this.lbError.Name = "lbError";
+            this.lbError.Size = new System.Drawing.Size(97, 14);
+            this.lbError.TabIndex = 6;
+            this.lbError.Text = "Fill out details!";
             // 
-            // buttonX2
+            // btnCLose
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.AntiAlias = true;
-            this.buttonX2.Checked = true;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonX2.Location = new System.Drawing.Point(214, 156);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.buttonX2.Size = new System.Drawing.Size(88, 45);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.Symbol = "";
-            this.buttonX2.TabIndex = 5;
-            this.buttonX2.Text = " Exit";
-            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            this.btnCLose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCLose.AntiAlias = true;
+            this.btnCLose.Checked = true;
+            this.btnCLose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCLose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCLose.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCLose.Location = new System.Drawing.Point(214, 156);
+            this.btnCLose.Name = "btnCLose";
+            this.btnCLose.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnCLose.Size = new System.Drawing.Size(88, 45);
+            this.btnCLose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnCLose.Symbol = "";
+            this.btnCLose.TabIndex = 6;
+            this.btnCLose.Text = " Exit";
+            this.btnCLose.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // btnOk
             // 
@@ -139,23 +151,26 @@
             this.btnOk.Size = new System.Drawing.Size(88, 45);
             this.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOk.Symbol = "";
-            this.btnOk.TabIndex = 4;
+            this.btnOk.TabIndex = 5;
             this.btnOk.Text = "Ok";
             this.btnOk.Click += new System.EventHandler(this.buttonX1_Click);
             // 
-            // textBox2
+            // tbDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 20);
-            this.textBox2.TabIndex = 3;
+            this.tbDescription.Location = new System.Drawing.Point(150, 80);
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(199, 20);
+            this.tbDescription.TabIndex = 1;
+            this.tbDescription.TextChanged += new System.EventHandler(this.e);
+            this.tbDescription.Enter += new System.EventHandler(this.tbDescription_Enter);
             // 
-            // textBox1
+            // tbItemCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 2;
+            this.tbItemCode.Location = new System.Drawing.Point(149, 44);
+            this.tbItemCode.Name = "tbItemCode";
+            this.tbItemCode.Size = new System.Drawing.Size(200, 20);
+            this.tbItemCode.TabIndex = 0;
+            this.tbItemCode.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
             // label3
             // 
@@ -179,24 +194,18 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Search by Item Code";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(150, 114);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 21);
-            this.comboBox1.TabIndex = 9;
-            // 
             // frmTransactionSearchItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 397);
+            this.ClientSize = new System.Drawing.Size(388, 296);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "frmTransactionSearchItem";
             this.Text = "frmTransactionSearchItem";
             this.Load += new System.EventHandler(this.frmTransactionSearchItem_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTransactionSearchItem_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -211,13 +220,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private System.Windows.Forms.Label lbError;
+        private DevComponents.DotNetBar.ButtonX btnCLose;
         private DevComponents.DotNetBar.ButtonX btnOk;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDescription;
+        private System.Windows.Forms.TextBox tbItemCode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCategory;
     }
 }
