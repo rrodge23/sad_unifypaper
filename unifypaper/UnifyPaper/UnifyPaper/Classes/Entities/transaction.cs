@@ -13,7 +13,8 @@ namespace UnifyPaper.Classes.Entities
 
         }
         public string ID { get; set; }
-     
+   
+        
         private string transaction_dateContainer;
         public string transaction_date { 
             get { return this.transaction_dateContainer; } 
@@ -33,6 +34,7 @@ namespace UnifyPaper.Classes.Entities
         }
         public int transaction_items { get; set; }
         public double transaction_cash { get; set; }
+        public double transaction_change { get; set; }
         public double transaction_total_amount { get; set; }
         public string transaction_cashier { get; set; }
 

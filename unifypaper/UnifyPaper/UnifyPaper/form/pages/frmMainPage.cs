@@ -333,6 +333,7 @@ namespace UnifyPaper.form.pages
         private void findTransactionProduct()
         {
             currentProduct = productList.ToList().Find(tempProduct => tempProduct.product_code.Equals(tbProductCode.Text.Trim()) && Convert.ToInt32(tempProduct.quantity) > 0);
+          
             if (currentProduct != null)
             {
                 lbTransactionProductUnit.Text = currentProduct.unit;
@@ -676,6 +677,17 @@ namespace UnifyPaper.form.pages
         private void clearField()
         {
             currentTransaction.clearFields();
+            displayCurrentTransactionItems();
+            lbTransactionProductDescription.Text = "";
+            lbTransactionProductPrice.Text = "";
+            lbTransactionProductUnit.Text = "";
+            tbGrandtotal.Text = "";
+            tbProductCode.Text = "";
+            tbQty.Text = "";
+            tbSubTotal.Text = "";
+            tbTax.Text = "";
+            tbTransactionCash.Text = "";
+            tbTransactionChange.Text = "";
         }
         private void btnTransactionTender_Click(object sender, EventArgs e)
         {
@@ -687,21 +699,27 @@ namespace UnifyPaper.form.pages
                     double transactionCashValue = Convert.ToDouble(tbTransactionCash.Text.Trim());
                     if (transactionCashValue > 0)
                     {
-                        if (transactionCashValue >= Convert.ToDouble(tbGrandtotal.Text))
+                        if(MessageBox.Show("Continue Transaction ?","Confirm Transaction",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            currentTransaction.transaction_cashier = Classes.Session.sessionUsers.username;
-                            currentTransaction.transaction_time = dpTransactionDate.Text.ToString();
-                            currentTransaction.transaction_date = dpTransactionDate.Text.ToString();
-                            int isTendered = m_trans.transactionTender(currentTransaction);
-                            if(isTendered > 0)
+                            if (transactionCashValue >= Convert.ToDouble(tbGrandtotal.Text))
                             {
-                                MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                                currentTransaction.transaction_cashier = Classes.Session.sessionUsers.username;
+                                currentTransaction.transaction_time = dpTransactionDate.Value.ToString();
+                                currentTransaction.transaction_date = dpTransactionDate.Value.ToString();
+                                currentTransaction.transaction_cash = Convert.ToDouble(tbTransactionCash.Text.Trim());
+                                currentTransaction.transaction_change = Convert.ToDouble(tbTransactionChange.Text.Trim());
+                                currentTransaction.transaction_total_amount = Convert.ToDouble(tbGrandtotal.Text);
+                                int isTendered = m_trans.transactionTender(currentTransaction);
+                                if(isTendered > 0)
+                                {
+                                    MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                                }
+                                clearField();
                             }
-                            clearField();
-                        }
-                        else
-                        {
-                            MessageBox.Show("cash must be greater than the total amount");
+                            else
+                            {
+                                MessageBox.Show("cash must be greater than the total amount");
+                            }
                         }
                     }
                     else
@@ -717,6 +735,14 @@ namespace UnifyPaper.form.pages
             else
             {
                 tbTransactionCash.Focus();
+            }
+        }
+
+        private void tbTransactionCash_TextChanged_1(object sender, EventArgs e)
+        {
+            if(Convert.ToDouble(tbTransactionCash.Text.Trim()) >= Convert.ToDouble(tbGrandtotal.Text))
+            {
+                tbTransactionChange.Text = (Convert.ToDouble(tbTransactionCash.Text.Trim()) - Convert.ToDouble(tbGrandtotal.Text)).ToString("0.00");
             }
         }
 

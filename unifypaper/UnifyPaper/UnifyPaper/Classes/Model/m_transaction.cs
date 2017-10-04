@@ -21,11 +21,12 @@ namespace UnifyPaper.Classes.Model
             try
             {
                 conn.Open();
-                string sql = "INSERT INTO transactiontbl (transaction_date,transaction_time,transaction_cash,transaction_total_amount,transaction_cashier) VALUES (@transaction_date,@transaction_time,@transaction_cash,@transaction_total_amount,@transaction_cashier)";
+                string sql = "INSERT INTO transactiontbl (transaction_date,transaction_time,transaction_cash,transaction_change,transaction_total_amount,transaction_cashier) VALUES (@transaction_date,@transaction_time,@transaction_cash,@transaction_change,@transaction_total_amount,@transaction_cashier)";
                 cmd = new OleDbCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@transaction_date", trans.transaction_date);
                 cmd.Parameters.AddWithValue("@transaction_time", trans.transaction_time);
                 cmd.Parameters.AddWithValue("@transaction_cash", trans.transaction_cash);
+                cmd.Parameters.AddWithValue("@transaction_change", trans.transaction_change);
                 cmd.Parameters.AddWithValue("@transaction_total_amount", trans.transaction_total_amount);
                 cmd.Parameters.AddWithValue("@transaction_cashier", trans.transaction_cashier);
                 cmd.ExecuteNonQuery();
