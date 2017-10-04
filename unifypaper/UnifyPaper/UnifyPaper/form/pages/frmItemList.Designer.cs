@@ -33,16 +33,16 @@
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.dgProductList = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -60,6 +60,7 @@
             this.btnAdd.Symbol = "";
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = " Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnClose
             // 
@@ -95,21 +96,20 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // panel5
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.DimGray;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(33, 11);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(5);
-            this.label1.Size = new System.Drawing.Size(92, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Item List";
+            this.panel5.Controls.Add(this.dgProductList);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(16, 37);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(856, 270);
+            this.panel5.TabIndex = 9;
             // 
             // dgProductList
             // 
+            this.dgProductList.AllowUserToAddRows = false;
+            this.dgProductList.AllowUserToDeleteRows = false;
+            this.dgProductList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -119,15 +119,38 @@
             this.dgProductList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProductList.GridColor = System.Drawing.Color.White;
             this.dgProductList.Location = new System.Drawing.Point(0, 0);
+            this.dgProductList.MultiSelect = false;
             this.dgProductList.Name = "dgProductList";
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dgProductList.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProductList.ShowEditingIcon = false;
             this.dgProductList.Size = new System.Drawing.Size(856, 270);
             this.dgProductList.TabIndex = 3;
             this.dgProductList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgProductList_KeyDown);
             this.dgProductList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgProductList_KeyPress);
+            this.dgProductList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgProductList_MouseDoubleClick);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Firebrick;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(872, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(16, 270);
+            this.panel4.TabIndex = 8;
+            // 
+            // slidePanel1
+            // 
+            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.slidePanel1.Location = new System.Drawing.Point(0, 37);
+            this.slidePanel1.Name = "slidePanel1";
+            this.slidePanel1.Size = new System.Drawing.Size(16, 270);
+            this.slidePanel1.TabIndex = 7;
+            this.slidePanel1.Text = "slidePanel1";
+            this.slidePanel1.UsesBlockingAnimation = false;
             // 
             // panel2
             // 
@@ -145,33 +168,18 @@
             this.panel3.Size = new System.Drawing.Size(888, 80);
             this.panel3.TabIndex = 5;
             // 
-            // slidePanel1
+            // label1
             // 
-            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.slidePanel1.Location = new System.Drawing.Point(0, 37);
-            this.slidePanel1.Name = "slidePanel1";
-            this.slidePanel1.Size = new System.Drawing.Size(16, 270);
-            this.slidePanel1.TabIndex = 7;
-            this.slidePanel1.Text = "slidePanel1";
-            this.slidePanel1.UsesBlockingAnimation = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Firebrick;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(872, 37);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(16, 270);
-            this.panel4.TabIndex = 8;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.dgProductList);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(16, 37);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(856, 270);
-            this.panel5.TabIndex = 9;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.DimGray;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(33, 11);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5);
+            this.label1.Size = new System.Drawing.Size(92, 29);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Item List";
             // 
             // frmItemList
             // 
@@ -189,9 +197,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item List";
             this.Load += new System.EventHandler(this.frmItemList_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmItemList_KeyDown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

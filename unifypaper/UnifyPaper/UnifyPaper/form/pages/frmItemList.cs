@@ -20,7 +20,7 @@ namespace UnifyPaper.form.pages
         public string searchType { get; set; }
         public string searchName { get; set; }
         Classes.Model.m_products mdl_prod = new Classes.Model.m_products();
-
+        public frmMainPage mainpageForm { get; set; }
   
 
         private void buttonX2_Click(object sender, EventArgs e)
@@ -57,8 +57,6 @@ namespace UnifyPaper.form.pages
             foreach (Classes.Entities.products prod in productList)
             {
                
-                MessageBox.Show(prod.product_code);
-               
                 dgTable.Rows.Add(
                                 
                                 prod.product_code,
@@ -92,6 +90,36 @@ namespace UnifyPaper.form.pages
                 this.Close();
             }
             if (e.KeyCode == Keys.Enter)
+            {
+                btnAdd.PerformClick();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (dgProductList.SelectedRows.Count > 0)
+            {
+                mainpageForm.transactionTextBoxInput(dgProductList.Rows[dgProductList.CurrentRow.Index].Cells[0].Value.ToString());
+                this.Close();
+            }
+        }
+
+        private void frmItemList_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+                case Keys.Enter:
+                    btnAdd.PerformClick();
+                    break;
+            };
+        }
+
+        private void dgProductList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(dgProductList.SelectedRows.Count > 0)
             {
                 btnAdd.PerformClick();
             }
