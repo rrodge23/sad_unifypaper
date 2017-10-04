@@ -62,6 +62,7 @@ namespace UnifyPaper.form.pages
                     frmItemList fil = new frmItemList();
                     fil.searchName = tbDescription.Text.Trim();
                     fil.searchType = "description";
+                    fil.mainpageForm = this.mainpageForm;
                     fil.ShowDialog();
                     this.Close();
                 }
@@ -79,6 +80,7 @@ namespace UnifyPaper.form.pages
                     frmItemList fil = new frmItemList();
                     fil.searchName = cmbCategory.Text;
                     fil.searchType = "category";
+                    fil.mainpageForm = this.mainpageForm;
                     fil.ShowDialog();
                     this.Close();
                 }

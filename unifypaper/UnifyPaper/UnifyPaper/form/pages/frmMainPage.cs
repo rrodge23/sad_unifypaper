@@ -23,6 +23,7 @@ namespace UnifyPaper.form.pages
         //INITIALIZE ITEMS
         Classes.Database.database db = new Classes.Database.database();
         Classes.Model.m_products m_prod = new Classes.Model.m_products();
+        Classes.Model.m_transaction m_trans = new Classes.Model.m_transaction();
         Classes.Entities.transaction currentTransaction = new Classes.Entities.transaction();
         List<Classes.Entities.products> productList = new List<Classes.Entities.products>();
 
@@ -159,6 +160,7 @@ namespace UnifyPaper.form.pages
             findTransactionProduct();
             transactionSettings();
             tbProductCode.Focus();
+            dpTransactionDate.CustomFormat = "YYYY-mm-dd";
         }
 
 
@@ -291,6 +293,7 @@ namespace UnifyPaper.form.pages
                 {
                     if (Convert.ToInt32(currentProduct.quantity) - currentTransaction.getTransactionProductQuantityByID(currentProduct.ID) >= Convert.ToInt32(tbQty.Text.Trim()))
                     {
+
                         Classes.Entities.products newProduct = new Classes.Entities.products(currentProduct);
                         newProduct.quantity = tbQty.Text.Trim();
                         currentTransaction.addTransactionNewProduct(newProduct);
@@ -336,7 +339,6 @@ namespace UnifyPaper.form.pages
                 lbTransactionProductDescription.Text = currentProduct.description;
                 lbTransactionProductPrice.Text = Convert.ToDouble(currentProduct.selling_price).ToString("0.00");
 
-                
             }
             else
             {
@@ -581,15 +583,17 @@ namespace UnifyPaper.form.pages
 
         private void bubbleButton11_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
         {
-            if(MessageBox.Show("Do You Want To Delete This Record ?","Delete",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                string id = dgProductList.Rows[dgProductList.CurrentRow.Index].Cells[0].Value.ToString();
-                if (m_prod.deleteProduct(id))
+            
+                if (MessageBox.Show("Do You Want To Delete This Record ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Successfully Deleted", "Product ID :" + id, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    dgLoadProductList();
+                    string id = dgProductList.Rows[dgProductList.CurrentRow.Index].Cells[0].Value.ToString();
+                    if (m_prod.deleteProduct(id))
+                    {
+                        MessageBox.Show("Successfully Deleted", "Product ID :" + id, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dgLoadProductList();
+                    }
                 }
-            }
+            
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -667,6 +671,53 @@ namespace UnifyPaper.form.pages
         private void tbProductCode_Enter(object sender, EventArgs e)
         {
             tbProductCode.Text = "";
+        }
+
+        private void clearField()
+        {
+            currentTransaction.clearFields();
+        }
+        private void btnTransactionTender_Click(object sender, EventArgs e)
+        {
+            if (tbTransactionCash.Text != "")
+            {
+                double o;
+                if (double.TryParse(tbTransactionCash.Text.Trim(), out o))
+                {
+                    double transactionCashValue = Convert.ToDouble(tbTransactionCash.Text.Trim());
+                    if (transactionCashValue > 0)
+                    {
+                        if (transactionCashValue >= Convert.ToDouble(tbGrandtotal.Text))
+                        {
+                            currentTransaction.transaction_cashier = Classes.Session.sessionUsers.username;
+                            currentTransaction.transaction_time = dpTransactionDate.Text.ToString();
+                            currentTransaction.transaction_date = dpTransactionDate.Text.ToString();
+                            int isTendered = m_trans.transactionTender(currentTransaction);
+                            if(isTendered > 0)
+                            {
+                                MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                            }
+                            clearField();
+                        }
+                        else
+                        {
+                            MessageBox.Show("cash must be greater than the total amount");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("cash must be non-negative value");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Only Digit inputs are Allowed");
+                }
+            }
+            else
+            {
+                tbTransactionCash.Focus();
+            }
         }
 
         

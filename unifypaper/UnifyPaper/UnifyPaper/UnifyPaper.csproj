@@ -85,6 +85,7 @@
     <Compile Include="Classes\Entities\transaction.cs" />
     <Compile Include="Classes\Entities\users.cs" />
     <Compile Include="Classes\Model\m_products.cs" />
+    <Compile Include="Classes\Model\m_transaction.cs" />
     <Compile Include="Classes\Session\sessionUsers.cs" />
     <Compile Include="form\auth\frmLogin.cs">
       <SubType>Form</SubType>
