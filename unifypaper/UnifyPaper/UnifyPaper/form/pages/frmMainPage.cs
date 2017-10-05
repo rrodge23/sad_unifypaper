@@ -175,10 +175,18 @@ namespace UnifyPaper.form.pages
             tbTax.Text = "";
             lbTransactionProductDescription.Text = "";
             lbTransactionProductUnit.Text = "";
-
+            
             dgTransactionList.BorderStyle = BorderStyle.None;
             dgTransactionList.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dgTransactionList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgTransactionList.DefaultCellStyle.ForeColor = Color.Black;
+            dgTransactionList.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgTransactionList.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgTransactionList.EnableHeadersVisualStyles = false;
+            dgTransactionList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgTransactionList.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dgTransactionList.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgTransactionList.ColumnHeadersHeight = 25;
             dgTransactionList.BackgroundColor = Color.White;
             dgTransactionList.Columns[0].Width = 150;
             dgTransactionList.Columns[1].Width = 500;
@@ -208,7 +216,6 @@ namespace UnifyPaper.form.pages
             dgTable.Columns.Add("Total", typeof(string));
 
             
-
             double grandTotal = 0;
 
             foreach (Classes.Entities.products prod in currentTransaction.productList)
@@ -229,7 +236,17 @@ namespace UnifyPaper.form.pages
 
             //STYLE GRIDVIEW
             dgTransactionList.BorderStyle = BorderStyle.None;
+            dgTransactionList.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dgTransactionList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgTransactionList.DefaultCellStyle.ForeColor = Color.Black;
+            dgTransactionList.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgTransactionList.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgTransactionList.EnableHeadersVisualStyles = false;
+            dgTransactionList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgTransactionList.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dgTransactionList.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgTransactionList.BackgroundColor = Color.White;
+            dgTransactionList.ColumnHeadersHeight = 25;
             dgTransactionList.Columns[0].Width = 150;
             dgTransactionList.Columns[1].Width = 500;
             dgTransactionList.Columns[2].Width = 150;
@@ -286,30 +303,56 @@ namespace UnifyPaper.form.pages
 
         private void addTransactionProductItem()
         {
-            Int32 o;
             if(currentProduct != null)
             {
-                if (tbQty.Text.Trim() != "" && Int32.TryParse(tbQty.Text.Trim(), out o))
+                if (tbQty.Text.Trim() != "")
                 {
-                    if (Convert.ToInt32(currentProduct.quantity) - currentTransaction.getTransactionProductQuantityByID(currentProduct.ID) >= Convert.ToInt32(tbQty.Text.Trim()))
+                    double except;
+                    Classes.Entities.products newProduct = new Classes.Entities.products(currentProduct);
+                    if (tbQty.Text.Trim().Substring(0, 1) == "=")
                     {
-
-                        Classes.Entities.products newProduct = new Classes.Entities.products(currentProduct);
-                        newProduct.quantity = tbQty.Text.Trim();
-                        currentTransaction.addTransactionNewProduct(newProduct);
-                        currentProduct = null;
-                        displayCurrentTransactionItems();
-                        //FOCUS ON EXIST PRODUCT
+                        
+                        if (double.TryParse(tbQty.Text.Trim().Substring(1, tbQty.Text.Trim().Length - 1), out except))
+                        {
+                            newProduct.quantity = tbQty.Text.Trim().Substring(1,tbQty.Text.Trim().Length-1);
+                        }
+                        else
+                        {
+                            return;   
+                        }
+                    }
+                    else
+                    {
+                        if (double.TryParse(tbQty.Text.Trim(), out except))
+                        {
+                            newProduct.quantity = tbQty.Text.Trim();
+                        }
+                        else
+                        {
+                            return;
+                        }
+                        
+                    }
+                        
+                    currentTransaction.addTransactionNewProduct(newProduct);
+                    currentProduct = null;
+                    displayCurrentTransactionItems();
+                    //FOCUS ON EXIST PRODUCT
+                    if (tbProductCode.Text.Trim() != "")
+                    {
                         int rowIndex = -1;
                         DataGridViewRow row = dgTransactionList.Rows.Cast<DataGridViewRow>().Where(r => r.Cells[0].Value.ToString().Equals(tbProductCode.Text)).First();
                         rowIndex = row.Index;
                         this.dgTransactionList.CurrentCell = this.dgTransactionList[0, rowIndex];
                         dgTransactionList.Rows[rowIndex].Selected = true;
-                        tbProductCode.Text = "";
-                        lbTransactionProductDescription.Text = "";
-                        tbQty.Text = "";
-                        tbProductCode.Focus();
+
                     }
+                    
+                    tbProductCode.Text = "";
+                    lbTransactionProductDescription.Text = "";
+                    tbQty.Text = "";
+                    tbProductCode.Focus();
+                    
                 }
                 else
                 {
@@ -317,6 +360,7 @@ namespace UnifyPaper.form.pages
                     tbQty.Focus();
                 }
             }
+            
         }
 
         private void calculateChange()
@@ -333,6 +377,7 @@ namespace UnifyPaper.form.pages
         private void findTransactionProduct()
         {
             currentProduct = productList.ToList().Find(tempProduct => tempProduct.product_code.Equals(tbProductCode.Text.Trim()) && Convert.ToInt32(tempProduct.quantity) > 0);
+          
             if (currentProduct != null)
             {
                 lbTransactionProductUnit.Text = currentProduct.unit;
@@ -542,6 +587,7 @@ namespace UnifyPaper.form.pages
 
         private void dgProductList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (MessageBox.Show("Do You Want To Update This Record ?","Updating",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 List<string> rowItems = new List<string>();
@@ -567,6 +613,43 @@ namespace UnifyPaper.form.pages
                 {
                     dgLoadProductList();
                     MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (e.ColumnIndex == 3)
+                    {
+                        if (MessageBox.Show("Do you want to update all product rows in category field?", "Update Rows", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+
+                            if (m_prod.updateAllProductRowByField(dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString(), dgProductList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), "category"))
+                            {
+                                MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                dgLoadProductList();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error In Updating","", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                
+                            }
+                            dgLoadProductList();
+                        }
+
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Do you want to update all product rows in unit field?", "Update Rows", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (m_prod.updateAllProductRowByField(dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString(), dgProductList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), "unit"))
+                            {
+                                MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                dgLoadProductList();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error In Updating", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            }
+                            dgLoadProductList();
+                        }
+                        
+                    }
                 }
                 else
                 {
@@ -642,7 +725,36 @@ namespace UnifyPaper.form.pages
                 }
                 else
                 {
-                    btnTransactionTender.PerformClick();
+                    if (tbQty.Text.Trim() != "")
+                    {
+                        double o;
+                        if(tbQty.Text.ToString().Substring(0,1) == "=")
+                        {
+                            if (double.TryParse(tbQty.Text.ToString().Substring(1, tbQty.Text.ToString().Length-1), out o))
+                            {
+                                if(dgTransactionList.Rows.Count > 0)
+                                {
+                                    List<string> rowItems = new List<string>();
+
+                                    foreach (DataGridViewCell cell in dgTransactionList.Rows[dgTransactionList.CurrentRow.Index].Cells)
+                                    {
+                                        rowItems.Add(dgTransactionList.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Value.ToString());
+                                    }
+                                    this.currentProduct = new Classes.Entities.products();
+                                    this.currentProduct.product_code = rowItems[0];
+                                    this.currentProduct.description = rowItems[1];
+                                    this.currentProduct.unit = rowItems[3];
+                                    this.currentProduct.selling_price = rowItems[4];
+                                    addTransactionProductItem();
+                                }
+                            }
+                        }
+                        
+                    }
+                    {
+                        btnTransactionTender.PerformClick();
+                    }
+                    
                 }
             }
             
@@ -676,6 +788,18 @@ namespace UnifyPaper.form.pages
         private void clearField()
         {
             currentTransaction.clearFields();
+            displayCurrentTransactionItems();
+            lbTransactionProductDescription.Text = "";
+            lbTransactionProductPrice.Text = "";
+            lbTransactionProductUnit.Text = "";
+            tbGrandtotal.Text = "";
+            tbProductCode.Text = "";
+            tbQty.Text = "";
+            tbSubTotal.Text = "";
+            tbTax.Text = "";
+            tbTransactionCash.Text = "";
+            tbTransactionChange.Text = "";
+            tbProductCode.Focus();
         }
         private void btnTransactionTender_Click(object sender, EventArgs e)
         {
@@ -687,21 +811,27 @@ namespace UnifyPaper.form.pages
                     double transactionCashValue = Convert.ToDouble(tbTransactionCash.Text.Trim());
                     if (transactionCashValue > 0)
                     {
-                        if (transactionCashValue >= Convert.ToDouble(tbGrandtotal.Text))
+                        if(MessageBox.Show("Continue Transaction ?","Confirm Transaction",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            currentTransaction.transaction_cashier = Classes.Session.sessionUsers.username;
-                            currentTransaction.transaction_time = dpTransactionDate.Text.ToString();
-                            currentTransaction.transaction_date = dpTransactionDate.Text.ToString();
-                            int isTendered = m_trans.transactionTender(currentTransaction);
-                            if(isTendered > 0)
+                            if (transactionCashValue >= Convert.ToDouble(tbGrandtotal.Text))
                             {
-                                MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                                currentTransaction.transaction_cashier = Classes.Session.sessionUsers.username;
+                                currentTransaction.transaction_time = dpTransactionDate.Value.ToString();
+                                currentTransaction.transaction_date = dpTransactionDate.Value.ToString();
+                                currentTransaction.transaction_cash = Convert.ToDouble(tbTransactionCash.Text.Trim());
+                                currentTransaction.transaction_change = Convert.ToDouble(tbTransactionChange.Text.Trim());
+                                currentTransaction.transaction_total_amount = Convert.ToDouble(tbGrandtotal.Text);
+                                int isTendered = m_trans.transactionTender(currentTransaction);
+                                if(isTendered > 0)
+                                {
+                                    MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                                }
+                                clearField();
                             }
-                            clearField();
-                        }
-                        else
-                        {
-                            MessageBox.Show("cash must be greater than the total amount");
+                            else
+                            {
+                                MessageBox.Show("cash must be greater than the total amount");
+                            }
                         }
                     }
                     else
@@ -718,6 +848,33 @@ namespace UnifyPaper.form.pages
             {
                 tbTransactionCash.Focus();
             }
+        }
+
+        private void tbTransactionCash_TextChanged_1(object sender, EventArgs e)
+        {
+            if(tbTransactionCash.Text.Trim() != "")
+            {
+                double o;
+
+                if(double.TryParse(tbTransactionCash.Text.Trim(),out o) && tbGrandtotal.Text != "")
+                {
+                    if (Convert.ToDouble(tbTransactionCash.Text.Trim().ToString()) >= Convert.ToDouble(tbGrandtotal.Text.ToString()))
+                    {
+                        tbTransactionChange.Text = (Convert.ToDouble(tbTransactionCash.Text.Trim()) - Convert.ToDouble(tbGrandtotal.Text)).ToString("0.00");
+                    }
+                }
+            }
+            
+        }
+
+        private void dgTransactionList_ReadOnlyChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgTransactionList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            tbQty.Focus();
         }
 
         

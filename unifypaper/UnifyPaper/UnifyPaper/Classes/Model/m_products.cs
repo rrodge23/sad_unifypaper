@@ -352,5 +352,59 @@ namespace UnifyPaper.Classes.Model
             return prodList;
         }
 
+        public bool updateAllProductRowByField(string id, string value, string field)
+        {
+            bool isProductinserted = false;
+            Classes.Entities.products prod = new Entities.products();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM producttbl WHERE ID=@ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", id);
+                dr = cmd.ExecuteReader();
+                if(dr.HasRows)
+                {
+                    dr.Read();
+                    prod.ID = dr["ID"].ToString();
+                    prod.category = dr["category"].ToString();
+                    prod.unit = dr["unit"].ToString();
+                }
+                MessageBox.Show(prod.category);
+                MessageBox.Show(prod.unit);
+                dr.Close();
+                if(field == "category")
+                {
+                     sql = "UPDATE producttbl SET category=@value WHERE category=@category";
+                     cmd = new OleDbCommand(sql, conn);
+                     cmd.Parameters.AddWithValue("@value", value);
+                     cmd.Parameters.AddWithValue("@category", prod.category);
+                }else if(field == "unit")
+                {
+                     sql = "UPDATE producttbl SET unit=@value WHERE unit=@unit";
+                     cmd = new OleDbCommand(sql, conn);
+                     cmd.Parameters.AddWithValue("@value", value);
+                     cmd.Parameters.AddWithValue("@unit", prod.unit);
+                }
+                
+                
+                int getIdUpdate = cmd.ExecuteNonQuery();
+                if (getIdUpdate > 0)
+                {
+                    isProductinserted = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saveTransaction: " + ex.ToString());
+            }
+            finally
+            {
+                
+                conn.Close();
+            }
+            return isProductinserted;
+        }
+
     }
 }
