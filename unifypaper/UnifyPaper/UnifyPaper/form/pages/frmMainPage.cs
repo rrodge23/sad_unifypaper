@@ -466,8 +466,11 @@ namespace UnifyPaper.form.pages
 
         private void removeItem()
         {
-            productList.RemoveAt(dgTransactionList.CurrentRow.Index);
-            dgTransactionList.Rows.RemoveAt(dgTransactionList.CurrentRow.Index);
+            if(MessageBox.Show("Remove This Item From List ?","Deleting",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                productList.RemoveAt(dgTransactionList.CurrentRow.Index);
+                dgTransactionList.Rows.RemoveAt(dgTransactionList.CurrentRow.Index);
+            }
         }
 
         private void bubbleButton8_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -622,6 +625,7 @@ namespace UnifyPaper.form.pages
                             {
                                 MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 dgLoadProductList();
+                               
                             }
                             else
                             {
@@ -869,12 +873,17 @@ namespace UnifyPaper.form.pages
 
         private void dgTransactionList_ReadOnlyChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dgTransactionList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             tbQty.Focus();
+        }
+
+        private void btnSidenavHome_Click(object sender, EventArgs e)
+        {
+            loadCurrentProduct();
         }
 
         
