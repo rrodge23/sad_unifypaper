@@ -52,28 +52,31 @@ namespace UnifyPaper.form.pages
         {
             if (tbQuantity.Text != "" && tbProductCode.Text != "")
             {
-                Classes.Entities.products prod = new Classes.Entities.products();
-                prod.category = cmbCategory.Text.ToString();
-                prod.minimumQuantity = minimumQuantity.Text.ToString().Trim();
-                prod.selling_price = tbSellingPrice.Text.ToString().Trim();
-                prod.description = tbDescription.Text.ToString().Trim();
-                prod.product_code = tbProductCode.Text.ToString().Trim();
-                prod.quantity = tbQuantity.Text.ToString().Trim();
-                prod.unit = cmbUnit.Text.ToString().Trim();
-                prod.standard_price = tbStandardPrice.Text.ToString().Trim();
-                prod.selling_price = tbSellingPrice.Text.ToString().Trim();
-                prod.supplier_name = tbSupplierName.Text.ToString().Trim();
-                prod.supplier_contact_no = tbSupplierContactNo.Text.ToString().Trim();
-                prod.tax_code = tbTaxCode.Text.ToString().Trim();
-                if (mdl_prod.addNewProduct(prod))
+                if(MessageBox.Show("Add This Product ?","Add Product",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Successfully Added");
-                    mainpageFrm.dgLoadProductList();
-                    clearField();
-                }
-                else
-                {
-                    MessageBox.Show("Error");
+                    Classes.Entities.products prod = new Classes.Entities.products();
+                    prod.category = cmbCategory.Text.ToString();
+                    prod.minimumQuantity = minimumQuantity.Text.ToString().Trim();
+                    prod.selling_price = tbSellingPrice.Text.ToString().Trim();
+                    prod.description = tbDescription.Text.ToString().Trim();
+                    prod.product_code = tbProductCode.Text.ToString().Trim();
+                    prod.quantity = tbQuantity.Text.ToString().Trim();
+                    prod.unit = cmbUnit.Text.ToString().Trim();
+                    prod.standard_price = tbStandardPrice.Text.ToString().Trim();
+                    prod.selling_price = tbSellingPrice.Text.ToString().Trim();
+                    prod.supplier_name = tbSupplierName.Text.ToString().Trim();
+                    prod.supplier_contact_no = tbSupplierContactNo.Text.ToString().Trim();
+                    prod.tax_code = tbTaxCode.Text.ToString().Trim();
+                    if (mdl_prod.addNewProduct(prod))
+                    {
+                        MessageBox.Show("Successfully Added");
+                        mainpageFrm.dgLoadProductList();
+                        clearField();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error");
+                    }
                 }
 
             }
