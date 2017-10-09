@@ -21,6 +21,7 @@ namespace UnifyPaper.form.pages
         }
 
         //INITIALIZE ITEMS
+        public string oldProductValue { get; set; } //PRODUCT LIST
         Classes.Database.database db = new Classes.Database.database();
         Classes.Model.m_products m_prod = new Classes.Model.m_products();
         Classes.Model.m_transaction m_trans = new Classes.Model.m_transaction();
@@ -616,12 +617,13 @@ namespace UnifyPaper.form.pages
                 {
                     dgLoadProductList();
                     MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  
                     if (e.ColumnIndex == 3)
                     {
                         if (MessageBox.Show("Do you want to update all product rows in category field?", "Update Rows", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
-                            if (m_prod.updateAllProductRowByField(dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString(), dgProductList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), "category"))
+                            if (m_prod.updateAllProductRowByField(oldProductValue, dgProductList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), "category"))
                             {
                                 MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 dgLoadProductList();
@@ -636,11 +638,11 @@ namespace UnifyPaper.form.pages
                         }
 
                     }
-                    else
+                    else if(e.ColumnIndex == 8)
                     {
                         if (MessageBox.Show("Do you want to update all product rows in unit field?", "Update Rows", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            if (m_prod.updateAllProductRowByField(dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString(), dgProductList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), "unit"))
+                            if (m_prod.updateAllProductRowByField(oldProductValue, dgProductList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), "unit"))
                             {
                                 MessageBox.Show("Successfully Update", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 dgLoadProductList();
@@ -884,6 +886,21 @@ namespace UnifyPaper.form.pages
         private void btnSidenavHome_Click(object sender, EventArgs e)
         {
             loadCurrentProduct();
+        }
+
+        private void dgTransactionList_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            
+        }
+
+        private void dgProductList_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            this.oldProductValue = dgProductList.Rows[dgProductList.CurrentRow.Index].Cells[dgProductList.CurrentCell.ColumnIndex].Value.ToString();
+        }
+
+        private void dgProductList_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         

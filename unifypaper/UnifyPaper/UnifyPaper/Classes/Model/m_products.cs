@@ -174,6 +174,51 @@ namespace UnifyPaper.Classes.Model
             return prodList;
         }
 
+        public List<Classes.Entities.products> getAllProductListWithMinimumQuantity()
+        {
+            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM producttbl WHERE quantity <= minimum_qty";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Classes.Entities.products prod = new Entities.products();
+                        prod.ID = dr["ID"].ToString();
+                        prod.category = dr["category"].ToString();
+                        prod.product_code = dr["product_code"].ToString();
+                        prod.description = dr["description"].ToString();
+                        prod.minimumQuantity = dr["minimum_qty"].ToString();
+                        prod.standard_price = dr["standard_price"].ToString();
+                        prod.selling_price = dr["selling_price"].ToString();
+                        prod.quantity = dr["quantity"].ToString();
+                        prod.unit = dr["unit"].ToString();
+                        prod.tax_code = dr["tax_code"].ToString();
+                        prod.supplier_name = dr["supplier_name"].ToString();
+                        prod.supplier_contact_no = dr["supplier_contact_no"].ToString();
+                        prodList.Add(prod);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return prodList;
+        }
+
+
+
         public List<string> getAllProductCategory()
         {
             List<string> prodCategory = new List<string>();
@@ -352,39 +397,28 @@ namespace UnifyPaper.Classes.Model
             return prodList;
         }
 
-        public bool updateAllProductRowByField(string id, string value, string field)
+        public bool updateAllProductRowByField(string oldValue, string value, string field)
         {
             bool isProductinserted = false;
             Classes.Entities.products prod = new Entities.products();
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM producttbl WHERE ID=@ID";
-                cmd = new OleDbCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ID", id);
-                dr = cmd.ExecuteReader();
-                if(dr.HasRows)
-                {
-                    dr.Read();
-                    prod.ID = dr["ID"].ToString();
-                    prod.category = dr["category"].ToString();
-                    prod.unit = dr["unit"].ToString();
-                }
-                MessageBox.Show(prod.category);
-                MessageBox.Show(prod.unit);
-                dr.Close();
+                string sql = "";
+               
                 if(field == "category")
                 {
-                     sql = "UPDATE producttbl SET category=@value WHERE category=@category";
+                     sql = "UPDATE producttbl SET category=@value WHERE category=@oldValue";
                      cmd = new OleDbCommand(sql, conn);
                      cmd.Parameters.AddWithValue("@value", value);
-                     cmd.Parameters.AddWithValue("@category", prod.category);
+                     cmd.Parameters.AddWithValue("@category", oldValue);
                 }else if(field == "unit")
                 {
-                     sql = "UPDATE producttbl SET unit=@value WHERE unit=@unit";
+                     sql = "UPDATE producttbl SET unit=@value WHERE unit=@oldValue";
                      cmd = new OleDbCommand(sql, conn);
                      cmd.Parameters.AddWithValue("@value", value);
-                     cmd.Parameters.AddWithValue("@unit", prod.unit);
+                     cmd.Parameters.AddWithValue("@unit", oldValue);
+                
                 }
                 
                 
