@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnRemoveAll = new DevComponents.DotNetBar.ButtonX();
             this.label2 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dgAddedProductMinimumQuantity = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnAddAll = new DevComponents.DotNetBar.ButtonX();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -47,24 +49,44 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnPrintItems = new DevComponents.DotNetBar.ButtonX();
+            this.panel4.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAddedProductMinimumQuantity)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).BeginInit();
+            this.panel11.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnPrintItems);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(29, 750);
+            this.panel4.Location = new System.Drawing.Point(29, 724);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1314, 22);
+            this.panel4.Size = new System.Drawing.Size(1314, 38);
             this.panel4.TabIndex = 43;
+            // 
+            // btnRemoveAll
+            // 
+            this.btnRemoveAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnRemoveAll.AntiAlias = true;
+            this.btnRemoveAll.Checked = true;
+            this.btnRemoveAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnRemoveAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveAll.Location = new System.Drawing.Point(1236, 29);
+            this.btnRemoveAll.Name = "btnRemoveAll";
+            this.btnRemoveAll.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnRemoveAll.Size = new System.Drawing.Size(88, 32);
+            this.btnRemoveAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnRemoveAll.Symbol = "";
+            this.btnRemoveAll.TabIndex = 27;
+            this.btnRemoveAll.Text = "Remove All";
+            this.btnRemoveAll.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // label2
             // 
@@ -102,9 +124,9 @@
             this.dgAddedProductMinimumQuantity.BackgroundColor = System.Drawing.Color.White;
             this.dgAddedProductMinimumQuantity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAddedProductMinimumQuantity.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgAddedProductMinimumQuantity.Location = new System.Drawing.Point(0, 33);
+            this.dgAddedProductMinimumQuantity.Location = new System.Drawing.Point(0, 35);
             this.dgAddedProductMinimumQuantity.Name = "dgAddedProductMinimumQuantity";
-            this.dgAddedProductMinimumQuantity.Size = new System.Drawing.Size(1339, 320);
+            this.dgAddedProductMinimumQuantity.Size = new System.Drawing.Size(1339, 337);
             this.dgAddedProductMinimumQuantity.TabIndex = 33;
             this.dgAddedProductMinimumQuantity.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAddedProductMinimumQuantity_CellClick);
             // 
@@ -113,17 +135,35 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 357);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1343, 58);
+            this.panel9.Size = new System.Drawing.Size(1343, 39);
             this.panel9.TabIndex = 36;
+            // 
+            // btnAddAll
+            // 
+            this.btnAddAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddAll.AntiAlias = true;
+            this.btnAddAll.Checked = true;
+            this.btnAddAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAll.Location = new System.Drawing.Point(1127, 29);
+            this.btnAddAll.Name = "btnAddAll";
+            this.btnAddAll.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnAddAll.Size = new System.Drawing.Size(88, 32);
+            this.btnAddAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddAll.Symbol = "57669";
+            this.btnAddAll.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material;
+            this.btnAddAll.TabIndex = 35;
+            this.btnAddAll.Text = "Add All";
+            this.btnAddAll.Click += new System.EventHandler(this.btnSearchItem_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.panel12);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(29, 0);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(29, 762);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1314, 34);
+            this.panel2.Size = new System.Drawing.Size(1314, 10);
             this.panel2.TabIndex = 41;
             // 
             // label3
@@ -141,11 +181,10 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.buttonX1);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel12.Location = new System.Drawing.Point(1269, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(45, 34);
+            this.panel12.Size = new System.Drawing.Size(45, 10);
             this.panel12.TabIndex = 1;
             // 
             // buttonX1
@@ -154,7 +193,7 @@
             this.buttonX1.AntiAlias = true;
             this.buttonX1.Checked = true;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(3, 5);
+            this.buttonX1.Location = new System.Drawing.Point(1305, 0);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(5);
             this.buttonX1.Size = new System.Drawing.Size(34, 23);
@@ -175,8 +214,10 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.Firebrick;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel8.Controls.Add(this.dgProductList);
+            this.panel8.Controls.Add(this.btnRemoveAll);
+            this.panel8.Controls.Add(this.btnAddAll);
             this.panel8.Controls.Add(this.label1);
+            this.panel8.Controls.Add(this.dgProductList);
             this.panel8.Controls.Add(this.panel11);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
@@ -188,12 +229,12 @@
             // 
             this.dgProductList.BackgroundColor = System.Drawing.Color.White;
             this.dgProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgProductList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgProductList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgProductList.Location = new System.Drawing.Point(0, 27);
+            this.dgProductList.Location = new System.Drawing.Point(0, 63);
             this.dgProductList.Name = "dgProductList";
             this.dgProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgProductList.Size = new System.Drawing.Size(1339, 326);
+            this.dgProductList.Size = new System.Drawing.Size(1339, 290);
             this.dgProductList.TabIndex = 31;
             this.dgProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductList_CellClick);
             // 
@@ -203,7 +244,7 @@
             this.label1.BackColor = System.Drawing.Color.DimGray;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(32, -2);
+            this.label1.Location = new System.Drawing.Point(33, 46);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
             this.label1.Size = new System.Drawing.Size(224, 29);
@@ -212,6 +253,7 @@
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.buttonX1);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
@@ -236,9 +278,9 @@
             this.panel7.Controls.Add(this.panel10);
             this.panel7.Controls.Add(this.dgAddedProductMinimumQuantity);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 415);
+            this.panel7.Location = new System.Drawing.Point(0, 396);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1343, 357);
+            this.panel7.Size = new System.Drawing.Size(1343, 376);
             this.panel7.TabIndex = 35;
             // 
             // panel5
@@ -255,6 +297,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(27, 772);
             this.panel3.TabIndex = 42;
+            // 
+            // btnPrintItems
+            // 
+            this.btnPrintItems.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPrintItems.AntiAlias = true;
+            this.btnPrintItems.Checked = true;
+            this.btnPrintItems.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnPrintItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintItems.Location = new System.Drawing.Point(1209, 8);
+            this.btnPrintItems.Name = "btnPrintItems";
+            this.btnPrintItems.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnPrintItems.Size = new System.Drawing.Size(99, 27);
+            this.btnPrintItems.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnPrintItems.Symbol = "";
+            this.btnPrintItems.TabIndex = 32;
+            this.btnPrintItems.Text = "Export";
             // 
             // frmViewBelowMinimumProducts
             // 
@@ -274,16 +332,17 @@
             this.Text = "frmViewBelowMinimumProducts";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmViewBelowMinimumProducts_Load);
+            this.panel4.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgAddedProductMinimumQuantity)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel12.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductList)).EndInit();
+            this.panel11.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -311,6 +370,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
+        private DevComponents.DotNetBar.ButtonX btnRemoveAll;
+        private DevComponents.DotNetBar.ButtonX btnAddAll;
+        private DevComponents.DotNetBar.ButtonX btnPrintItems;
 
     }
 }

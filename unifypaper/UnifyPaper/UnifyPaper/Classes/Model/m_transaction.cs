@@ -45,6 +45,23 @@ namespace UnifyPaper.Classes.Model
                     cmd.Parameters.AddWithValue("@price", t.selling_price);
                     cmd.Parameters.AddWithValue("@total_price", Convert.ToDouble(t.selling_price) * Convert.ToDouble(t.quantity));
                     cmd.ExecuteNonQuery();
+
+                    sql = "SELECT * FROM producttbl WHERE product_code=@product_code";
+                    cmd = new OleDbCommand(sql,conn);
+                    cmd.Parameters.AddWithValue("@product_code", t.product_code);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        dr.Read();
+                        int quantity = Convert.ToInt32(dr["quantity"]);
+                        dr.Close();
+                    }
+
+                    sql = "UPDATE producttbl SET quantity=@quantity WHERE product_code=@product_code";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@quantity", t.quantity);
+                    cmd.Parameters.AddWithValue("@product_code", t.product_code);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)

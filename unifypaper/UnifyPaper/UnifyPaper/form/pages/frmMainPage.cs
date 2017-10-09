@@ -831,6 +831,7 @@ namespace UnifyPaper.form.pages
                                 if(isTendered > 0)
                                 {
                                     MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                                    dgLoadProductList();
                                 }
                                 clearField();
                             }

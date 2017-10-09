@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,11 +44,43 @@
             "MWF 8:00am - 5:00pm",
             "Cashier"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sideNav1 = new DevComponents.DotNetBar.Controls.SideNav();
+            this.sideNavPanel1 = new DevComponents.DotNetBar.Controls.SideNavPanel();
+            this.dgTransactionList = new System.Windows.Forms.DataGridView();
+            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lbTransactionProductUnit = new System.Windows.Forms.Label();
+            this.lbTransactionProductPrice = new System.Windows.Forms.Label();
+            this.lbTransactionProductDescription = new System.Windows.Forms.Label();
+            this.panelEx9 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx8 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx7 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx6 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAddItem = new DevComponents.DotNetBar.ButtonX();
+            this.btnSearchItem = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbQty = new System.Windows.Forms.TextBox();
+            this.tbProductCode = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tbTransactionCash = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbTransactionChange = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnTransactionTender = new DevComponents.DotNetBar.ButtonX();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbGrandtotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbTax = new System.Windows.Forms.Label();
+            this.q = new System.Windows.Forms.Label();
+            this.tbSubTotal = new System.Windows.Forms.Label();
             this.sideNavPanel4 = new DevComponents.DotNetBar.Controls.SideNavPanel();
             this.sideNav2 = new DevComponents.DotNetBar.Controls.SideNav();
             this.sideNavPanel8 = new DevComponents.DotNetBar.Controls.SideNavPanel();
@@ -90,42 +126,6 @@
             this.sideNavItem7 = new DevComponents.DotNetBar.Controls.SideNavItem();
             this.sideNavItem3 = new DevComponents.DotNetBar.Controls.SideNavItem();
             this.sideNavItem6 = new DevComponents.DotNetBar.Controls.SideNavItem();
-            this.sideNavPanel1 = new DevComponents.DotNetBar.Controls.SideNavPanel();
-            this.dgTransactionList = new System.Windows.Forms.DataGridView();
-            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.lbTransactionProductUnit = new System.Windows.Forms.Label();
-            this.lbTransactionProductPrice = new System.Windows.Forms.Label();
-            this.lbTransactionProductDescription = new System.Windows.Forms.Label();
-            this.panelEx9 = new DevComponents.DotNetBar.PanelEx();
-            this.panelEx8 = new DevComponents.DotNetBar.PanelEx();
-            this.panelEx7 = new DevComponents.DotNetBar.PanelEx();
-            this.panelEx6 = new DevComponents.DotNetBar.PanelEx();
-            this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbUsername = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAddItem = new DevComponents.DotNetBar.ButtonX();
-            this.btnSearchItem = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbQty = new System.Windows.Forms.TextBox();
-            this.tbProductCode = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tbTransactionCash = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbTransactionChange = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnTransactionTender = new DevComponents.DotNetBar.ButtonX();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbGrandtotal = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbTax = new System.Windows.Forms.Label();
-            this.q = new System.Windows.Forms.Label();
-            this.tbSubTotal = new System.Windows.Forms.Label();
             this.separator1 = new DevComponents.DotNetBar.Separator();
             this.sideNavItem1 = new DevComponents.DotNetBar.Controls.SideNavItem();
             this.btnSidenavHome = new DevComponents.DotNetBar.Controls.SideNavItem();
@@ -141,6 +141,14 @@
             this.btnReCall = new DevComponents.DotNetBar.ButtonX();
             this.dpTransactionDate = new System.Windows.Forms.DateTimePicker();
             this.sideNav1.SuspendLayout();
+            this.sideNavPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTransactionList)).BeginInit();
+            this.panelEx5.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panelEx4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.sideNavPanel4.SuspendLayout();
             this.sideNav2.SuspendLayout();
             this.sideNavPanel8.SuspendLayout();
@@ -156,14 +164,6 @@
             this.panel10.SuspendLayout();
             this.panelEx3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar4)).BeginInit();
-            this.sideNavPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgTransactionList)).BeginInit();
-            this.panelEx5.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panelEx4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,6 +191,558 @@
             this.sideNav1.Text = "tttttttt";
             this.sideNav1.Click += new System.EventHandler(this.sideNav1_Click);
             this.sideNav1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sideNav1_MouseClick);
+            // 
+            // sideNavPanel1
+            // 
+            this.sideNavPanel1.Controls.Add(this.dgTransactionList);
+            this.sideNavPanel1.Controls.Add(this.panelEx5);
+            this.sideNavPanel1.Controls.Add(this.panelEx4);
+            this.sideNavPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sideNavPanel1.Location = new System.Drawing.Point(83, 31);
+            this.sideNavPanel1.Name = "sideNavPanel1";
+            this.sideNavPanel1.Size = new System.Drawing.Size(934, 567);
+            this.sideNavPanel1.TabIndex = 2;
+            this.sideNavPanel1.Visible = false;
+            this.sideNavPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.sideNavPanel1_Paint);
+            // 
+            // dgTransactionList
+            // 
+            this.dgTransactionList.AllowUserToAddRows = false;
+            this.dgTransactionList.AllowUserToDeleteRows = false;
+            this.dgTransactionList.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgTransactionList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgTransactionList.BackgroundColor = System.Drawing.Color.White;
+            this.dgTransactionList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTransactionList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgTransactionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgTransactionList.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgTransactionList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgTransactionList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgTransactionList.GridColor = System.Drawing.Color.White;
+            this.dgTransactionList.Location = new System.Drawing.Point(0, 0);
+            this.dgTransactionList.MultiSelect = false;
+            this.dgTransactionList.Name = "dgTransactionList";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTransactionList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgTransactionList.RowHeadersWidth = 30;
+            this.dgTransactionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgTransactionList.Size = new System.Drawing.Size(934, 199);
+            this.dgTransactionList.TabIndex = 58;
+            this.dgTransactionList.ReadOnlyChanged += new System.EventHandler(this.dgTransactionList_ReadOnlyChanged);
+            this.dgTransactionList.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgTransactionList_CellBeginEdit);
+            this.dgTransactionList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgTransactionList_CellMouseClick);
+            this.dgTransactionList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTransactionList_RowEnter);
+            // 
+            // panelEx5
+            // 
+            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx5.Controls.Add(this.panel9);
+            this.panelEx5.Controls.Add(this.panelEx9);
+            this.panelEx5.Controls.Add(this.panelEx8);
+            this.panelEx5.Controls.Add(this.panelEx7);
+            this.panelEx5.Controls.Add(this.panelEx6);
+            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEx5.Location = new System.Drawing.Point(0, 199);
+            this.panelEx5.Name = "panelEx5";
+            this.panelEx5.Size = new System.Drawing.Size(934, 190);
+            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx5.Style.GradientAngle = 90;
+            this.panelEx5.TabIndex = 51;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.lbTransactionProductUnit);
+            this.panel9.Controls.Add(this.lbTransactionProductPrice);
+            this.panel9.Controls.Add(this.lbTransactionProductDescription);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(21, 21);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(892, 148);
+            this.panel9.TabIndex = 29;
+            // 
+            // lbTransactionProductUnit
+            // 
+            this.lbTransactionProductUnit.AutoSize = true;
+            this.lbTransactionProductUnit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbTransactionProductUnit.Location = new System.Drawing.Point(795, 89);
+            this.lbTransactionProductUnit.Name = "lbTransactionProductUnit";
+            this.lbTransactionProductUnit.Size = new System.Drawing.Size(61, 19);
+            this.lbTransactionProductUnit.TabIndex = 3;
+            this.lbTransactionProductUnit.Text = "Pieces";
+            // 
+            // lbTransactionProductPrice
+            // 
+            this.lbTransactionProductPrice.AutoSize = true;
+            this.lbTransactionProductPrice.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbTransactionProductPrice.Location = new System.Drawing.Point(650, 70);
+            this.lbTransactionProductPrice.Name = "lbTransactionProductPrice";
+            this.lbTransactionProductPrice.Size = new System.Drawing.Size(139, 42);
+            this.lbTransactionProductPrice.TabIndex = 2;
+            this.lbTransactionProductPrice.Text = "100.00";
+            this.lbTransactionProductPrice.Click += new System.EventHandler(this.lbTransactionProductPrice_Click);
+            // 
+            // lbTransactionProductDescription
+            // 
+            this.lbTransactionProductDescription.AutoSize = true;
+            this.lbTransactionProductDescription.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbTransactionProductDescription.Location = new System.Drawing.Point(17, 41);
+            this.lbTransactionProductDescription.Name = "lbTransactionProductDescription";
+            this.lbTransactionProductDescription.Size = new System.Drawing.Size(479, 77);
+            this.lbTransactionProductDescription.TabIndex = 0;
+            this.lbTransactionProductDescription.Text = "Gtech Ballpen";
+            // 
+            // panelEx9
+            // 
+            this.panelEx9.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx9.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx9.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelEx9.Location = new System.Drawing.Point(913, 21);
+            this.panelEx9.Name = "panelEx9";
+            this.panelEx9.Size = new System.Drawing.Size(21, 148);
+            this.panelEx9.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx9.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
+            this.panelEx9.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx9.Style.BorderColor.Color = System.Drawing.Color.Maroon;
+            this.panelEx9.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx9.Style.GradientAngle = 90;
+            this.panelEx9.TabIndex = 12;
+            // 
+            // panelEx8
+            // 
+            this.panelEx8.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx8.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEx8.Location = new System.Drawing.Point(21, 169);
+            this.panelEx8.Name = "panelEx8";
+            this.panelEx8.Size = new System.Drawing.Size(913, 21);
+            this.panelEx8.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx8.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
+            this.panelEx8.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx8.Style.BorderColor.Color = System.Drawing.Color.DarkRed;
+            this.panelEx8.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx8.Style.GradientAngle = 90;
+            this.panelEx8.TabIndex = 8;
+            // 
+            // panelEx7
+            // 
+            this.panelEx7.CanvasColor = System.Drawing.Color.Transparent;
+            this.panelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx7.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelEx7.Location = new System.Drawing.Point(21, 0);
+            this.panelEx7.Name = "panelEx7";
+            this.panelEx7.Size = new System.Drawing.Size(913, 21);
+            this.panelEx7.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx7.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
+            this.panelEx7.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx7.Style.BorderColor.Color = System.Drawing.Color.DarkRed;
+            this.panelEx7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx7.Style.GradientAngle = 90;
+            this.panelEx7.TabIndex = 0;
+            // 
+            // panelEx6
+            // 
+            this.panelEx6.CanvasColor = System.Drawing.Color.Transparent;
+            this.panelEx6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx6.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelEx6.Location = new System.Drawing.Point(0, 0);
+            this.panelEx6.Margin = new System.Windows.Forms.Padding(0);
+            this.panelEx6.Name = "panelEx6";
+            this.panelEx6.Size = new System.Drawing.Size(21, 190);
+            this.panelEx6.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx6.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
+            this.panelEx6.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx6.Style.BorderColor.Color = System.Drawing.Color.DarkRed;
+            this.panelEx6.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx6.Style.GradientAngle = 90;
+            this.panelEx6.TabIndex = 0;
+            this.panelEx6.Click += new System.EventHandler(this.panelEx6_Click);
+            // 
+            // panelEx4
+            // 
+            this.panelEx4.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx4.Controls.Add(this.panel1);
+            this.panelEx4.Controls.Add(this.panel3);
+            this.panelEx4.Controls.Add(this.panel4);
+            this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEx4.Location = new System.Drawing.Point(0, 389);
+            this.panelEx4.Name = "panelEx4";
+            this.panelEx4.Size = new System.Drawing.Size(934, 178);
+            this.panelEx4.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx4.Style.GradientAngle = 90;
+            this.panelEx4.TabIndex = 47;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.buttonX5);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lbUsername);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(434, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(18, 178);
+            this.panel1.TabIndex = 1;
+            // 
+            // buttonX5
+            // 
+            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX5.AntiAlias = true;
+            this.buttonX5.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonX5.Checked = true;
+            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonX5.Location = new System.Drawing.Point(29, 41);
+            this.buttonX5.Name = "buttonX5";
+            this.buttonX5.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(5);
+            this.buttonX5.Size = new System.Drawing.Size(83, 34);
+            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX5.Symbol = "";
+            this.buttonX5.TabIndex = 5;
+            this.buttonX5.Text = " Change Cashier";
+            this.buttonX5.Click += new System.EventHandler(this.buttonX5_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DimGray;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(15, 13);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Welcome,";
+            // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.BackColor = System.Drawing.Color.DimGray;
+            this.lbUsername.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbUsername.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lbUsername.Location = new System.Drawing.Point(83, 13);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Padding = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.lbUsername.Size = new System.Drawing.Size(46, 20);
+            this.lbUsername.TabIndex = 3;
+            this.lbUsername.Text = "label2";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Firebrick;
+            this.panel3.Controls.Add(this.btnAddItem);
+            this.panel3.Controls.Add(this.btnSearchItem);
+            this.panel3.Controls.Add(this.buttonX1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.tbQty);
+            this.panel3.Controls.Add(this.tbProductCode);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(434, 178);
+            this.panel3.TabIndex = 0;
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddItem.AntiAlias = true;
+            this.btnAddItem.Checked = true;
+            this.btnAddItem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddItem.Location = new System.Drawing.Point(94, 105);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnAddItem.Size = new System.Drawing.Size(88, 45);
+            this.btnAddItem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddItem.Symbol = "";
+            this.btnAddItem.TabIndex = 28;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.Click += new System.EventHandler(this.buttonX4_Click);
+            // 
+            // btnSearchItem
+            // 
+            this.btnSearchItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSearchItem.AntiAlias = true;
+            this.btnSearchItem.Checked = true;
+            this.btnSearchItem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSearchItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchItem.Location = new System.Drawing.Point(206, 106);
+            this.btnSearchItem.Name = "btnSearchItem";
+            this.btnSearchItem.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnSearchItem.Size = new System.Drawing.Size(88, 45);
+            this.btnSearchItem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSearchItem.Symbol = "";
+            this.btnSearchItem.TabIndex = 27;
+            this.btnSearchItem.Text = " Search Item";
+            this.btnSearchItem.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // buttonX1
+            // 
+            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX1.AntiAlias = true;
+            this.buttonX1.Checked = true;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonX1.Location = new System.Drawing.Point(318, 105);
+            this.buttonX1.Name = "buttonX1";
+            this.buttonX1.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.buttonX1.Size = new System.Drawing.Size(88, 45);
+            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX1.Symbol = "";
+            this.buttonX1.TabIndex = 26;
+            this.buttonX1.Text = "Remove Item";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(24, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Code";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label7.Location = new System.Drawing.Point(285, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 16);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Qty";
+            // 
+            // tbQty
+            // 
+            this.tbQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbQty.Location = new System.Drawing.Point(317, 52);
+            this.tbQty.Name = "tbQty";
+            this.tbQty.Size = new System.Drawing.Size(89, 23);
+            this.tbQty.TabIndex = 16;
+            this.tbQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
+            // 
+            // tbProductCode
+            // 
+            this.tbProductCode.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.tbProductCode.Border.Class = "TextBoxBorder";
+            this.tbProductCode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbProductCode.DisabledBackColor = System.Drawing.Color.White;
+            this.tbProductCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbProductCode.ForeColor = System.Drawing.Color.Black;
+            this.tbProductCode.Location = new System.Drawing.Point(64, 52);
+            this.tbProductCode.Name = "tbProductCode";
+            this.tbProductCode.PreventEnterBeep = true;
+            this.tbProductCode.Size = new System.Drawing.Size(206, 23);
+            this.tbProductCode.TabIndex = 25;
+            this.tbProductCode.TextChanged += new System.EventHandler(this.tbProductCode_TextChanged);
+            this.tbProductCode.Enter += new System.EventHandler(this.tbProductCode_Enter);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Firebrick;
+            this.panel4.Controls.Add(this.tbTransactionCash);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.tbTransactionChange);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.btnTransactionTender);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.tbGrandtotal);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.tbTax);
+            this.panel4.Controls.Add(this.q);
+            this.panel4.Controls.Add(this.tbSubTotal);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(452, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(482, 178);
+            this.panel4.TabIndex = 0;
+            // 
+            // tbTransactionCash
+            // 
+            this.tbTransactionCash.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.tbTransactionCash.Border.Class = "TextBoxBorder";
+            this.tbTransactionCash.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbTransactionCash.DisabledBackColor = System.Drawing.Color.White;
+            this.tbTransactionCash.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold);
+            this.tbTransactionCash.ForeColor = System.Drawing.Color.Black;
+            this.tbTransactionCash.Location = new System.Drawing.Point(353, 13);
+            this.tbTransactionCash.Name = "tbTransactionCash";
+            this.tbTransactionCash.PreventEnterBeep = true;
+            this.tbTransactionCash.Size = new System.Drawing.Size(108, 33);
+            this.tbTransactionCash.TabIndex = 52;
+            this.tbTransactionCash.TextChanged += new System.EventHandler(this.tbTransactionCash_TextChanged_1);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(263, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 25);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Change";
+            // 
+            // tbTransactionChange
+            // 
+            this.tbTransactionChange.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tbTransactionChange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTransactionChange.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbTransactionChange.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbTransactionChange.Location = new System.Drawing.Point(353, 52);
+            this.tbTransactionChange.Name = "tbTransactionChange";
+            this.tbTransactionChange.Size = new System.Drawing.Size(108, 33);
+            this.tbTransactionChange.TabIndex = 51;
+            this.tbTransactionChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(286, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 25);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Cash";
+            // 
+            // btnTransactionTender
+            // 
+            this.btnTransactionTender.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTransactionTender.Checked = true;
+            this.btnTransactionTender.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTransactionTender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransactionTender.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnTransactionTender.Location = new System.Drawing.Point(268, 98);
+            this.btnTransactionTender.Name = "btnTransactionTender";
+            this.btnTransactionTender.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnTransactionTender.Size = new System.Drawing.Size(193, 69);
+            this.btnTransactionTender.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTransactionTender.Symbol = "";
+            this.btnTransactionTender.TabIndex = 47;
+            this.btnTransactionTender.Text = "Tender (Enter)";
+            this.btnTransactionTender.Click += new System.EventHandler(this.btnTransactionTender_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(94, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 25);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Tax";
+            // 
+            // tbGrandtotal
+            // 
+            this.tbGrandtotal.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tbGrandtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbGrandtotal.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbGrandtotal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbGrandtotal.Location = new System.Drawing.Point(149, 120);
+            this.tbGrandtotal.Name = "tbGrandtotal";
+            this.tbGrandtotal.Size = new System.Drawing.Size(108, 40);
+            this.tbGrandtotal.TabIndex = 28;
+            this.tbGrandtotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(34, 33);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(111, 25);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Sub Total";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // tbTax
+            // 
+            this.tbTax.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tbTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTax.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbTax.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbTax.Location = new System.Drawing.Point(149, 74);
+            this.tbTax.Name = "tbTax";
+            this.tbTax.Size = new System.Drawing.Size(108, 33);
+            this.tbTax.TabIndex = 30;
+            this.tbTax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // q
+            // 
+            this.q.AutoSize = true;
+            this.q.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.q.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.q.Location = new System.Drawing.Point(9, 130);
+            this.q.Name = "q";
+            this.q.Size = new System.Drawing.Size(136, 25);
+            this.q.TabIndex = 27;
+            this.q.Text = "Grand Total";
+            // 
+            // tbSubTotal
+            // 
+            this.tbSubTotal.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tbSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSubTotal.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSubTotal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbSubTotal.Location = new System.Drawing.Point(149, 28);
+            this.tbSubTotal.Name = "tbSubTotal";
+            this.tbSubTotal.Size = new System.Drawing.Size(108, 33);
+            this.tbSubTotal.TabIndex = 32;
+            this.tbSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // sideNavPanel4
             // 
@@ -871,558 +1423,6 @@
             this.sideNavItem6.Symbol = "";
             this.sideNavItem6.Text = "Transaction History";
             // 
-            // sideNavPanel1
-            // 
-            this.sideNavPanel1.Controls.Add(this.dgTransactionList);
-            this.sideNavPanel1.Controls.Add(this.panelEx5);
-            this.sideNavPanel1.Controls.Add(this.panelEx4);
-            this.sideNavPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sideNavPanel1.Location = new System.Drawing.Point(83, 31);
-            this.sideNavPanel1.Name = "sideNavPanel1";
-            this.sideNavPanel1.Size = new System.Drawing.Size(934, 567);
-            this.sideNavPanel1.TabIndex = 2;
-            this.sideNavPanel1.Visible = false;
-            this.sideNavPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.sideNavPanel1_Paint);
-            // 
-            // dgTransactionList
-            // 
-            this.dgTransactionList.AllowUserToAddRows = false;
-            this.dgTransactionList.AllowUserToDeleteRows = false;
-            this.dgTransactionList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgTransactionList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgTransactionList.BackgroundColor = System.Drawing.Color.White;
-            this.dgTransactionList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTransactionList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgTransactionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgTransactionList.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgTransactionList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgTransactionList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgTransactionList.GridColor = System.Drawing.Color.White;
-            this.dgTransactionList.Location = new System.Drawing.Point(0, 0);
-            this.dgTransactionList.MultiSelect = false;
-            this.dgTransactionList.Name = "dgTransactionList";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTransactionList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgTransactionList.RowHeadersWidth = 30;
-            this.dgTransactionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgTransactionList.Size = new System.Drawing.Size(934, 199);
-            this.dgTransactionList.TabIndex = 58;
-            this.dgTransactionList.ReadOnlyChanged += new System.EventHandler(this.dgTransactionList_ReadOnlyChanged);
-            this.dgTransactionList.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgTransactionList_CellBeginEdit);
-            this.dgTransactionList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgTransactionList_CellMouseClick);
-            this.dgTransactionList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTransactionList_RowEnter);
-            // 
-            // panelEx5
-            // 
-            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx5.Controls.Add(this.panel9);
-            this.panelEx5.Controls.Add(this.panelEx9);
-            this.panelEx5.Controls.Add(this.panelEx8);
-            this.panelEx5.Controls.Add(this.panelEx7);
-            this.panelEx5.Controls.Add(this.panelEx6);
-            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx5.Location = new System.Drawing.Point(0, 199);
-            this.panelEx5.Name = "panelEx5";
-            this.panelEx5.Size = new System.Drawing.Size(934, 190);
-            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx5.Style.GradientAngle = 90;
-            this.panelEx5.TabIndex = 51;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.lbTransactionProductUnit);
-            this.panel9.Controls.Add(this.lbTransactionProductPrice);
-            this.panel9.Controls.Add(this.lbTransactionProductDescription);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(21, 21);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(892, 148);
-            this.panel9.TabIndex = 29;
-            // 
-            // lbTransactionProductUnit
-            // 
-            this.lbTransactionProductUnit.AutoSize = true;
-            this.lbTransactionProductUnit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductUnit.Location = new System.Drawing.Point(795, 89);
-            this.lbTransactionProductUnit.Name = "lbTransactionProductUnit";
-            this.lbTransactionProductUnit.Size = new System.Drawing.Size(61, 19);
-            this.lbTransactionProductUnit.TabIndex = 3;
-            this.lbTransactionProductUnit.Text = "Pieces";
-            // 
-            // lbTransactionProductPrice
-            // 
-            this.lbTransactionProductPrice.AutoSize = true;
-            this.lbTransactionProductPrice.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductPrice.Location = new System.Drawing.Point(650, 70);
-            this.lbTransactionProductPrice.Name = "lbTransactionProductPrice";
-            this.lbTransactionProductPrice.Size = new System.Drawing.Size(139, 42);
-            this.lbTransactionProductPrice.TabIndex = 2;
-            this.lbTransactionProductPrice.Text = "100.00";
-            this.lbTransactionProductPrice.Click += new System.EventHandler(this.lbTransactionProductPrice_Click);
-            // 
-            // lbTransactionProductDescription
-            // 
-            this.lbTransactionProductDescription.AutoSize = true;
-            this.lbTransactionProductDescription.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTransactionProductDescription.Location = new System.Drawing.Point(17, 41);
-            this.lbTransactionProductDescription.Name = "lbTransactionProductDescription";
-            this.lbTransactionProductDescription.Size = new System.Drawing.Size(479, 77);
-            this.lbTransactionProductDescription.TabIndex = 0;
-            this.lbTransactionProductDescription.Text = "Gtech Ballpen";
-            // 
-            // panelEx9
-            // 
-            this.panelEx9.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx9.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx9.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelEx9.Location = new System.Drawing.Point(913, 21);
-            this.panelEx9.Name = "panelEx9";
-            this.panelEx9.Size = new System.Drawing.Size(21, 148);
-            this.panelEx9.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx9.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
-            this.panelEx9.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx9.Style.BorderColor.Color = System.Drawing.Color.Maroon;
-            this.panelEx9.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx9.Style.GradientAngle = 90;
-            this.panelEx9.TabIndex = 12;
-            // 
-            // panelEx8
-            // 
-            this.panelEx8.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx8.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx8.Location = new System.Drawing.Point(21, 169);
-            this.panelEx8.Name = "panelEx8";
-            this.panelEx8.Size = new System.Drawing.Size(913, 21);
-            this.panelEx8.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx8.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
-            this.panelEx8.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx8.Style.BorderColor.Color = System.Drawing.Color.DarkRed;
-            this.panelEx8.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx8.Style.GradientAngle = 90;
-            this.panelEx8.TabIndex = 8;
-            // 
-            // panelEx7
-            // 
-            this.panelEx7.CanvasColor = System.Drawing.Color.Transparent;
-            this.panelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx7.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEx7.Location = new System.Drawing.Point(21, 0);
-            this.panelEx7.Name = "panelEx7";
-            this.panelEx7.Size = new System.Drawing.Size(913, 21);
-            this.panelEx7.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx7.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
-            this.panelEx7.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx7.Style.BorderColor.Color = System.Drawing.Color.DarkRed;
-            this.panelEx7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx7.Style.GradientAngle = 90;
-            this.panelEx7.TabIndex = 0;
-            // 
-            // panelEx6
-            // 
-            this.panelEx6.CanvasColor = System.Drawing.Color.Transparent;
-            this.panelEx6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx6.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelEx6.Location = new System.Drawing.Point(0, 0);
-            this.panelEx6.Margin = new System.Windows.Forms.Padding(0);
-            this.panelEx6.Name = "panelEx6";
-            this.panelEx6.Size = new System.Drawing.Size(21, 190);
-            this.panelEx6.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx6.Style.BackColor1.Color = System.Drawing.Color.DarkRed;
-            this.panelEx6.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx6.Style.BorderColor.Color = System.Drawing.Color.DarkRed;
-            this.panelEx6.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx6.Style.GradientAngle = 90;
-            this.panelEx6.TabIndex = 0;
-            this.panelEx6.Click += new System.EventHandler(this.panelEx6_Click);
-            // 
-            // panelEx4
-            // 
-            this.panelEx4.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx4.Controls.Add(this.panel1);
-            this.panelEx4.Controls.Add(this.panel3);
-            this.panelEx4.Controls.Add(this.panel4);
-            this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx4.Location = new System.Drawing.Point(0, 389);
-            this.panelEx4.Name = "panelEx4";
-            this.panelEx4.Size = new System.Drawing.Size(934, 178);
-            this.panelEx4.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx4.Style.GradientAngle = 90;
-            this.panelEx4.TabIndex = 47;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Firebrick;
-            this.panel1.Controls.Add(this.buttonX5);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lbUsername);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(434, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(18, 178);
-            this.panel1.TabIndex = 1;
-            // 
-            // buttonX5
-            // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.AntiAlias = true;
-            this.buttonX5.BackColor = System.Drawing.Color.Firebrick;
-            this.buttonX5.Checked = true;
-            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonX5.Location = new System.Drawing.Point(29, 41);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(5);
-            this.buttonX5.Size = new System.Drawing.Size(83, 34);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.Symbol = "";
-            this.buttonX5.TabIndex = 5;
-            this.buttonX5.Text = " Change Cashier";
-            this.buttonX5.Click += new System.EventHandler(this.buttonX5_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DimGray;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(15, 13);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.label2.Size = new System.Drawing.Size(68, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Welcome,";
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.BackColor = System.Drawing.Color.DimGray;
-            this.lbUsername.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbUsername.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lbUsername.Location = new System.Drawing.Point(83, 13);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Padding = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.lbUsername.Size = new System.Drawing.Size(46, 20);
-            this.lbUsername.TabIndex = 3;
-            this.lbUsername.Text = "label2";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Firebrick;
-            this.panel3.Controls.Add(this.btnAddItem);
-            this.panel3.Controls.Add(this.btnSearchItem);
-            this.panel3.Controls.Add(this.buttonX1);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.tbQty);
-            this.panel3.Controls.Add(this.tbProductCode);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(434, 178);
-            this.panel3.TabIndex = 0;
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddItem.AntiAlias = true;
-            this.btnAddItem.Checked = true;
-            this.btnAddItem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddItem.Location = new System.Drawing.Point(94, 105);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnAddItem.Size = new System.Drawing.Size(88, 45);
-            this.btnAddItem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddItem.Symbol = "";
-            this.btnAddItem.TabIndex = 28;
-            this.btnAddItem.Text = "Add Item";
-            this.btnAddItem.Click += new System.EventHandler(this.buttonX4_Click);
-            // 
-            // btnSearchItem
-            // 
-            this.btnSearchItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSearchItem.AntiAlias = true;
-            this.btnSearchItem.Checked = true;
-            this.btnSearchItem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSearchItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchItem.Location = new System.Drawing.Point(206, 106);
-            this.btnSearchItem.Name = "btnSearchItem";
-            this.btnSearchItem.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnSearchItem.Size = new System.Drawing.Size(88, 45);
-            this.btnSearchItem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSearchItem.Symbol = "";
-            this.btnSearchItem.TabIndex = 27;
-            this.btnSearchItem.Text = " Search Item";
-            this.btnSearchItem.Click += new System.EventHandler(this.buttonX2_Click);
-            // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.AntiAlias = true;
-            this.buttonX1.Checked = true;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX1.Location = new System.Drawing.Point(318, 105);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.buttonX1.Size = new System.Drawing.Size(88, 45);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.Symbol = "";
-            this.buttonX1.TabIndex = 26;
-            this.buttonX1.Text = "Remove Item";
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(24, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Code";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(285, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 16);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Qty";
-            // 
-            // tbQty
-            // 
-            this.tbQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbQty.Location = new System.Drawing.Point(317, 52);
-            this.tbQty.Name = "tbQty";
-            this.tbQty.Size = new System.Drawing.Size(89, 23);
-            this.tbQty.TabIndex = 16;
-            this.tbQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
-            // 
-            // tbProductCode
-            // 
-            this.tbProductCode.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.tbProductCode.Border.Class = "TextBoxBorder";
-            this.tbProductCode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbProductCode.DisabledBackColor = System.Drawing.Color.White;
-            this.tbProductCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbProductCode.ForeColor = System.Drawing.Color.Black;
-            this.tbProductCode.Location = new System.Drawing.Point(64, 52);
-            this.tbProductCode.Name = "tbProductCode";
-            this.tbProductCode.PreventEnterBeep = true;
-            this.tbProductCode.Size = new System.Drawing.Size(206, 23);
-            this.tbProductCode.TabIndex = 25;
-            this.tbProductCode.TextChanged += new System.EventHandler(this.tbProductCode_TextChanged);
-            this.tbProductCode.Enter += new System.EventHandler(this.tbProductCode_Enter);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Firebrick;
-            this.panel4.Controls.Add(this.tbTransactionCash);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.tbTransactionChange);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.btnTransactionTender);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.tbGrandtotal);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.tbTax);
-            this.panel4.Controls.Add(this.q);
-            this.panel4.Controls.Add(this.tbSubTotal);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(452, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(482, 178);
-            this.panel4.TabIndex = 0;
-            // 
-            // tbTransactionCash
-            // 
-            this.tbTransactionCash.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.tbTransactionCash.Border.Class = "TextBoxBorder";
-            this.tbTransactionCash.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbTransactionCash.DisabledBackColor = System.Drawing.Color.White;
-            this.tbTransactionCash.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold);
-            this.tbTransactionCash.ForeColor = System.Drawing.Color.Black;
-            this.tbTransactionCash.Location = new System.Drawing.Point(353, 13);
-            this.tbTransactionCash.Name = "tbTransactionCash";
-            this.tbTransactionCash.PreventEnterBeep = true;
-            this.tbTransactionCash.Size = new System.Drawing.Size(108, 33);
-            this.tbTransactionCash.TabIndex = 52;
-            this.tbTransactionCash.TextChanged += new System.EventHandler(this.tbTransactionCash_TextChanged_1);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(263, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 25);
-            this.label8.TabIndex = 50;
-            this.label8.Text = "Change";
-            // 
-            // tbTransactionChange
-            // 
-            this.tbTransactionChange.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.tbTransactionChange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTransactionChange.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbTransactionChange.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbTransactionChange.Location = new System.Drawing.Point(353, 52);
-            this.tbTransactionChange.Name = "tbTransactionChange";
-            this.tbTransactionChange.Size = new System.Drawing.Size(108, 33);
-            this.tbTransactionChange.TabIndex = 51;
-            this.tbTransactionChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(286, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 25);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Cash";
-            // 
-            // btnTransactionTender
-            // 
-            this.btnTransactionTender.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTransactionTender.Checked = true;
-            this.btnTransactionTender.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTransactionTender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransactionTender.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnTransactionTender.Location = new System.Drawing.Point(268, 98);
-            this.btnTransactionTender.Name = "btnTransactionTender";
-            this.btnTransactionTender.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnTransactionTender.Size = new System.Drawing.Size(193, 69);
-            this.btnTransactionTender.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTransactionTender.Symbol = "";
-            this.btnTransactionTender.TabIndex = 47;
-            this.btnTransactionTender.Text = "Tender (Enter)";
-            this.btnTransactionTender.Click += new System.EventHandler(this.btnTransactionTender_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(94, 82);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 25);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Tax";
-            // 
-            // tbGrandtotal
-            // 
-            this.tbGrandtotal.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.tbGrandtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbGrandtotal.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbGrandtotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbGrandtotal.Location = new System.Drawing.Point(149, 120);
-            this.tbGrandtotal.Name = "tbGrandtotal";
-            this.tbGrandtotal.Size = new System.Drawing.Size(108, 40);
-            this.tbGrandtotal.TabIndex = 28;
-            this.tbGrandtotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(34, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 25);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Sub Total";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // tbTax
-            // 
-            this.tbTax.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.tbTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTax.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbTax.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbTax.Location = new System.Drawing.Point(149, 74);
-            this.tbTax.Name = "tbTax";
-            this.tbTax.Size = new System.Drawing.Size(108, 33);
-            this.tbTax.TabIndex = 30;
-            this.tbTax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // q
-            // 
-            this.q.AutoSize = true;
-            this.q.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.q.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.q.Location = new System.Drawing.Point(9, 130);
-            this.q.Name = "q";
-            this.q.Size = new System.Drawing.Size(136, 25);
-            this.q.TabIndex = 27;
-            this.q.Text = "Grand Total";
-            // 
-            // tbSubTotal
-            // 
-            this.tbSubTotal.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.tbSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSubTotal.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSubTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tbSubTotal.Location = new System.Drawing.Point(149, 28);
-            this.tbSubTotal.Name = "tbSubTotal";
-            this.tbSubTotal.Size = new System.Drawing.Size(108, 33);
-            this.tbSubTotal.TabIndex = 32;
-            this.tbSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // separator1
             // 
             this.separator1.FixedSize = new System.Drawing.Size(3, 1);
@@ -1575,6 +1575,18 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmMainPage_KeyPress);
             this.sideNav1.ResumeLayout(false);
             this.sideNav1.PerformLayout();
+            this.sideNavPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgTransactionList)).EndInit();
+            this.panelEx5.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panelEx4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.sideNavPanel4.ResumeLayout(false);
             this.sideNav2.ResumeLayout(false);
             this.sideNav2.PerformLayout();
@@ -1592,18 +1604,6 @@
             this.panel10.ResumeLayout(false);
             this.panelEx3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar4)).EndInit();
-            this.sideNavPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgTransactionList)).EndInit();
-            this.panelEx5.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panelEx4.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.ResumeLayout(false);
 
