@@ -186,7 +186,7 @@
             this.errorLabel.AutoSize = true;
             this.errorLabel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.errorLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.errorLabel.Location = new System.Drawing.Point(448, 164);
+            this.errorLabel.Location = new System.Drawing.Point(365, 163);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(81, 18);
             this.errorLabel.TabIndex = 9;

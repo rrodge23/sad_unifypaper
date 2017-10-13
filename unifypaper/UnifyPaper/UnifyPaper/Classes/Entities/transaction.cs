@@ -29,7 +29,7 @@ namespace UnifyPaper.Classes.Entities
             set
             {
                 DateTime date = Convert.ToDateTime(value);
-                transaction_timeContainer = date.ToString("HH:mm:ss");
+                transaction_timeContainer = date.ToString("HH-mm-ss");
             }
         }
         public int transaction_items { get; set; }

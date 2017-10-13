@@ -19,7 +19,24 @@ namespace UnifyPaper.Classes.Model
         {
             int isProductInserted = 0;
             try 
-	        {	        
+	        {
+                double o;
+                int ex;
+                Int32.TryParse(p.product_code,out ex);
+                Int32.TryParse(p.quantity,out ex);
+                double.TryParse(p.standard_price, out o);
+                double.TryParse(p.selling_price, out o);
+                Int32.TryParse(p.minimumQuantity, out ex);
+                
+                if(p.tax_code == "")
+                {
+                    Int32.TryParse(p.tax_code = "0",out ex);
+                }
+
+                if(p.supplier_contact_no == "")
+                {
+                    Int32.TryParse(p.supplier_contact_no = "0",out ex);
+                }
 		        conn.Open();
                 string sql = "SELECT * FROM producttbl WHERE product_code LIKE @product_code";
                 cmd = new OleDbCommand(sql, conn);
@@ -255,6 +272,24 @@ namespace UnifyPaper.Classes.Model
             bool isUpdate = false;
             try
             {
+                double o;
+                int ex;
+                Int32.TryParse(prod.product_code, out ex);
+                Int32.TryParse(prod.quantity, out ex);
+                double.TryParse(prod.standard_price, out o);
+                double.TryParse(prod.selling_price, out o);
+                Int32.TryParse(prod.minimumQuantity, out ex);
+                int.TryParse(prod.tax_code, out ex);
+
+                if (prod.tax_code == "")
+                {
+                    Int32.TryParse(prod.tax_code = "0", out ex);
+                }
+
+                if (prod.supplier_contact_no == "")
+                {
+                    Int32.TryParse(prod.supplier_contact_no = "0", out ex);
+                }
                 conn.Open();
                 string sql = "SELECT * FROM producttbl WHERE ID LIKE @ID";
                 cmd = new OleDbCommand(sql, conn);
@@ -396,7 +431,50 @@ namespace UnifyPaper.Classes.Model
 
             return prodList;
         }
+        public Classes.Entities.products getProductByProductCode(string prod_code)
+        {
+           
+            Classes.Entities.products prodList = new Classes.Entities.products();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM producttbl WHERE product_code=@product_code";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@product_code", prod_code);
+                
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
 
+                    prodList.ID = dr["ID"].ToString();
+                    prodList.category = dr["category"].ToString();
+                    prodList.description = dr["description"].ToString();
+                    prodList.product_code = dr["product_code"].ToString();
+                    prodList.minimumQuantity = dr["minimum_qty"].ToString();
+                    prodList.standard_price = dr["standard_price"].ToString();
+                    prodList.selling_price = dr["selling_price"].ToString();
+                    prodList.quantity = dr["quantity"].ToString();
+                    prodList.unit = dr["unit"].ToString();
+                    prodList.supplier_name = dr["supplier_name"].ToString();
+                    prodList.supplier_contact_no = dr["supplier_contact_no"].ToString();
+                        
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return prodList;
+        }
         public bool updateAllProductRowByField(string oldValue, string value, string field)
         {
             bool isProductinserted = false;

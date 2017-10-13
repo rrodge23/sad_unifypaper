@@ -16,7 +16,10 @@ namespace UnifyPaper.form.pages
         {
             InitializeComponent();
         }
+        //MINIMUM PRODUCT ITEM QUANTITY
+        public string quantity { get; set; }
 
+        //
         List<Classes.Entities.products> productList = new List<Classes.Entities.products>();
         List<Classes.Entities.products> AddedProductList = new List<Classes.Entities.products>();
         Classes.Model.m_products m_prod = new Classes.Model.m_products();
@@ -133,26 +136,38 @@ namespace UnifyPaper.form.pages
                 
                 if(e.RowIndex != dgProductList.Rows.Count-1)
                 {
-                    Classes.Entities.products p = new Classes.Entities.products();
-                    Classes.Entities.products addedP = new Classes.Entities.products();
+                    frmProductExportQuantity fpeq = new frmProductExportQuantity();
+                    fpeq.ShowDialog();
+                    double o;
+                    if (Double.TryParse(fpeq.quantity, out o) && fpeq.quantity != "0")
+                    {
+                       
+                        Classes.Entities.products p = new Classes.Entities.products();
+                        Classes.Entities.products addedP = new Classes.Entities.products();
 
-                    p.ID = dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    p.product_code = dgProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    p.description = dgProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    p.minimumQuantity = dgProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    p.category = dgProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    p.standard_price = dgProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    p.selling_price = dgProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    p.quantity = dgProductList.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    p.unit = dgProductList.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    p.tax_code = dgProductList.Rows[e.RowIndex].Cells[9].Value.ToString();
-                    p.supplier_name = dgProductList.Rows[e.RowIndex].Cells[10].Value.ToString();
-                    p.supplier_contact_no = dgProductList.Rows[e.RowIndex].Cells[11].Value.ToString();
-                    dgProductList.Rows.RemoveAt(e.RowIndex);
-                    productList.Remove(productList.ToList().Find(tmp => tmp.ID.Equals(p.ID)));
-                    AddedProductList.Add(p);
-
-                    loadAddedProductList();
+                        p.ID = dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        p.product_code = dgProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        p.description = dgProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        p.minimumQuantity = dgProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        p.category = dgProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        p.standard_price = dgProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        p.selling_price = dgProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        p.quantity = fpeq.quantity;
+                        p.unit = dgProductList.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        p.tax_code = dgProductList.Rows[e.RowIndex].Cells[9].Value.ToString();
+                        p.supplier_name = dgProductList.Rows[e.RowIndex].Cells[10].Value.ToString();
+                        p.supplier_contact_no = dgProductList.Rows[e.RowIndex].Cells[11].Value.ToString();
+                        dgProductList.Rows.RemoveAt(e.RowIndex);
+                        productList.Remove(productList.ToList().Find(tmp => tmp.ID.Equals(p.ID)));
+                        AddedProductList.Add(p);
+                        loadAddedProductList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Quantity Should be a number");
+                    }
+                   
+                    
                 }
             }
         }
@@ -189,7 +204,9 @@ namespace UnifyPaper.form.pages
                     p.category = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[4].Value.ToString();
                     p.standard_price = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[5].Value.ToString();
                     p.selling_price = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    p.quantity = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    Classes.Entities.products tmpProd = new Classes.Entities.products();
+                    tmpProd = m_prod.getProductByProductCode(p.product_code);
+                    p.quantity = tmpProd.quantity; 
                     p.unit = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[8].Value.ToString();
                     p.tax_code = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[9].Value.ToString();
                     p.supplier_name = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[10].Value.ToString();
@@ -301,6 +318,21 @@ namespace UnifyPaper.form.pages
             addDgProductColumn(tb);
             dgAddedProductMinimumQuantity.DataSource = tb;
             
+        }
+
+        private void btnPrintItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel9_Paint_3(object sender, PaintEventArgs e)
+        {
+
         }
 
     }
