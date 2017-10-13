@@ -68,34 +68,33 @@ namespace UnifyPaper.form.pages
 
         private void frmViewBelowMinimumProducts_Load(object sender, EventArgs e)
         {
-            loadProductList();
+            initiateLoadProductList();
         }
 
-        public void loadProductList()
+        public void initiateLoadProductList()
         {
-           
             dgProductList.DataSource = null;
-            List<Classes.Entities.products> productInfo = new List<Classes.Entities.products>();
+
             //if(productInfo.Count > 0)
             //{
-            productInfo = m_prod.getAllProductListWithMinimumQuantity();
+            productList = m_prod.getAllProductListWithMinimumQuantity();
             DataTable dgTable = new DataTable();
             addDgProductColumn(dgTable);
-            for (int i = 0; i < productInfo.Count; i++)
+            for (int i = 0; i < productList.Count; i++)
             {
-                
-                dgTable.Rows.Add(productInfo[i].ID,
-                    productInfo[i].product_code,
-                    productInfo[i].description,
-                    productInfo[i].category,
-                    productInfo[i].minimumQuantity,
-                    productInfo[i].standard_price,
-                    productInfo[i].selling_price,
-                    productInfo[i].quantity,
-                    productInfo[i].unit,
-                    productInfo[i].tax_code,
-                    productInfo[i].supplier_name,
-                    productInfo[i].supplier_contact_no
+
+                dgTable.Rows.Add(productList[i].ID,
+                    productList[i].product_code,
+                    productList[i].description,
+                    productList[i].category,
+                    productList[i].minimumQuantity,
+                    productList[i].standard_price,
+                    productList[i].selling_price,
+                    productList[i].quantity,
+                    productList[i].unit,
+                    productList[i].tax_code,
+                    productList[i].supplier_name,
+                    productList[i].supplier_contact_no
                     
                     );
             }
@@ -129,56 +128,32 @@ namespace UnifyPaper.form.pages
 
         private void dgProductList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 12)
+            if(e.ColumnIndex == 12 && e.RowIndex >= 0)
             {
                 
-                Classes.Entities.products p = new Classes.Entities.products();
-                Classes.Entities.products addedP = new Classes.Entities.products();
-
-                p.ID = dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
-                p.product_code = dgProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
-                p.description = dgProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
-                p.minimumQuantity = dgProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
-                p.category = dgProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
-                p.standard_price = dgProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
-                p.selling_price = dgProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
-                p.quantity = dgProductList.Rows[e.RowIndex].Cells[7].Value.ToString();
-                p.unit = dgProductList.Rows[e.RowIndex].Cells[8].Value.ToString();
-                p.tax_code = dgProductList.Rows[e.RowIndex].Cells[9].Value.ToString();
-                p.supplier_name = dgProductList.Rows[e.RowIndex].Cells[10].Value.ToString();
-                p.supplier_contact_no = dgProductList.Rows[e.RowIndex].Cells[11].Value.ToString();
-                dgProductList.Rows.RemoveAt(e.RowIndex);
-                productList.Remove(productList.ToList().Find(tmp => tmp.ID.Equals(p.ID)));
-                AddedProductList.Add(p);
-
-                dgAddedProductMinimumQuantity.DataSource = null;
-                dgAddedProductMinimumQuantity.Columns.Clear();
-                DataTable tb = new DataTable();
-                addDgProductColumn(tb);
-                foreach(Classes.Entities.products prod in AddedProductList)
+                if(e.RowIndex != dgProductList.Rows.Count-1)
                 {
-                    tb.Rows.Add(prod.ID,
-                                prod.product_code,
-                                prod.description,
-                                prod.category,
-                                prod.minimumQuantity,
-                                prod.standard_price,
-                                prod.selling_price,
-                                prod.quantity,
-                                prod.unit,
-                                prod.tax_code,
-                                prod.supplier_name,
-                                prod.supplier_contact_no
-                               );
-                 
+                    Classes.Entities.products p = new Classes.Entities.products();
+                    Classes.Entities.products addedP = new Classes.Entities.products();
+
+                    p.ID = dgProductList.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    p.product_code = dgProductList.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    p.description = dgProductList.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    p.minimumQuantity = dgProductList.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    p.category = dgProductList.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    p.standard_price = dgProductList.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    p.selling_price = dgProductList.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    p.quantity = dgProductList.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    p.unit = dgProductList.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    p.tax_code = dgProductList.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    p.supplier_name = dgProductList.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    p.supplier_contact_no = dgProductList.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    dgProductList.Rows.RemoveAt(e.RowIndex);
+                    productList.Remove(productList.ToList().Find(tmp => tmp.ID.Equals(p.ID)));
+                    AddedProductList.Add(p);
+
+                    loadAddedProductList();
                 }
-                dgAddedProductMinimumQuantity.DataSource = tb;
-                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-                btn.HeaderText = "Action";
-                btn.Name = "btnRemoveItem";
-                btn.Text = "Remove";
-                btn.UseColumnTextForButtonValue = true;
-                dgAddedProductMinimumQuantity.Columns.Add(btn);
             }
         }
 
@@ -200,10 +175,132 @@ namespace UnifyPaper.form.pages
 
         private void dgAddedProductMinimumQuantity_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 12)
+            if(e.ColumnIndex == 12 && e.RowIndex >= 0)
             {
+                if(e.RowIndex != dgAddedProductMinimumQuantity.Rows.Count-1)
+                {
+                    Classes.Entities.products p = new Classes.Entities.products();
+                    Classes.Entities.products addedP = new Classes.Entities.products();
+
+                    p.ID = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    p.product_code = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    p.description = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    p.minimumQuantity = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    p.category = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    p.standard_price = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    p.selling_price = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    p.quantity = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    p.unit = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    p.tax_code = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    p.supplier_name = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    p.supplier_contact_no = dgAddedProductMinimumQuantity.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    dgAddedProductMinimumQuantity.Rows.RemoveAt(e.RowIndex);
+                    AddedProductList.Remove(AddedProductList.ToList().Find(tmp => tmp.ID.Equals(p.ID)));
+                    productList.Add(p);
+                    loadProductList();
+                    
+                }
+            }
+        }
+
+        private void loadProductList()
+        {
+            dgProductList.DataSource = null;
+            dgProductList.Columns.Clear();
+            DataTable tb = new DataTable();
+            addDgProductColumn(tb);
+            foreach (Classes.Entities.products prod in productList)
+            {
+                tb.Rows.Add(prod.ID,
+                            prod.product_code,
+                            prod.description,
+                            prod.category,
+                            prod.minimumQuantity,
+                            prod.standard_price,
+                            prod.selling_price,
+                            prod.quantity,
+                            prod.unit,
+                            prod.tax_code,
+                            prod.supplier_name,
+                            prod.supplier_contact_no
+                           );
 
             }
+
+            dgProductList.DataSource = tb;
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "Action";
+            btn.Name = "btnAddItem";
+            btn.Text = "Add";
+            btn.UseColumnTextForButtonValue = true;
+            dgProductList.Columns.Add(btn);
+        }
+
+        private void loadAddedProductList()
+        {
+            dgAddedProductMinimumQuantity.DataSource = null;
+            dgAddedProductMinimumQuantity.Columns.Clear();
+            DataTable tb = new DataTable();
+            addDgProductColumn(tb);
+            foreach (Classes.Entities.products prod in AddedProductList)
+            {
+                tb.Rows.Add(prod.ID,
+                            prod.product_code,
+                            prod.description,
+                            prod.category,
+                            prod.minimumQuantity,
+                            prod.standard_price,
+                            prod.selling_price,
+                            prod.quantity,
+                            prod.unit,
+                            prod.tax_code,
+                            prod.supplier_name,
+                            prod.supplier_contact_no
+                           );
+
+            }
+            dgAddedProductMinimumQuantity.DataSource = tb;
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "Action";
+            btn.Name = "btnRemoveItem";
+            btn.Text = "Remove";
+            btn.UseColumnTextForButtonValue = true;
+            dgAddedProductMinimumQuantity.Columns.Add(btn);
+        }
+
+        private void btnSearchItem_Click(object sender, EventArgs e)
+        {
+            //BUTTON ADD ALL
+            foreach(Classes.Entities.products prod in productList)
+            {
+                AddedProductList.Add(prod);
+            }
+            productList.Clear();
+            dgProductList.DataSource = null;
+            dgProductList.Columns.Clear();
+            loadAddedProductList();
+            DataTable tb = new DataTable();
+            addDgProductColumn(tb);
+            dgProductList.DataSource = tb;
+      
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            ///BUTTON REMOVE ALL
+            foreach(Classes.Entities.products prod in AddedProductList)
+            {
+                productList.Add(prod);
+            }
+            dgAddedProductMinimumQuantity.DataSource = null;
+            dgAddedProductMinimumQuantity.Columns.Clear();
+            loadProductList();
+            AddedProductList.Clear();
+            
+            DataTable tb = new DataTable();
+            addDgProductColumn(tb);
+            dgAddedProductMinimumQuantity.DataSource = tb;
+            
         }
 
     }
