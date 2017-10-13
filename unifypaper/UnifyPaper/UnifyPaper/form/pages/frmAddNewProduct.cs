@@ -89,7 +89,7 @@ namespace UnifyPaper.form.pages
         private void frmAddNewProduct_Load(object sender, EventArgs e)
         {
             loadSettings();
-           
+            tbProductCode.Focus();
         }
 
         private void loadSettings()
@@ -123,7 +123,7 @@ namespace UnifyPaper.form.pages
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-           
+
         }
     }
 }

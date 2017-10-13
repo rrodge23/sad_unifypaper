@@ -181,7 +181,7 @@
             this.tbDescription.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbDescription.DisabledBackColor = System.Drawing.Color.White;
             this.tbDescription.ForeColor = System.Drawing.Color.Black;
-            this.tbDescription.Location = new System.Drawing.Point(137, 96);
+            this.tbDescription.Location = new System.Drawing.Point(137, 71);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.PreventEnterBeep = true;
             this.tbDescription.Size = new System.Drawing.Size(220, 20);
@@ -197,7 +197,7 @@
             this.tbProductCode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.tbProductCode.DisabledBackColor = System.Drawing.Color.White;
             this.tbProductCode.ForeColor = System.Drawing.Color.Black;
-            this.tbProductCode.Location = new System.Drawing.Point(137, 70);
+            this.tbProductCode.Location = new System.Drawing.Point(137, 46);
             this.tbProductCode.Name = "tbProductCode";
             this.tbProductCode.PreventEnterBeep = true;
             this.tbProductCode.Size = new System.Drawing.Size(220, 20);
@@ -208,7 +208,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(72, 48);
+            this.label1.Location = new System.Drawing.Point(72, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 24;
@@ -219,7 +219,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(47, 74);
+            this.label2.Location = new System.Drawing.Point(47, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 25;
@@ -230,7 +230,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(60, 96);
+            this.label3.Location = new System.Drawing.Point(60, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 26;
@@ -465,7 +465,7 @@
             "asdf",
             "aaa",
             "bb"});
-            this.cmbCategory.Location = new System.Drawing.Point(137, 43);
+            this.cmbCategory.Location = new System.Drawing.Point(137, 96);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(220, 21);
             this.cmbCategory.TabIndex = 0;

@@ -137,6 +137,12 @@
     <Compile Include="form\pages\frmNewUserLevel.Designer.cs">
       <DependentUpon>frmNewUserLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmProductExportQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmProductExportQuantity.Designer.cs">
+      <DependentUpon>frmProductExportQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmReCall.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmNewUserLevel.resx">
       <DependentUpon>frmNewUserLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmProductExportQuantity.resx">
+      <DependentUpon>frmProductExportQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmReCall.resx">
       <DependentUpon>frmReCall.cs</DependentUpon>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnPrintItems = new DevComponents.DotNetBar.ButtonX();
             this.btnRemoveAll = new DevComponents.DotNetBar.ButtonX();
             this.label2 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -42,14 +43,13 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dgProductList = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgProductList = new System.Windows.Forms.DataGridView();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnPrintItems = new DevComponents.DotNetBar.ButtonX();
             this.panel4.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -71,6 +71,23 @@
             this.panel4.Size = new System.Drawing.Size(1314, 38);
             this.panel4.TabIndex = 43;
             // 
+            // btnPrintItems
+            // 
+            this.btnPrintItems.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPrintItems.AntiAlias = true;
+            this.btnPrintItems.Checked = true;
+            this.btnPrintItems.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnPrintItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintItems.Location = new System.Drawing.Point(1209, 8);
+            this.btnPrintItems.Name = "btnPrintItems";
+            this.btnPrintItems.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnPrintItems.Size = new System.Drawing.Size(99, 27);
+            this.btnPrintItems.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnPrintItems.Symbol = "";
+            this.btnPrintItems.TabIndex = 32;
+            this.btnPrintItems.Text = "Export";
+            this.btnPrintItems.Click += new System.EventHandler(this.btnPrintItems_Click);
+            // 
             // btnRemoveAll
             // 
             this.btnRemoveAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -86,6 +103,7 @@
             this.btnRemoveAll.Symbol = "";
             this.btnRemoveAll.TabIndex = 27;
             this.btnRemoveAll.Text = "Remove All";
+            this.btnRemoveAll.Visible = false;
             this.btnRemoveAll.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // label2
@@ -137,6 +155,7 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1343, 39);
             this.panel9.TabIndex = 36;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint_3);
             // 
             // btnAddAll
             // 
@@ -154,6 +173,7 @@
             this.btnAddAll.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material;
             this.btnAddAll.TabIndex = 35;
             this.btnAddAll.Text = "Add All";
+            this.btnAddAll.Visible = false;
             this.btnAddAll.Click += new System.EventHandler(this.btnSearchItem_Click);
             // 
             // panel2
@@ -225,19 +245,6 @@
             this.panel8.Size = new System.Drawing.Size(1343, 357);
             this.panel8.TabIndex = 34;
             // 
-            // dgProductList
-            // 
-            this.dgProductList.BackgroundColor = System.Drawing.Color.White;
-            this.dgProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProductList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgProductList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgProductList.Location = new System.Drawing.Point(0, 63);
-            this.dgProductList.Name = "dgProductList";
-            this.dgProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgProductList.Size = new System.Drawing.Size(1339, 290);
-            this.dgProductList.TabIndex = 31;
-            this.dgProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductList_CellClick);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -251,6 +258,19 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Below Minimum Products";
             // 
+            // dgProductList
+            // 
+            this.dgProductList.BackgroundColor = System.Drawing.Color.White;
+            this.dgProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProductList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgProductList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgProductList.Location = new System.Drawing.Point(0, 63);
+            this.dgProductList.Name = "dgProductList";
+            this.dgProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProductList.Size = new System.Drawing.Size(1339, 290);
+            this.dgProductList.TabIndex = 31;
+            this.dgProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductList_CellClick);
+            // 
             // panel11
             // 
             this.panel11.Controls.Add(this.buttonX1);
@@ -259,6 +279,7 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1339, 27);
             this.panel11.TabIndex = 30;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // panel6
             // 
@@ -297,22 +318,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(27, 772);
             this.panel3.TabIndex = 42;
-            // 
-            // btnPrintItems
-            // 
-            this.btnPrintItems.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnPrintItems.AntiAlias = true;
-            this.btnPrintItems.Checked = true;
-            this.btnPrintItems.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrintItems.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrintItems.Location = new System.Drawing.Point(1209, 8);
-            this.btnPrintItems.Name = "btnPrintItems";
-            this.btnPrintItems.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnPrintItems.Size = new System.Drawing.Size(99, 27);
-            this.btnPrintItems.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnPrintItems.Symbol = "";
-            this.btnPrintItems.TabIndex = 32;
-            this.btnPrintItems.Text = "Export";
             // 
             // frmViewBelowMinimumProducts
             // 
