@@ -904,6 +904,35 @@ namespace UnifyPaper.form.pages
             
         }
 
+        private void bubbleBar1_ButtonClick(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+
+        }
+
+        private void btnAddUser_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmAddAccount fac = new frmAddAccount();
+            fac.mainPageFrm = this;
+            fac.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            if(lvUser.SelectedItems.Count > 0)
+            {
+                if(MessageBox.Show("Do you want to delete this record ?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string ID = lvUser.SelectedItems[0].Text.ToString();
+                    if (db.deleteUserByID(ID))
+                    {
+                        MessageBox.Show("User Successfuly DELETED !","DELETED !",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        loadData();
+                    }
+                    
+                }
+            }
+        }
+
         
     }
 }

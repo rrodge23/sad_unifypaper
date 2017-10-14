@@ -20,7 +20,7 @@ namespace UnifyPaper.Classes.Model
             int transactionID = 0;
             try
             {
-                MessageBox.Show(trans.transaction_time);
+              
                 conn.Open();
                 string sql = "INSERT INTO transactiontbl (transaction_date,transaction_time,transaction_cash,transaction_change,transaction_total_amount,transaction_cashier) VALUES (@transaction_date,@transaction_time,@transaction_cash,@transaction_change,@transaction_total_amount,@transaction_cashier)";
                 cmd = new OleDbCommand(sql, conn);
@@ -51,16 +51,17 @@ namespace UnifyPaper.Classes.Model
                     cmd = new OleDbCommand(sql,conn);
                     cmd.Parameters.AddWithValue("@product_code", t.product_code);
                     dr = cmd.ExecuteReader();
+                    int quantity = 0;
                     if (dr.HasRows)
                     {
                         dr.Read();
-                        int quantity = Convert.ToInt32(dr["quantity"]);
+                        quantity = Convert.ToInt32(dr["quantity"])- Convert.ToInt32(t.quantity);
                         dr.Close();
                     }
 
                     sql = "UPDATE producttbl SET quantity=@quantity WHERE product_code=@product_code";
                     cmd = new OleDbCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@quantity", t.quantity);
+                    cmd.Parameters.AddWithValue("@quantity", quantity);
                     cmd.Parameters.AddWithValue("@product_code", t.product_code);
                     cmd.ExecuteNonQuery();
                 }
@@ -77,7 +78,126 @@ namespace UnifyPaper.Classes.Model
             return transactionID;
         }
 
-        
+        public string getLatestTransactionID()
+        {
+            string transactionID = "";
+            
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM transactiontbl ORDER By ID DESC";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+
+                    transactionID = dr["ID"].ToString();
+                
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return transactionID;
+        }
+
+        public Classes.Entities.transaction getPreviousTransaction(string ID)
+        {
+            Classes.Entities.transaction trans = new Entities.transaction();
+
+            try
+            {
+                int o;
+
+                if (Int32.TryParse(ID, out o))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM transactiontbl WHERE ID=@ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID",ID);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        dr.Read();
+                        
+                        trans.ID = dr["ID"].ToString();
+                        trans.transaction_date = dr["transaction_date"].ToString();
+                        trans.transaction_time = dr["transaction_time"].ToString();
+                        trans.transaction_change = Convert.ToDouble(dr["transaction_change"]);
+                        trans.transaction_cash = Convert.ToDouble(dr["transaction_cash"]);
+                        trans.transaction_total_amount = Convert.ToDouble(dr["transaction_total_amount"]);
+                        trans.transaction_cashier = dr["transaction_cashier"].ToString();
+
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return trans;
+        }
+
+        public Classes.Entities.transaction getPreviousTransactionItems(string ID)
+        {
+            Classes.Entities.transaction trans = new Entities.transaction();
+
+            try
+            {
+                int o;
+
+                if (Int32.TryParse(ID, out o))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM transactiontbl WHERE ID=@ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        dr.Read();
+
+                        trans.ID = dr["ID"].ToString();
+                        trans.transaction_date = dr["transaction_date"].ToString();
+                        trans.transaction_time = dr["transaction_time"].ToString();
+                        trans.transaction_change = Convert.ToDouble(dr["transaction_change"]);
+                        trans.transaction_cash = Convert.ToDouble(dr["transaction_cash"]);
+                        trans.transaction_total_amount = Convert.ToDouble(dr["transaction_total_amount"]);
+                        trans.transaction_cashier = dr["transaction_cashier"].ToString();
+
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return trans;
+        }
+
 
     }
 }

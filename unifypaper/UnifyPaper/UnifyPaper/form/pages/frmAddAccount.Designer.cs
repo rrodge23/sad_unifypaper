@@ -44,6 +44,8 @@
             this.lbPassword = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbFullname = new System.Windows.Forms.Label();
+            this.tbSchedule = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,7 +110,7 @@
             this.btnSave.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(70, 197);
+            this.btnSave.Location = new System.Drawing.Point(72, 225);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
@@ -128,7 +130,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.Location = new System.Drawing.Point(175, 197);
+            this.btnCancel.Location = new System.Drawing.Point(177, 225);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
@@ -168,6 +170,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Firebrick;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tbSchedule);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbUserLevel);
             this.panel1.Controls.Add(this.lbUserLevel);
             this.panel1.Controls.Add(this.tbPassword);
@@ -183,7 +187,7 @@
             this.panel1.Location = new System.Drawing.Point(11, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 257);
+            this.panel1.Size = new System.Drawing.Size(337, 278);
             this.panel1.TabIndex = 21;
             // 
             // cmbUserLevel
@@ -194,7 +198,7 @@
             this.cmbUserLevel.ForeColor = System.Drawing.Color.Black;
             this.cmbUserLevel.FormattingEnabled = true;
             this.cmbUserLevel.ItemHeight = 15;
-            this.cmbUserLevel.Location = new System.Drawing.Point(153, 163);
+            this.cmbUserLevel.Location = new System.Drawing.Point(153, 194);
             this.cmbUserLevel.Name = "cmbUserLevel";
             this.cmbUserLevel.Size = new System.Drawing.Size(152, 21);
             this.cmbUserLevel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -205,7 +209,7 @@
             this.lbUserLevel.AutoSize = true;
             this.lbUserLevel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserLevel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUserLevel.Location = new System.Drawing.Point(70, 167);
+            this.lbUserLevel.Location = new System.Drawing.Point(70, 198);
             this.lbUserLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUserLevel.Name = "lbUserLevel";
             this.lbUserLevel.Size = new System.Drawing.Size(70, 17);
@@ -277,13 +281,42 @@
             this.lbFullname.TabIndex = 23;
             this.lbFullname.Text = "Full Name";
             // 
+            // tbSchedule
+            // 
+            this.tbSchedule.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.tbSchedule.Border.Class = "TextBoxBorder";
+            this.tbSchedule.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbSchedule.DisabledBackColor = System.Drawing.Color.White;
+            this.tbSchedule.ForeColor = System.Drawing.Color.Black;
+            this.tbSchedule.Location = new System.Drawing.Point(153, 163);
+            this.tbSchedule.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSchedule.Name = "tbSchedule";
+            this.tbSchedule.PreventEnterBeep = true;
+            this.tbSchedule.Size = new System.Drawing.Size(152, 20);
+            this.tbSchedule.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(74, 166);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Schedule";
+            // 
             // frmAddAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(359, 295);
+            this.ClientSize = new System.Drawing.Size(359, 316);
             this.Controls.Add(this.lbAccountInformation);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -318,5 +351,7 @@
         private System.Windows.Forms.Label lbUserLevel;
         private DevComponents.DotNetBar.Controls.TextBoxX tbConfirmPassword;
         private System.Windows.Forms.Label lbConfirmPassword;
+        private DevComponents.DotNetBar.Controls.TextBoxX tbSchedule;
+        private System.Windows.Forms.Label label1;
     }
 }
