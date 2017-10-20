@@ -42,7 +42,7 @@ namespace UnifyPaper.form.pages
         private void btnSalesReturn_Click(object sender, EventArgs e)
         {
             frmSalesReturn fsr = new frmSalesReturn();
-            fsr.mainpageFrm = mainpageFrm;
+            fsr.mainpageFrm = this.mainpageFrm;
             fsr.ShowDialog();
             
         }
