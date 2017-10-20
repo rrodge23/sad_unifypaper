@@ -34,20 +34,19 @@ namespace UnifyPaper.form.pages
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.ID = tbTransactionID.Text.Trim();
-            this.Close();
             Int32 o;
             if(tbTransactionID.Text.Trim() != "" && Int32.TryParse(tbTransactionID.Text.Trim(),out o))
             {
-                Classes.Entities.transaction checkTrans = m_trans.getPreviousTransactionByID(tbTransactionID.Text.Trim());
-                if (checkTrans.ID.Length > 0)
+                Classes.Entities.transaction checkTrans = new Classes.Entities.transaction();
+                checkTrans = m_trans.getPreviousTransactionByID(tbTransactionID.Text.Trim());
+                if (checkTrans.ID != null)
                 {
-                    MessageBox.Show("dfflskfjsdkfj");
-                    this.mainpageFrm.displaySalesReturnItems(tbTransactionID.Text.Trim());
+                    mainpageFrm.displaySalesReturnItems(tbTransactionID.Text.Trim());
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Transaction ID");
+                    MessageBox.Show("Invalid Input");
                 }
 
                 

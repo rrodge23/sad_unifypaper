@@ -96,6 +96,7 @@
             this.buttonX2.Symbol = "";
             this.buttonX2.TabIndex = 5;
             this.buttonX2.Text = " Exit";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // buttonX1
             // 
@@ -113,6 +114,7 @@
             this.buttonX1.Symbol = "";
             this.buttonX1.TabIndex = 4;
             this.buttonX1.Text = " Confirm";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // textBox2
             // 

@@ -30,7 +30,8 @@ namespace UnifyPaper.form.pages
 
         Classes.Entities.products currentProduct = new Classes.Entities.products();
 
-
+        bool isTransactionRecall = false;
+        string salesReturnID = "0";
         private void lvsetting()
         {
             lvUser.Columns.Clear();
@@ -403,6 +404,12 @@ namespace UnifyPaper.form.pages
         {
             //BUTTON ADMIN
             btnReCall.Visible = false;
+            if (Classes.Session.sessionUsers.userlevel != "99")
+            {
+                MessageBox.Show("Only Admin is Authorize");
+
+            }
+          
         }
 
         private void sideNavItem1_Click(object sender, EventArgs e)
@@ -470,8 +477,10 @@ namespace UnifyPaper.form.pages
         {
             if(MessageBox.Show("Remove This Item From List ?","Deleting",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
             {
-                productList.RemoveAt(dgTransactionList.CurrentRow.Index);
+                
+                currentTransaction.productList.RemoveAt(dgTransactionList.CurrentRow.Index);
                 dgTransactionList.Rows.RemoveAt(dgTransactionList.CurrentRow.Index);
+                calculateChange();
             }
         }
 
@@ -556,63 +565,12 @@ namespace UnifyPaper.form.pages
 
         public void displaySalesReturnItems(string ID)
         {
-            Classes.Entities.transaction salesReturnTrans = m_trans.getPreviousTransactionByID(ID);
-            List<Classes.Entities.products> salesReturnProd = m_trans.getPreviousTransactionItemsByID(ID);
-            dgTransactionList.DataSource = null;
-            calculateChange();
-            DataTable dgTable = new DataTable();
-            dgTable.Columns.Add("Product Code", typeof(string));
-            dgTable.Columns.Add("Description", typeof(string));
-            dgTable.Columns.Add("Quantity", typeof(string));
-            dgTable.Columns.Add("Unit", typeof(string));
-            dgTable.Columns.Add("Price", typeof(string));
-            dgTable.Columns.Add("Total", typeof(string));
-
-
-            double grandTotal = 0;
-
-            foreach (Classes.Entities.products prod in salesReturnProd)
-            {
-
-                double totalProductPrice = Convert.ToDouble(prod.quantity) * Convert.ToDouble(prod.selling_price);
-                dgTable.Rows.Add(
-                                prod.product_code,
-                                prod.description,
-                                prod.quantity,
-                                prod.unit,
-                                Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00"),
-                                (Convert.ToDouble(prod.selling_price) * Convert.ToDouble(prod.quantity)).ToString("0.00")
-                                );
-                grandTotal += totalProductPrice;
-            }
-            dgTransactionList.DataSource = dgTable;
-
-            //STYLE GRIDVIEW
-            dgTransactionList.BorderStyle = BorderStyle.None;
-            dgTransactionList.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgTransactionList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgTransactionList.DefaultCellStyle.ForeColor = Color.Black;
-            dgTransactionList.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            dgTransactionList.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgTransactionList.EnableHeadersVisualStyles = false;
-            dgTransactionList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgTransactionList.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dgTransactionList.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgTransactionList.BackgroundColor = Color.White;
-            dgTransactionList.ColumnHeadersHeight = 25;
-            dgTransactionList.Columns[0].Width = 150;
-            dgTransactionList.Columns[1].Width = 500;
-            dgTransactionList.Columns[2].Width = 150;
-            dgTransactionList.Columns[3].Width = 200;
-            dgTransactionList.Columns[4].Width = 150;
-            dgTransactionList.Columns[5].Width = 150;
-
-            //STYLE GRIDVIEW END
-
-            double tmpProductPriceValue = Convert.ToDouble(grandTotal) * (Convert.ToDouble(12) / 100.00);
-            tbSubTotal.Text = (Convert.ToDouble(grandTotal) - tmpProductPriceValue).ToString("0.00");
-            tbTax.Text = tmpProductPriceValue.ToString("0.00");
-            tbGrandtotal.Text = grandTotal.ToString("0.00");
+            this.salesReturnID = ID;
+            currentTransaction.productList = null;
+            currentTransaction.productList = m_trans.getPreviousTransactionItemsByID(ID);
+            displayCurrentTransactionItems();
+            this.isTransactionRecall = true;
+            
         }
 
         private void btnTransaction_Click_1(object sender, EventArgs e)
@@ -890,17 +848,49 @@ namespace UnifyPaper.form.pages
                                 currentTransaction.transaction_cash = Convert.ToDouble(tbTransactionCash.Text.Trim());
                                 currentTransaction.transaction_change = Convert.ToDouble(tbTransactionChange.Text.Trim());
                                 currentTransaction.transaction_total_amount = Convert.ToDouble(tbGrandtotal.Text);
-                                int isTendered = m_trans.transactionTender(currentTransaction);
-                                if(isTendered > 0)
+                                if (isTransactionRecall == false)
                                 {
-                                    MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
-                                    dgLoadProductList();
+                                    
+                                    int isTendered = m_trans.transactionTender(currentTransaction);
+                                    if (isTendered > 0)
+                                    {
+                                        MessageBox.Show("Transaction Success ! TRANSACTION ID: " + isTendered);
+                                        dgLoadProductList();
+                                    }
+                                    clearField();
                                 }
-                                clearField();
+                                else
+                                {
+                                    Classes.Entities.transaction salesReturnTrans = new Classes.Entities.transaction();
+                                    salesReturnTrans = m_trans.getPreviousTransactionByID(this.salesReturnID);
+                                    currentTransaction.ID = this.salesReturnID;
+                                    if(salesReturnTrans.transaction_total_amount <= Convert.ToDouble(tbGrandtotal.Text))
+                                    {
+                                        m_trans.transactionUpdate(currentTransaction);
+                                        MessageBox.Show("Successfull");
+                                        isTransactionRecall = false;
+                                        clearField();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Total Amount should be lesser than previous total amount");
+                                    }
+                                    
+
+                                    
+                                }
                             }
                             else
                             {
                                 MessageBox.Show("cash must be greater than the total amount");
+                            }
+                        }
+                        else
+                        {
+                            if(this.isTransactionRecall == true)
+                            {
+                                currentTransaction.productList = null;
+                                this.isTransactionRecall = false;
                             }
                         }
                     }
