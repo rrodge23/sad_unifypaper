@@ -401,7 +401,8 @@ namespace UnifyPaper.form.pages
 
         private void sideNavItem5_Click(object sender, EventArgs e)
         {
-           
+            //BUTTON ADMIN
+            btnReCall.Visible = false;
         }
 
         private void sideNavItem1_Click(object sender, EventArgs e)
@@ -549,7 +550,13 @@ namespace UnifyPaper.form.pages
         private void btnReCall_Click(object sender, EventArgs e)
         {
             frmReCall frc = new frmReCall();
+            frc.mainpageFrm = this;
             frc.ShowDialog();
+        }
+
+        public void displaySalesReturnItems()
+        {
+
         }
 
         private void btnTransaction_Click_1(object sender, EventArgs e)
@@ -887,6 +894,7 @@ namespace UnifyPaper.form.pages
         private void btnSidenavHome_Click(object sender, EventArgs e)
         {
             loadCurrentProduct();
+            btnReCall.Visible = true;
         }
 
         private void dgTransactionList_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -902,6 +910,35 @@ namespace UnifyPaper.form.pages
         private void dgProductList_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void bubbleBar1_ButtonClick(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+
+        }
+
+        private void btnAddUser_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            frmAddAccount fac = new frmAddAccount();
+            fac.mainPageFrm = this;
+            fac.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            if(lvUser.SelectedItems.Count > 0)
+            {
+                if(MessageBox.Show("Do you want to delete this record ?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string ID = lvUser.SelectedItems[0].Text.ToString();
+                    if (db.deleteUserByID(ID))
+                    {
+                        MessageBox.Show("User Successfuly DELETED !","DELETED !",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        loadData();
+                    }
+                    
+                }
+            }
         }
 
         

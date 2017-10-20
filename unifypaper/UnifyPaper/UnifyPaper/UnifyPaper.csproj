@@ -113,6 +113,12 @@
     <Compile Include="form\pages\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmInputAdminPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmInputAdminPassword.Designer.cs">
+      <DependentUpon>frmInputAdminPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmItemList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,18 @@
     </Compile>
     <Compile Include="form\pages\frmReceiptFormat.Designer.cs">
       <DependentUpon>frmReceiptFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\pages\frmSalesReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmSalesReturn.Designer.cs">
+      <DependentUpon>frmSalesReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\pages\frmSalesVoid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmSalesVoid.Designer.cs">
+      <DependentUpon>frmSalesVoid.cs</DependentUpon>
     </Compile>
     <Compile Include="form\pages\frmTransactionDiscount.cs">
       <SubType>Form</SubType>
@@ -231,6 +249,9 @@
     <EmbeddedResource Include="form\pages\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmInputAdminPassword.resx">
+      <DependentUpon>frmInputAdminPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmItemList.resx">
       <DependentUpon>frmItemList.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmReceiptFormat.resx">
       <DependentUpon>frmReceiptFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmSalesReturn.resx">
+      <DependentUpon>frmSalesReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmSalesVoid.resx">
+      <DependentUpon>frmSalesVoid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmTransactionDiscount.resx">
       <DependentUpon>frmTransactionDiscount.cs</DependentUpon>
@@ -312,10 +339,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\DotNetBar for Windows Forms\DevComponents.DotNetBar.Charts.dll" />
-    <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\aaaa.jpg" />

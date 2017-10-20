@@ -70,11 +70,10 @@ namespace UnifyPaper.Classes.Database
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM usertbl WHERE fullname LIKE @fullname AND username LIKE @username AND userlevel LIKE @userlevel";
+                string sql = "SELECT * FROM usertbl WHERE fullname=@fullname AND username=@username";
                 cmd = new OleDbCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@fullname", u.fullname);
-                cmd.Parameters.AddWithValue("@schedule", u.schedule);
-                cmd.Parameters.AddWithValue("@userlevel", u.userlevel);                
+                cmd.Parameters.AddWithValue("@username", u.username);              
                 dr = cmd.ExecuteReader();
 
                 if (dr.HasRows)
@@ -84,9 +83,11 @@ namespace UnifyPaper.Classes.Database
                 else
                 {
                     dr.Close();
-                    sql = "INSERT INTO usertbl (fullname, username, userlevel) VALUES (@fullname, @username, @userlevel)";
+                    sql = "INSERT INTO usertbl (fullname, username, password, schedule, userlevel) VALUES (@fullname, @username, @password, @schedule, @userlevel)";
                     cmd = new OleDbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@fullname", u.fullname);
+                    cmd.Parameters.AddWithValue("@username", u.username);
+                    cmd.Parameters.AddWithValue("@password", u.password);
                     cmd.Parameters.AddWithValue("@schedule", u.schedule);
                     cmd.Parameters.AddWithValue("@userlevel", u.userlevel);
                     int add = cmd.ExecuteNonQuery();
@@ -133,6 +134,38 @@ namespace UnifyPaper.Classes.Database
                         u.fullname = dr["fullname"].ToString();
                         u.username = dr["username"].ToString();
                         u.userlevel = dr["userlevel"].ToString();
+                        u.schedule = dr["schedule"].ToString();
+                        userList.Add(u);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getAllUser: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return userList;
+        }
+
+        public List<string> getAllUserLevel()
+        {
+            List<string> userList= new List<string>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT DISTINCT userlevel FROM userleveltbl";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        string u = dr["userlevel"].ToString();
                         userList.Add(u);
                     }
                 }
@@ -218,6 +251,38 @@ namespace UnifyPaper.Classes.Database
                 string sql = "SELECT * FROM usertbl WHERE ID LIKE @ID";
                 cmd = new OleDbCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@ID", ID);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    u.ID = dr["ID"].ToString();
+                    u.fullname = dr["fullname"].ToString();
+                    u.username = dr["username"].ToString();
+                    u.userlevel = dr["userlevel"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error in getUserByID: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return u;
+        }
+
+        public Classes.Entities.users getUserAdmin()
+        {
+            Classes.Entities.users u = new Classes.Entities.users();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM usertbl WHERE userlevel=@userlevel";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@userlevel", 99);
                 dr = cmd.ExecuteReader();
 
                 if (dr.HasRows)

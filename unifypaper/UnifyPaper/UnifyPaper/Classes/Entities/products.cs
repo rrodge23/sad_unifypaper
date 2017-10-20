@@ -20,7 +20,6 @@ namespace UnifyPaper.Classes.Entities
         public string tax_code { get; set; }
         public string supplier_name { get; set; }
         public string supplier_contact_no { get; set; }
-
         public products()
         {
 

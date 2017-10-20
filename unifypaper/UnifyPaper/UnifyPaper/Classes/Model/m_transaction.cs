@@ -20,7 +20,7 @@ namespace UnifyPaper.Classes.Model
             int transactionID = 0;
             try
             {
-                MessageBox.Show(trans.transaction_time);
+              
                 conn.Open();
                 string sql = "INSERT INTO transactiontbl (transaction_date,transaction_time,transaction_cash,transaction_change,transaction_total_amount,transaction_cashier) VALUES (@transaction_date,@transaction_time,@transaction_cash,@transaction_change,@transaction_total_amount,@transaction_cashier)";
                 cmd = new OleDbCommand(sql, conn);
@@ -51,16 +51,17 @@ namespace UnifyPaper.Classes.Model
                     cmd = new OleDbCommand(sql,conn);
                     cmd.Parameters.AddWithValue("@product_code", t.product_code);
                     dr = cmd.ExecuteReader();
+                    int quantity = 0;
                     if (dr.HasRows)
                     {
                         dr.Read();
-                        int quantity = Convert.ToInt32(dr["quantity"]);
+                        quantity = Convert.ToInt32(dr["quantity"])- Convert.ToInt32(t.quantity);
                         dr.Close();
                     }
 
                     sql = "UPDATE producttbl SET quantity=@quantity WHERE product_code=@product_code";
                     cmd = new OleDbCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@quantity", t.quantity);
+                    cmd.Parameters.AddWithValue("@quantity", quantity);
                     cmd.Parameters.AddWithValue("@product_code", t.product_code);
                     cmd.ExecuteNonQuery();
                 }
@@ -77,7 +78,176 @@ namespace UnifyPaper.Classes.Model
             return transactionID;
         }
 
-        
+        public string getLatestTransactionID()
+        {
+            string transactionID = "";
+            
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM transactiontbl ORDER By ID DESC";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+
+                    transactionID = dr["ID"].ToString();
+                
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return transactionID;
+        }
+
+        public Classes.Entities.transaction getPreviousTransactionByID(string ID)
+        {
+            Classes.Entities.transaction trans = new Entities.transaction();
+
+            try
+            {
+                int o;
+
+                if (Int32.TryParse(ID, out o))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM transactiontbl WHERE ID=@ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID",ID);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        dr.Read();
+                        
+                        trans.ID = dr["ID"].ToString();
+                        trans.transaction_date = dr["transaction_date"].ToString();
+                        trans.transaction_time = dr["transaction_time"].ToString();
+                        trans.transaction_change = Convert.ToDouble(dr["transaction_change"]);
+                        trans.transaction_cash = Convert.ToDouble(dr["transaction_cash"]);
+                        trans.transaction_total_amount = Convert.ToDouble(dr["transaction_total_amount"]);
+                        trans.transaction_cashier = dr["transaction_cashier"].ToString();
+
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return trans;
+        }
+
+        public List<Classes.Entities.products> getPreviousTransactionItemsByID(string ID)
+        {
+            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>;
+
+            try
+            {
+                int o;
+
+                if (Int32.TryParse(ID, out o))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM transaction_itemtbl WHERE transaction_id=@ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        dr.Read();
+                        Classes.Entities.products p = new Entities.products();
+                        p.ID = dr["ID"].ToString();
+                        p.product_code = dr["product_code"].ToString();
+                        p.description = dr["product_description"].ToString();
+                        p.quantity = dr["quantity"].ToString();
+                        p.unit = dr["unit"].ToString();
+                        p.selling_price = dr["selling_price"].ToString();
+                        
+                        prodList.Add(p);
+
+                    }
+                }else
+                {
+                    MessageBox.Show("input should be numerical");
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+
+            return prodList;
+        }
+
+        public bool deleteTransaction(int ID)
+        {
+
+            bool isDelete = false;
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM transactiontbl WHERE ID LIKE @ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Close();
+
+                    sql = "DELETE FROM transactiontbl WHERE ID LIKE @ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    int delete = cmd.ExecuteNonQuery();
+
+                    if (delete > 0)
+                    {
+                        sql = "DELETE FROM transaction_itemtbl WHERE transaction_id=@id";
+                        cmd = new OleDbCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        int delete_item = cmd.ExecuteNonQuery();
+                        isDelete = true;
+                    }
+                    else
+                    {
+                        isDelete = false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return isDelete;
+        }
 
     }
 }

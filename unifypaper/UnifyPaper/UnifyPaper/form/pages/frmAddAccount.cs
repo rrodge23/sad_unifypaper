@@ -27,19 +27,28 @@ namespace UnifyPaper.form.pages
         {
             if (tbFullname.Text.Trim() != "" && tbUsername.Text.Trim() != "" && tbPassword.Text.Trim() != "" && cmbUserLevel.Text.Trim() != "")
             {
-                if (MessageBox.Show("Do you want to save this record?", "Saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (tbPassword.Text == tbConfirmPassword.Text)
                 {
-                    db = new Classes.Database.database();
-                    Classes.Entities.users u = new Classes.Entities.users();
-                    u.fullname = tbFullname.Text.Trim();
-                    u.username = tbUsername.Text.Trim();
-                    u.password = tbPassword.Text.Trim();
-                    u.userlevel= cmbUserLevel.Text.Trim();
+                    if (MessageBox.Show("Do you want to save this record?", "Saving", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        db = new Classes.Database.database();
+                        Classes.Entities.users u = new Classes.Entities.users();
+                        u.fullname = tbFullname.Text.Trim();
+                        u.username = tbUsername.Text.Trim();
+                        u.schedule = tbSchedule.Text.Trim();
+                        u.password = tbPassword.Text.Trim();
+                        u.userlevel = cmbUserLevel.Text.Trim();
 
-                    db.addNewUser(u);
-                    mainPageFrm.loadData();                    
-                    this.Close();
+                        db.addNewUser(u);
+                        mainPageFrm.loadData();
+                        this.Close();
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Password did Not Match");
+                }
+                
             }
             else
             {
@@ -64,7 +73,11 @@ namespace UnifyPaper.form.pages
 
         private void frmAddAccount_Load(object sender, EventArgs e)
         {
-
+            
+            foreach (string str in db.getAllUserLevel())
+	        {
+                cmbUserLevel.Items.Add(str);
+	        }
         }
 
         private void tbLastname_TextChanged(object sender, EventArgs e)
