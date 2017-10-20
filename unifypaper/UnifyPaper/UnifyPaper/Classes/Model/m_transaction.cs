@@ -78,6 +78,55 @@ namespace UnifyPaper.Classes.Model
             return transactionID;
         }
 
+        public int transactionUpdate(Classes.Entities.transaction trans)
+        {
+            int transactionID = 0;
+            try
+            {
+
+                conn.Open();
+                string sql = "UPDATE transactiontbl SET transaction_date=@transaction_date,transaction_time=@transaction_time,transaction_cash=@transaction_cash,transaction_change=@transaction_change,transaction_total_amount=@transaction_total_amount,transaction_cashier=@transaction_cashier WHERE ID=@ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@transaction_date", trans.transaction_date);
+                cmd.Parameters.AddWithValue("@transaction_time", trans.transaction_time);
+                cmd.Parameters.AddWithValue("@transaction_cash", Convert.ToDouble(trans.transaction_cash));
+                cmd.Parameters.AddWithValue("@transaction_change", Convert.ToDouble(trans.transaction_change));
+                cmd.Parameters.AddWithValue("@transaction_total_amount", Convert.ToDouble(trans.transaction_total_amount));
+                cmd.Parameters.AddWithValue("@transaction_cashier", trans.transaction_cashier);
+                cmd.Parameters.AddWithValue("@ID", trans.ID);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show(trans.ID);
+                sql = "DELETE FROM transaction_itemtbl WHERE transaction_id=@ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", trans.ID);
+                cmd.ExecuteNonQuery();
+                foreach (Classes.Entities.products t in trans.productList)
+                {
+                    sql = "INSERT INTO transaction_itemtbl (transaction_id,product_code,product_description,quantity,unit,price,total_price) VALUES (@transaction_id,@product_code,@product_description,@quantity,@unit,@price,@total_price)";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@transaction_id", trans.ID);
+                    cmd.Parameters.AddWithValue("@product_code", t.product_code);
+                    cmd.Parameters.AddWithValue("@product_description", t.description);
+                    cmd.Parameters.AddWithValue("@quantity", t.quantity);
+                    cmd.Parameters.AddWithValue("@unit", t.unit);
+                    cmd.Parameters.AddWithValue("@price", t.selling_price);
+                    cmd.Parameters.AddWithValue("@total_price", Convert.ToDouble(t.selling_price) * Convert.ToDouble(t.quantity));
+                    cmd.ExecuteNonQuery();
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saveTransaction: " + ex.ToString());
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+            return transactionID;
+        }
+
         public string getLatestTransactionID()
         {
             string transactionID = "";
@@ -117,7 +166,7 @@ namespace UnifyPaper.Classes.Model
             try
             {
                 int o;
-
+                double oo;
                 if (Int32.TryParse(ID, out o))
                 {
                     conn.Open();
@@ -171,16 +220,19 @@ namespace UnifyPaper.Classes.Model
                     dr = cmd.ExecuteReader();
                     if (dr.HasRows)
                     {
-                        dr.Read();
-                        Classes.Entities.products p = new Entities.products();
-                        p.ID = dr["ID"].ToString();
-                        p.product_code = dr["product_code"].ToString();
-                        p.description = dr["product_description"].ToString();
-                        p.quantity = dr["quantity"].ToString();
-                        p.unit = dr["unit"].ToString();
-                        p.selling_price = dr["selling_price"].ToString();
+                        while (dr.Read())
+                        {
+                            Classes.Entities.products p = new Entities.products();
+                            p.ID = dr["ID"].ToString();
+                            p.product_code = dr["product_code"].ToString();
+                            p.description = dr["product_description"].ToString();
+                            p.quantity = dr["quantity"].ToString();
+                            p.unit = dr["unit"].ToString();
+                            p.selling_price = dr["price"].ToString();
+
+                            prodList.Add(p);
+                        }
                         
-                        prodList.Add(p);
 
                     }
                 }else

@@ -135,6 +135,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 147);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSalesReturn";
             this.Text = "Sales Return";
             this.Load += new System.EventHandler(this.frmSalesReturn_Load);
