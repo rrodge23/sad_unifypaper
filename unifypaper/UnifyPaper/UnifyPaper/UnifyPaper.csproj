@@ -113,6 +113,12 @@
     <Compile Include="form\pages\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmInputAdminPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmInputAdminPassword.Designer.cs">
+      <DependentUpon>frmInputAdminPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmItemList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     <EmbeddedResource Include="form\pages\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmInputAdminPassword.resx">
+      <DependentUpon>frmInputAdminPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmItemList.resx">
       <DependentUpon>frmItemList.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,10 +339,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\DotNetBar for Windows Forms\DevComponents.DotNetBar.Charts.dll" />
-    <Analyzer Include="..\..\..\..\..\..\..\Program Files %28x86%29\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\aaaa.jpg" />

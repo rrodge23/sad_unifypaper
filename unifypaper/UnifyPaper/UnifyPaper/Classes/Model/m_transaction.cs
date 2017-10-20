@@ -110,7 +110,7 @@ namespace UnifyPaper.Classes.Model
             return transactionID;
         }
 
-        public Classes.Entities.transaction getPreviousTransaction(string ID)
+        public Classes.Entities.transaction getPreviousTransactionByID(string ID)
         {
             Classes.Entities.transaction trans = new Entities.transaction();
 
@@ -154,9 +154,9 @@ namespace UnifyPaper.Classes.Model
             return trans;
         }
 
-        public Classes.Entities.transaction getPreviousTransactionItems(string ID)
+        public List<Classes.Entities.products> getPreviousTransactionItemsByID(string ID)
         {
-            Classes.Entities.transaction trans = new Entities.transaction();
+            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>;
 
             try
             {
@@ -165,23 +165,27 @@ namespace UnifyPaper.Classes.Model
                 if (Int32.TryParse(ID, out o))
                 {
                     conn.Open();
-                    string sql = "SELECT * FROM transactiontbl WHERE ID=@ID";
+                    string sql = "SELECT * FROM transaction_itemtbl WHERE transaction_id=@ID";
                     cmd = new OleDbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@ID", ID);
                     dr = cmd.ExecuteReader();
                     if (dr.HasRows)
                     {
                         dr.Read();
-
-                        trans.ID = dr["ID"].ToString();
-                        trans.transaction_date = dr["transaction_date"].ToString();
-                        trans.transaction_time = dr["transaction_time"].ToString();
-                        trans.transaction_change = Convert.ToDouble(dr["transaction_change"]);
-                        trans.transaction_cash = Convert.ToDouble(dr["transaction_cash"]);
-                        trans.transaction_total_amount = Convert.ToDouble(dr["transaction_total_amount"]);
-                        trans.transaction_cashier = dr["transaction_cashier"].ToString();
+                        Classes.Entities.products p = new Entities.products();
+                        p.ID = dr["ID"].ToString();
+                        p.product_code = dr["product_code"].ToString();
+                        p.description = dr["product_description"].ToString();
+                        p.quantity = dr["quantity"].ToString();
+                        p.unit = dr["unit"].ToString();
+                        p.selling_price = dr["selling_price"].ToString();
+                        
+                        prodList.Add(p);
 
                     }
+                }else
+                {
+                    MessageBox.Show("input should be numerical");
                 }
 
             }
@@ -195,9 +199,55 @@ namespace UnifyPaper.Classes.Model
                 conn.Close();
             }
 
-            return trans;
+            return prodList;
         }
 
+        public bool deleteTransaction(int ID)
+        {
+
+            bool isDelete = false;
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM transactiontbl WHERE ID LIKE @ID";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Close();
+
+                    sql = "DELETE FROM transactiontbl WHERE ID LIKE @ID";
+                    cmd = new OleDbCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    int delete = cmd.ExecuteNonQuery();
+
+                    if (delete > 0)
+                    {
+                        sql = "DELETE FROM transaction_itemtbl WHERE transaction_id=@id";
+                        cmd = new OleDbCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        int delete_item = cmd.ExecuteNonQuery();
+                        isDelete = true;
+                    }
+                    else
+                    {
+                        isDelete = false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return isDelete;
+        }
 
     }
 }

@@ -401,7 +401,8 @@ namespace UnifyPaper.form.pages
 
         private void sideNavItem5_Click(object sender, EventArgs e)
         {
-           
+            //BUTTON ADMIN
+            btnReCall.Visible = false;
         }
 
         private void sideNavItem1_Click(object sender, EventArgs e)
@@ -549,7 +550,13 @@ namespace UnifyPaper.form.pages
         private void btnReCall_Click(object sender, EventArgs e)
         {
             frmReCall frc = new frmReCall();
+            frc.mainpageFrm = this;
             frc.ShowDialog();
+        }
+
+        public void displaySalesReturnItems()
+        {
+
         }
 
         private void btnTransaction_Click_1(object sender, EventArgs e)
@@ -887,6 +894,7 @@ namespace UnifyPaper.form.pages
         private void btnSidenavHome_Click(object sender, EventArgs e)
         {
             loadCurrentProduct();
+            btnReCall.Visible = true;
         }
 
         private void dgTransactionList_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

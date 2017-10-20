@@ -274,6 +274,38 @@ namespace UnifyPaper.Classes.Database
             return u;
         }
 
+        public Classes.Entities.users getUserAdmin()
+        {
+            Classes.Entities.users u = new Classes.Entities.users();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM usertbl WHERE userlevel=@userlevel";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@userlevel", 99);
+                dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    u.ID = dr["ID"].ToString();
+                    u.fullname = dr["fullname"].ToString();
+                    u.username = dr["username"].ToString();
+                    u.userlevel = dr["userlevel"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error in getUserByID: " + e.ToString());
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return u;
+        }
+
         public bool deleteUserByID(string ID)
         {
            

@@ -17,6 +17,7 @@ namespace UnifyPaper.form.pages
             InitializeComponent();
         }
 
+        public frmMainPage mainpageFrm { get; set; }
         public string ID { get; set; }
         private void frmSalesReturn_Load(object sender, EventArgs e)
         {

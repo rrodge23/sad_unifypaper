@@ -17,9 +17,11 @@ namespace UnifyPaper.form.pages
             InitializeComponent();
         }
 
+        Classes.Model.m_transaction m_trans = new Classes.Model.m_transaction();
+
         private void frmSalesVoid_Load(object sender, EventArgs e)
         {
-
+            tbTransactionID.Focus();
         }
 
         private void btnCLose_Click(object sender, EventArgs e)
@@ -31,7 +33,33 @@ namespace UnifyPaper.form.pages
         {
             if(MessageBox.Show("Void This Transaction?","Transaction Void", MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
             {
+                int o;
+                if (m_trans.getPreviousTransaction(tbTransactionID.Text.Trim()) != null && Int32.TryParse(tbTransactionID.Text.Trim(), out o))
+                {
+                    if (Classes.Session.sessionUsers.userlevel != "99")
+                    {
 
+                        frmInputAdminPassword fiap = new frmInputAdminPassword();
+                        fiap.ShowDialog();
+                        fiap.transaction_ID = Convert.ToInt32(tbTransactionID.Text.Trim());
+                        this.Close();
+                    }
+                    else
+                    {
+                        if(m_trans.deleteTransaction(Convert.ToInt32(tbTransactionID.Text.Trim())))
+                        {
+                            MessageBox.Show("Transaction Successfully Voided.");
+                            this.Close();
+                        }else
+                        {
+                            MessageBox.Show("Invalid Transaction");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Transaction Number");
+                }
             }
         }
     }
