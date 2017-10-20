@@ -322,7 +322,36 @@ namespace UnifyPaper.form.pages
 
         private void btnPrintItems_Click(object sender, EventArgs e)
         {
-
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing); 
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+           // app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Exported from gridview";
+            for (int i = 1; i < dgAddedProductMinimumQuantity.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[1, i] = dgAddedProductMinimumQuantity.Columns[i - 1].HeaderText;
+            }
+ 
+            for (int i = 0; i < dgAddedProductMinimumQuantity.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dgAddedProductMinimumQuantity.Columns.Count; j++)
+                {
+                    worksheet.Cells[i + 2, j + 1] = dgAddedProductMinimumQuantity.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+            var saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel File (*.xlsx)|*xlsx";
+            saveFileDialog1.FileName = "output";
+            saveFileDialog1.DefaultExt = ".xlsx";
+            if (saveFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                workbook.SaveAs(saveFileDialog1.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing );
+                MessageBox.Show("Save Succesful");
+            }
+            app.Quit();
+            
         }
 
         private void panel11_Paint(object sender, PaintEventArgs e)
