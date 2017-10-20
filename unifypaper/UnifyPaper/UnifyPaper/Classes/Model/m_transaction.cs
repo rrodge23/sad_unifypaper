@@ -156,7 +156,7 @@ namespace UnifyPaper.Classes.Model
 
         public List<Classes.Entities.products> getPreviousTransactionItemsByID(string ID)
         {
-            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>;
+            List<Classes.Entities.products> prodList = new List<Classes.Entities.products>();
 
             try
             {

@@ -34,7 +34,8 @@ namespace UnifyPaper.form.pages
             if(MessageBox.Show("Void This Transaction?","Transaction Void", MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
             {
                 int o;
-                if (m_trans.getPreviousTransaction(tbTransactionID.Text.Trim()) != null && Int32.TryParse(tbTransactionID.Text.Trim(), out o))
+            
+                if (m_trans.getPreviousTransactionByID(tbTransactionID.Text.Trim()) != null && Int32.TryParse(tbTransactionID.Text.Trim(), out o))
                 {
                     if (Classes.Session.sessionUsers.userlevel != "99")
                     {

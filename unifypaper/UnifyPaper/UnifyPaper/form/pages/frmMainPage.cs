@@ -554,9 +554,65 @@ namespace UnifyPaper.form.pages
             frc.ShowDialog();
         }
 
-        public void displaySalesReturnItems()
+        public void displaySalesReturnItems(string ID)
         {
+            Classes.Entities.transaction salesReturnTrans = m_trans.getPreviousTransactionByID(ID);
+            List<Classes.Entities.products> salesReturnProd = m_trans.getPreviousTransactionItemsByID(ID);
+            dgTransactionList.DataSource = null;
+            calculateChange();
+            DataTable dgTable = new DataTable();
+            dgTable.Columns.Add("Product Code", typeof(string));
+            dgTable.Columns.Add("Description", typeof(string));
+            dgTable.Columns.Add("Quantity", typeof(string));
+            dgTable.Columns.Add("Unit", typeof(string));
+            dgTable.Columns.Add("Price", typeof(string));
+            dgTable.Columns.Add("Total", typeof(string));
 
+
+            double grandTotal = 0;
+
+            foreach (Classes.Entities.products prod in salesReturnProd)
+            {
+
+                double totalProductPrice = Convert.ToDouble(prod.quantity) * Convert.ToDouble(prod.selling_price);
+                dgTable.Rows.Add(
+                                prod.product_code,
+                                prod.description,
+                                prod.quantity,
+                                prod.unit,
+                                Convert.ToDouble(prod.selling_price).ToString("###,###,###,##0,0.00"),
+                                (Convert.ToDouble(prod.selling_price) * Convert.ToDouble(prod.quantity)).ToString("0.00")
+                                );
+                grandTotal += totalProductPrice;
+            }
+            dgTransactionList.DataSource = dgTable;
+
+            //STYLE GRIDVIEW
+            dgTransactionList.BorderStyle = BorderStyle.None;
+            dgTransactionList.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgTransactionList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgTransactionList.DefaultCellStyle.ForeColor = Color.Black;
+            dgTransactionList.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgTransactionList.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgTransactionList.EnableHeadersVisualStyles = false;
+            dgTransactionList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgTransactionList.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dgTransactionList.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgTransactionList.BackgroundColor = Color.White;
+            dgTransactionList.ColumnHeadersHeight = 25;
+            dgTransactionList.Columns[0].Width = 150;
+            dgTransactionList.Columns[1].Width = 500;
+            dgTransactionList.Columns[2].Width = 150;
+            dgTransactionList.Columns[3].Width = 200;
+            dgTransactionList.Columns[4].Width = 150;
+            dgTransactionList.Columns[5].Width = 150;
+
+            //STYLE GRIDVIEW END
+
+            double tmpProductPriceValue = Convert.ToDouble(grandTotal) * (Convert.ToDouble(12) / 100.00);
+            tbSubTotal.Text = (Convert.ToDouble(grandTotal) - tmpProductPriceValue).ToString("0.00");
+            tbTax.Text = tmpProductPriceValue.ToString("0.00");
+            tbGrandtotal.Text = grandTotal.ToString("0.00");
         }
 
         private void btnTransaction_Click_1(object sender, EventArgs e)

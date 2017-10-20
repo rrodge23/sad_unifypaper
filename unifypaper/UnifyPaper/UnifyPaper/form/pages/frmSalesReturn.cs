@@ -33,6 +33,15 @@ namespace UnifyPaper.form.pages
         {
             this.ID = tbTransactionID.Text.Trim();
             this.Close();
+            Int32 o;
+            if(tbTransactionID.Text.Trim() != "" && Int32.TryParse(tbTransactionID.Text.Trim(),out o))
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("Invalid Input.");
+            }
         }
     }
 }
