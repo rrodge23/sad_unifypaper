@@ -19,6 +19,8 @@ namespace UnifyPaper.form.pages
 
         public frmMainPage mainpageFrm { get; set; }
         public string ID { get; set; }
+        Classes.Model.m_transaction m_trans = new Classes.Model.m_transaction();
+
         private void frmSalesReturn_Load(object sender, EventArgs e)
         {
             this.ID = "0";
@@ -36,6 +38,18 @@ namespace UnifyPaper.form.pages
             Int32 o;
             if(tbTransactionID.Text.Trim() != "" && Int32.TryParse(tbTransactionID.Text.Trim(),out o))
             {
+                Classes.Entities.transaction checkTrans = m_trans.getPreviousTransactionByID(tbTransactionID.Text.Trim());
+                if (checkTrans.ID.Length > 0)
+                {
+                    MessageBox.Show("dfflskfjsdkfj");
+                    this.mainpageFrm.displaySalesReturnItems(tbTransactionID.Text.Trim());
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Transaction ID");
+                }
+
                 
             }
             else
