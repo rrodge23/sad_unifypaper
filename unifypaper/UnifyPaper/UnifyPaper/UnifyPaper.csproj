@@ -179,6 +179,12 @@
     <Compile Include="form\pages\frmTransactionDiscount.Designer.cs">
       <DependentUpon>frmTransactionDiscount.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\pages\frmTransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\pages\frmTransactionHistory.Designer.cs">
+      <DependentUpon>frmTransactionHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\pages\frmTransactionNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmTransactionDiscount.resx">
       <DependentUpon>frmTransactionDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\pages\frmTransactionHistory.resx">
+      <DependentUpon>frmTransactionHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\pages\frmTransactionNumber.resx">
       <DependentUpon>frmTransactionNumber.cs</DependentUpon>

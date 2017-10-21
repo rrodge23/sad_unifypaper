@@ -249,5 +249,44 @@ namespace UnifyPaper.Classes.Model
             return isDelete;
         }
 
+        public List<Classes.Entities.transaction> getAllTransactionList()
+        {
+            List<Classes.Entities.transaction> transactList = new List<Classes.Entities.transaction>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM transactiontbl";
+                cmd = new OleDbCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Classes.Entities.transaction transact = new Classes.Entities.transaction();
+                        transact.ID = dr["ID"].ToString();
+                        transact.transaction_date = dr["transaction_date"].ToString();
+                        transact.transaction_time = dr["transaction_time"].ToString();
+                        transact.transaction_cash = Convert.ToDouble (dr["transaction_cash"]);
+                        transact.transaction_change = Convert.ToDouble (dr["transaction_change"]);
+                        transact.transaction_total_amount = Convert.ToDouble (dr["transaction_total_amount"]);
+                        transact.transaction_cashier = dr["transaction_cashier"].ToString();                      
+                        transactList.Add(transact);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return transactList;
+        }
+
+        
     }
 }

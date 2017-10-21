@@ -518,5 +518,43 @@ namespace UnifyPaper.Classes.Model
             return isProductinserted;
         }
 
+        public List<Classes.Entities.products> SelectTransactionByID(string transaction_id)
+        {
+            List<Classes.Entities.products> prod = new List<Classes.Entities.products>();
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM transaction_itemtbl WHERE transaction_id=@transaction_id";
+                cmd = new OleDbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@transaction_id", Convert.ToInt32(transaction_id));
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Classes.Entities.products productInfo = new Classes.Entities.products();
+                        productInfo.product_code = dr["product_code"].ToString();
+                        productInfo.description = dr["product_description"].ToString();
+                        productInfo.quantity = dr["quantity"].ToString();
+                        productInfo.unit = dr["unit"].ToString();
+                        productInfo.standard_price = dr["price"].ToString();
+                        productInfo.selling_price = dr["total_price"].ToString();
+
+                        prod.Add(productInfo);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+            finally
+            {
+                dr.Close();
+                conn.Close();
+            }
+            return prod;
+        }
     }
 }

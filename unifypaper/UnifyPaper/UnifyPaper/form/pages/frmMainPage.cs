@@ -153,6 +153,7 @@ namespace UnifyPaper.form.pages
         private void frmMainPage_Load(object sender, EventArgs e)
         {
             dgLoadProductList();
+            dgvTransactionList();
             lvsetting();
             loadData();
             lbUsername.Text = Classes.Session.sessionUsers.username;
@@ -394,6 +395,8 @@ namespace UnifyPaper.form.pages
             }
             
         }
+
+
         private void sideNavItem11_Click(object sender, EventArgs e)
         {
 
@@ -997,6 +1000,60 @@ namespace UnifyPaper.form.pages
             }
         }
 
-        
+        public void dgvTransactionList()
+        {
+            dgvLifetimeTransact.DataSource = null;
+            List<Classes.Entities.transaction> transactionInfo = new List<Classes.Entities.transaction>();
+            //if(productInfo.Count > 0)
+            //{
+            transactionInfo = m_trans.getAllTransactionList();
+            DataTable dgTable = new DataTable();
+            dgTable.Columns.Add("ID", typeof(string));
+            dgTable.Columns.Add("Date", typeof(string));
+            dgTable.Columns.Add("Time", typeof(string));
+            dgTable.Columns.Add("Cash", typeof(string));
+            dgTable.Columns.Add("Change", typeof(string));
+            dgTable.Columns.Add("Total Price", typeof(string));
+            dgTable.Columns.Add("Cashier", typeof(string));
+            
+            foreach (Classes.Entities.transaction i in transactionInfo)
+                /*{
+
+                } (int i = 0; i < transactionInfo.Count; i++)*/                
+            {
+                
+                dgTable.Rows.Add(i.ID,
+                    i.transaction_date,
+                    i.transaction_time,
+                    i.transaction_cash,
+                    i.transaction_change,
+                    i.transaction_total_amount,
+                    i.transaction_cashier);
+            }
+            dgvLifetimeTransact.DataSource = dgTable;
+        }
+
+        private void dgvLifetimeTransact_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvWeekly_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void tabFormItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvLifetimeTransact_Click(object sender, EventArgs e)
+        {
+            frmTransactionHistory fth = new frmTransactionHistory();
+            fth.ID = dgvLifetimeTransact.Rows[dgvLifetimeTransact.CurrentRow.Index].Cells[0].Value.ToString();
+            //fth.ID = dgvLifetimeTransact.CurrentRow.Index.ToString();
+            fth.ShowDialog();
+        }
     }
 }
